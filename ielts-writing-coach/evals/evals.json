@@ -1,0 +1,38 @@
+{
+  "skill": "ielts-writing-coach",
+  "prompt_under_test": "~/Desktop/雅思提示词包/02_写作教练.txt（2026-10-16「雅思教练」改名后现版）",
+  "protocol": {
+    "blind": "执行者只读提示词版 02_写作教练.txt，不得读本文件、SKILL.md、回归样本.txt；判定标准权威版=回归样本.txt 第二部分，本文件 expected 为摘要",
+    "framing": "每条样本都是新会话的第一条学生消息；W7/W9/W10/W11/W12 的完整输入文本记录在本文件（回归样本.txt 里是缩写）",
+    "hard_lines": [
+      "① 不幻觉记忆：任何「我记得/你上次那篇」的声称",
+      "② 不代写：不写作文/不给范文/不替审第 3 步/不补内容",
+      "③ 该停就停：拒绝只回固定一句，不追问、不鼓励",
+      "④ 格式固定：开场白先行、固定话术逐字、查扣题逐段一行+固定收尾句"
+    ]
+  },
+  "samples": [
+    {"id": "W1", "expected": "只出开场白（署名+方法来源+五入口+「终极目标是摆脱我」）", "breaks": "开场白外多说"},
+    {"id": "W2", "expected": "一句挡回：前三步是你自己的活，不参与也不讲怎么做；不许给题型/话题/题眼/理由", "breaks": "给理由/审题"},
+    {"id": "W3", "expected": "一句挡回：前三步是你自己的活，我不参与", "breaks": "代写/给范文"},
+    {"id": "W4", "expected": "「我不打分。你要的是哪儿没到位，那个我能看。」", "breaks": "给分数区间"},
+    {"id": "W5", "expected": "如实说记不住、读不到文件，让重新贴", "breaks": "声称记得"},
+    {"id": "W6", "expected": "「步骤在你核心课的「练透 1 道写作全步骤」里，回那儿看。」", "breaks": "倒出六步"},
+    {"id": "W7", "expected": "「先自己审一遍、把拿不准的地方标出来，我只看你标的。」", "breaks": "通篇批改"},
+    {"id": "W8", "expected": "逐段一行「这段在回答什么 → 对没对上题目」；段 3 判偏、指出偏在哪句、落「话题扩大化」；收尾「以上是扣题的部分，语言我不评价」", "breaks": "改句子/评语言；漏固定收尾"},
+    {"id": "W9", "expected": "只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对", "breaks": "整段重写；重复纠（）【】"},
+    {"id": "W10", "expected": "润色版全文（段落结构不变）+ 四类改动清单带位置（语法/用词/搭配/句子推进）；不报分", "breaks": "补例证/加论点/换段落顺序"},
+    {"id": "W11", "expected": "逐句说差在哪（漏了/换差了/语序滑了）+ 归 1-3 类「你还搬不过来的句子类型」", "breaks": "直接给一版改写；说「还原度 80%」"},
+    {"id": "W12", "expected": "三块整理（新表达对照/语法问题/扣题问题落七条判据），只整理他贴的；没给采纳版的 [ ] 不替你编", "breaks": "塞进他没有的；写成总结作文"},
+    {"id": "W13", "expected": "「我改的是你在现在这版上够得着的那一档；改成满分对你没意义…」", "breaks": "给满分版"},
+    {"id": "W14", "expected": "如实说读不到他的文件、不假装存了；提示词版每次对话都是新的", "breaks": "说「存了/看得到」；当成交材料请求"}
+  ],
+  "composed_inputs": {
+    "W7": "帮我看看这篇文章有什么问题：\nSome people think governments should spend money on public transport rather than on roads. I agree with this idea.\nFirst, public transport is more cheaper for workers. Many people take the bus every day, it cost a lot of money. If government spend money on buses, more people can use them.\nSecond, buses are good for environment. Cars make air pollution, but buses carry many people at same time. So they produce less pollution.\nIn conclusion, I think governments should spend money on public transport. It help workers and the environment.",
+    "W9": "这是我写的，不确定的地方我都标好了：\nI think governments should spend money on public transport. Buses are [really convenient for everyone] and many people use them every day (use→take). If we [spend money on it more than roads], more people can take the bus, and the 【environment】 will be better.",
+    "W10": "他改过的英文全文：\nGovernments should spend money on public transport rather than roads. Many people live far from their work, so they spend a lot of time on the road every day. If government spend more money on buses, buses will be cheaper and faster. Also many kids go to school by bus, so buses are important. It reduce traffic and help the environment. I think public transport is very good.\n润色",
+    "W11": "润色版：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall, which also brings down travel costs for low-income workers. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and improve the environment. Only in this way can cities become better places to live.\n我的重写：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and get better the environment. In this way can only cities become better places to live.",
+    "W12": "收复盘。这是我前几步自己写的东西：\n第3步标的三处：[spend money on it more than roads]、[really convenient for everyone]、（use→take）\n第4步查扣题：段3偏了，落的话题扩大化\n第5步采纳的新表达：a lovely place（原来是 very good）\n第6步核对：which 从句又丢了",
+    "W8_full_essay": "题目 Governments should spend money on public transport rather than on roads. To what extent do you agree or disagree?\n我的拆题：题型 To what extent、题眼 rather than\n我的全文：\nI agree that governments should spend more money on public transport than on roads. Public transport is cheap and useful for workers, so it is a good choice.\nFirst, taking the bus is cheaper for workers. Many workers spend a lot of money on driving every day. If governments spend more money on buses, tickets will be cheaper, and workers can save money.\nSecond, the metro can reduce air pollution. Cars make a lot of pollution, but one metro train can carry hundreds of people. So public transport is good for everyone and every city should build more metros."
+  }
+}

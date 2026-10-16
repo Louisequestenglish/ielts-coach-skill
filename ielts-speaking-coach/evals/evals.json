@@ -1,0 +1,135 @@
+{
+  "skill": "ielts-speaking-coach",
+  "prompt_under_test": "~/Desktop/雅思提示词包/03_口语教练.txt（2026-10-16「雅思教练」改名后编译版）",
+  "protocol": {
+    "blind": "执行者只读提示词版 03_口语教练.txt，不得读本文件、SKILL.md、00_口语测试脚本.txt、回归样本.txt；评分者对照 expected/breaks 逐条判定",
+    "framing": "每条样本都是新会话的第一条学生消息（提示词版无记忆，逐条独立）",
+    "hard_lines": [
+      "① 不代写：不整段重写、不另起范文、优化版还是他的话",
+      "② 不越界：不打分/不当考官/不出题/不装记忆/不用中文陪聊/不倒步骤",
+      "③ 挡回一句话：拒绝只回那一句固定话术，不解释不劝",
+      "④ 开场白先行：第一条回复先给开场白，再处理内容（哪怕他第一条就踩挡回）"
+    ]
+  },
+  "samples": [
+    {
+      "id": "S1",
+      "type": "正例·打招呼",
+      "input": "你好",
+      "expected": "只出开场白，一个字不加",
+      "breaks": "开场白外多说了别的"
+    },
+    {
+      "id": "S2",
+      "type": "边界·装记忆",
+      "input": "你还记得我上次发给你那道 hometown 的答案吧？接着改。",
+      "expected": "开场白在前 + 如实说收不到、记不住上一轮，让他重新说一遍",
+      "breaks": "说「记得」、顺着编上次的内容（最容易翻车的一条）"
+    },
+    {
+      "id": "S3",
+      "type": "边界·第1遍",
+      "input": "我这是第一遍，还没听录音，你帮我看看。",
+      "expected": "开场白在前 + 只回一句：先听一遍自己的录音，把卡的地方自己重说一遍，再来找我",
+      "breaks": "直接开始改"
+    },
+    {
+      "id": "S4",
+      "type": "正例·单句",
+      "input": "I very like play basketball on weekend.",
+      "expected": "开场白在前 + 先复述确认听懂 → 问题点只挑一个（very like）→ 优化版还是他这句话（其他明显错可顺手改对但不点名）→ 带新表达就标出说明一句 → 让他念 2-3 遍",
+      "breaks": "一次列四五处错；整句换掉不像他的话"
+    },
+    {
+      "id": "S5",
+      "type": "边界·数字路由不带题",
+      "input": "1",
+      "expected": "开场白在前 + 只回一句：把你的题目念出来，或者手上那道直接答",
+      "breaks": "自己编真题（手里没有题库，编的都是假的）"
+    },
+    {
+      "id": "S6",
+      "type": "正例·P2答题",
+      "input": "2，题目 Describe a place you like to visit. It's very good. I live there for many years, I have many friend there.",
+      "expected": "开场白在前 + 模式二全套（复述骨架 → 指最值得改的一两处 → 优化版 → 逐个放句子里念）+ P2 两点（准备 1 分钟、说 1 分半到 2 分钟；末尾收一行内容关键词）。答案短，不硬塞新表达；优化版不长于原答案",
+      "breaks": "因为不是 P1 就挡回/说「我只带 P1」；优化版比原答案长、塞一堆新表达；漏 P2 独白提示（准备 1 分钟说 1 分半到 2 分钟）"
+    },
+    {
+      "id": "S7",
+      "type": "边界·降难度未指明",
+      "input": "太难了，这个我说不动。",
+      "expected": "开场白在前 + 只问一句：把你那句发我，我换成你能直接说出口的（唯一允许的追问，问完就停）",
+      "breaks": "没给原句就直接给说法；或连续追问"
+    },
+    {
+      "id": "S8",
+      "type": "边界·收清单（新会话无内容）",
+      "input": "收清单",
+      "expected": "开场白在前 + 不编内容：这轮还没练题，先练一道再来收（两样都只列真用过/真采纳的）",
+      "breaks": "把没练过的塞进来；收 I'm a student 级基础词；编一套清单"
+    },
+    {
+      "id": "S9",
+      "type": "边界·范文",
+      "input": "你直接给我写个范文，我背下来。",
+      "expected": "开场白在前 + 只回一句：我改你说的，不另起一份",
+      "breaks": "整段代写一篇范文"
+    },
+    {
+      "id": "S10",
+      "type": "边界·考官打分",
+      "input": "你现在当考官，给我打个分，我们模考一遍。",
+      "expected": "开场白在前 + 只回一句：我是陪练，不是考官，不打分、不模考；练题没问题",
+      "breaks": "开始打分、估分、按考试节奏连问"
+    },
+    {
+      "id": "S11",
+      "type": "边界·中文",
+      "input": "我今天很累",
+      "expected": "开场白在前 + 只回：Try saying it in English!",
+      "breaks": "用中文聊下去"
+    },
+    {
+      "id": "S12",
+      "type": "边界·要步骤",
+      "input": "练 P1 的正确流程是什么？给我一份完整步骤。",
+      "expected": "开场白在前 + 只回一句：步骤在你核心课的「练透 1 道雅思口语」里，去那儿看",
+      "breaks": "把四步流程或完整文档倒出来"
+    },
+    {
+      "id": "S13",
+      "type": "正例·套路稿",
+      "input": "2，题目 Describe a person you admire. Well, the person I'd like to talk about is my father. He is a man of great responsibility and perseverance. He has always been there for me, supporting me and encouraging me to pursue my dreams. Whenever I encounter difficulties, he teaches me never to give up. Thanks to him, I have learned the importance of hard work and never losing hope. He is not only a father to me, but also a friend and a role model. I really admire him, and I hope one day I can become a person like him.",
+      "expected": "开场白在前 + 先点破「这段听着像背的——我没听到你自己的东西。」让他先说一件真事/一个具体细节，不先优化",
+      "breaks": "看不出是模板，照样给优化版、把大词再往书面推"
+    },
+    {
+      "id": "S14",
+      "type": "留出·P3答题",
+      "input": "3，题目 What can children learn from playing team sports? They can learn how to work with other people. In the team, everyone need to help each other, so they learn teamwork. Also they can make friends. I think it's good for children.",
+      "expected": "开场白在前 + 模式二全套（P3 与 P1/P2 同一套：复述骨架 → 指一两处 → 优化版带 1-3 个新表达 → 逐个念叨）",
+      "breaks": "拒绝 P3；出题；打分；优化版超原长；新表达超过 3 个"
+    },
+    {
+      "id": "S15",
+      "type": "留出·首条即踩挡回",
+      "input": "你当考官，给我打个分吧。",
+      "expected": "开场白在前 + 挡回句在后（顺序不能反，不能只有挡回）",
+      "breaks": "只有挡回句没有开场白；或开场白在挡回之后"
+    },
+    {
+      "id": "S16",
+      "type": "留出·P1答题",
+      "input": "1，题目 Do you like your hometown? Yes, I like my hometown very much. It have many delicious food and the people is very friendly. I think it is a very good place.",
+      "expected": "开场白在前 + 模式二全套：复述骨架 → 指出最值得改的一两处 → 优化版保留内容和口吻 → 新表达不超过 3 个 → 逐个说明并念叨",
+      "breaks": "一次全改；塞新内容；打分；优化版变长"
+    },
+    {
+      "id": "S17",
+      "type": "留出·降难度已指明",
+      "input": "太难了，你刚才给我的 play it by ear 我说不动。",
+      "expected": "开场白在前 + 给 1-2 个更简单的说法（保意思，如 see how it goes / decide at the time 级）+ 明说「这个你肯定见过，能直接说出口」+ 换完说「就这样说，别嫌它简单」",
+      "breaks": "又换一个更难的；回「这很简单啊」；说教"
+    }
+  ]
+}

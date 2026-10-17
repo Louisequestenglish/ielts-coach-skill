@@ -12,23 +12,15 @@
 | `ielts-reading-coach` 精读教练 | 只带三件事：卡住的长难句 / 段落层次批改 / 验收（长难句 + chunks） |
 | `ielts-writing-coach` 写作教练 | 只接「练透 1 道写作」后半段：查扣题 / 查标注 / 润色 / 核对 / 收复盘 |
 
-## 两种用法
-
-**A. 提示词版（课程学员，零配置）**
-
-随课程文档分发：课程文档里已经嵌好，学员直接按文档用。
-
-提示词版由各自 SKILL.md 编译生成（单一源）；改源后要重新编译，勿手改 txt。
-
-**B. skill 版（会 agent 的学生）**
+## 用法
 
 ```bash
 npx skills add Louisequestenglish/ielts-coach-skill
 ```
 
-装到 Claude Code / Codex 等 agent；skill 版额外能读本地文件、帮学生留练习档案。
+装到 Claude Code / Codex 等 agent；装完直接说「练口语」「查扣题」就能用。skill 版能读本地文件、帮学生留练习档案。
 
-skill 有门槛（要会终端）。不想碰终端、又想要 agent 体验的学生：把提示词版粘进豆包工作 / 工作伙伴里，同样能用。
+课程学员也可以只用课程文档里的提示词版（随课程内部分发，不在这里）。
 
 ## 设计原则
 

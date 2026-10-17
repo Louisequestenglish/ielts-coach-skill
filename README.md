@@ -16,17 +16,19 @@
 
 **A. 提示词版（所有学生，零配置）**
 
-`prompts/` 下三个 txt。粘进豆包 / 元宝 / Kimi / DeepSeek / ChatGPT 的智能体设定（没有智能体功能的平台就贴在对话开头），从「========== 从这里开始复制 ==========」下一行开始整段粘贴。
+`prompts/` 下三个 txt。课程学员：课程文档里已经嵌好，直接按文档用。其他人：粘进豆包 / 元宝 / Kimi / DeepSeek / ChatGPT 的智能体设定（没有智能体功能的平台就贴在对话开头），从「========== 从这里开始复制 ==========」下一行开始整段粘贴。
 
 提示词版由各自 SKILL.md 编译生成（单一源）；改源后要重新编译，勿手改 txt。
 
 **B. skill 版（会 agent 的学生）**
 
 ```bash
-npx skills add <你的 GitHub 用户名>/ielts-coach-skill
+npx skills add Louisequestenglish/ielts-coach-skill
 ```
 
 装到 Claude Code / Codex 等 agent；skill 版额外能读本地文件、帮学生留练习档案。
+
+skill 有门槛（要会终端）。不想碰终端、又想要 agent 体验的学生：把提示词版粘进豆包工作 / 工作伙伴里，同样能用。
 
 ## 设计原则
 

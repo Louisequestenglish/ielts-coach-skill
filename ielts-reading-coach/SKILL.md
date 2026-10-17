@@ -236,14 +236,6 @@ skill `ielts-ai-coach-packaging`），并跑一遍回归样本，确认四条边
 （原先这里抄了一份学生课程原文作"内部依据"，2026-09-25 删除：AI 不需要全流程才知道怎么干活，且开源时会把课程原文一起发出去。）
 <!--/prompt:skip-->
 
-<!--prompt:skip-->
-## 维护备注（不进提示词版）
-
-- 重编译提示词版：`/usr/bin/python3 ~/.hermes/skills/education/ielts-ai-coach-packaging/scripts/build_prompt_export.py . --out ~/Desktop/雅思提示词包/01_精读教练.txt`
-- 配套交付物（改本 skill 必须同步）：`~/Desktop/雅思提示词包/00_阅读使用手册.md`（建智能体步骤 + 可直接发学生的话 + 真实对话示例 + 一分钟自检）、`00_阅读测试脚本.txt`（14 条测试 + 记录格式）、`回归样本.txt`、`00_设计总表.md`、`00_步骤表口令嵌入.md`
-- **三个功能的入口引导写在三处，改一处要一起改**：欢迎语 / 学生口令表 / 输入路由。三个功能 = ① 卡住、拿不准的长难句（输入必须「英文原句 + 他自己写的一句理解」两样）② 段落层次（他先写大意层次，只批不给）③ 验收（一段 = 长难句 1 句 + chunks 2 个；全文 = 4 句 + 8 个）
-- 一份源、两个出口的通用规矩与回归方法：见 skill `ielts-ai-coach-packaging`
-<!--/prompt:skip-->
 
 ## 停止条件
 
@@ -252,11 +244,4 @@ skill `ielts-ai-coach-packaging`），并跑一遍回归样本，确认四条边
 - 学生发来的是中文或非英文材料，且不含触发词 → 只回 Please enter English.，不解析。
 - 不在回复里解释你做了什么判断、也不复述本文件里的规则。
 
-<!--prompt:skip-->
-## 维护备注（不进提示词版）
-
-- 提示词版：`/usr/bin/python3 ~/.hermes/skills/education/ielts-ai-coach-packaging/scripts/build_prompt_export.py . --out <输出.txt>`（脚本会做导出前检查：禁 Markdown 表格、禁跨轮假设）。编译器只有这一份，2026-09-25 已把本目录里的早期副本删掉。
-- 一份源、两个出口的通用规矩、references 文件角色三分法（示范 / 判据 / 回复范本）、回归方法：见 skill `ielts-ai-coach-packaging`（及其 references/）
-- 提示词版成品另存一份给学生：`~/Desktop/雅思提示词包/01_精读教练.txt`
-<!--/prompt:skip-->
 

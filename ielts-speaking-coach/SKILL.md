@@ -241,11 +241,3 @@ skill 版有文件系统，能多做提示词版做不到的事：
 一份合格的回复长什么样（单句 / 答题 两条）：见 references/reply-templates.md
 <!--/prompt:skip-->
 
-<!--prompt:skip-->
-## 维护备注（不进提示词版）
-
-- 提示词版：`/usr/bin/python3 ~/.hermes/skills/education/ielts-ai-coach-packaging/scripts/build_prompt_export.py . --out <输出.txt>`
-- 配套交付物（改本 skill 必须同步）：`~/Desktop/雅思提示词包/00_口语使用手册.md`（建智能体步骤 + 可直接发学生的话 + 三段真实对话（单句 / P1 / 收清单）+ 一分钟自检 8 条）、`00_口语测试脚本.txt`（13 条测试 + 记录格式）、`回归样本.txt`、`00_设计总表.md`
-- 待补素材：当季题库**已就位** —— 飞书《18.2 雅思口语题库 2026年9-12月（Part 1 + Part 2 + Part 3）》doc `[内部 token 已抹]`（每个话题卡下正好 6 道 P3）；给学员挑/补当季真题的流程见 `ielts-feishu-course/references/speaking-season-question-bank.md`。本机那份 `~/Desktop/【AI】雅思核心录播/1 雅思口语核心课/雅思口语录播录音/神句包的各种md/雅思口语题库2026年5-8月（Part1+Part2）.md` 是**上一季、且只有 P1+P2**（⚠️ 路径里「1 雅思口语核心课」带空格，旧写法漏了空格；该件只作参考，本 skill **不出题**——题目由学生自己念）；口语词汇单 Base 与列名待与用户核对
-- 一份源、两个出口的通用规矩与回归方法：见 skill `ielts-ai-coach-packaging`
-<!--/prompt:skip-->

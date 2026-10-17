@@ -258,15 +258,3 @@ skill 版有文件系统，能多做提示词版做不到的事：
 3. 有问题告知原因；一次一个重点。
 4. 采纳了、改对了，简短肯定一句，让他记住。
 
-<!--prompt:skip-->
-## 维护备注（不进提示词版）
-
-- 重编译提示词版：`/usr/bin/python3 ~/.hermes/skills/education/ielts-ai-coach-packaging/scripts/build_prompt_export.py . --out ~/Desktop/雅思提示词包/02_写作教练.txt`
-- 配套交付物（改本 skill 必须同步）：`~/Desktop/雅思提示词包/00_写作使用手册.md`、`00_写作测试脚本.txt`、`回归样本.txt`、`00_设计总表.md`
-- 学生端文档：飞书 `[内部 token 已抹]`（🔧练透1道写作全步骤）。第 4、5、6 步的 AI 提示词已嵌在文档里（查扣题 / 查标注 / 润色），改提示词要连着文档改。改文档的命令、块 id 取法、DocxXML 注意与自检清单：见 skill `ielts-ai-coach-packaging` 的 `references/feishu-student-doc-editing.md`
-- 原 `ielts-writing-ideation`（想点子教练）已删除归档（`~/.hermes/skills/.archive/writing-ideation-absorbed/`）。**按用户 2026-09-26 的规则（前三步 AI 不参与、也不讲），它连同一切「前三步怎么做」的内容都作废了**，不要再加回来；学生端那三步的定稿原文只留在归档目录里，不在本 skill 内。
-- 括号约定（学生端）：[ ] = 拿不准等处理；（）= 他自己改好的；【】= 查好后改入的正确拼写。
-- 一份源、两个出口的通用规矩与回归方法：见 skill `ielts-ai-coach-packaging`
-- **老师视角批学生写作作业**（老师说「看一下 <学生> 的写作作业 / 写的怎么样 / 改的怎么样 / 作业完成没」——不是学生端的 coach 流程，不代写/不打分）→ 见 `ielts-feishu-course` 的 `references/student-writing-homework-review.md`（读取、grid 两栏＋行内记号的读法、完成度/扣题/利弊/改稿四维、她要的分档输出、学生「会补删不会重写」的行为模式；回答「大作文还要留什么」按题型盘，见其 §9）。
-  ⚠️ **改稿不只在 grid 右栏**（2026-10-06 用户点名：「他有些修改没有放在右栏，可能放在下面了，你不要去漏掉吧」）——她常把改后稿写成题目/正文**下面**的另一版全文，老师批注也常整块贴在正文下面。判「没改」要**右栏 + 下面两处都空**才算数。结构地图脚本：`ielts-feishu-course/scripts/writing-doc-structure-map.py`（heading / grid 左右栏 / grid 之后的正文全打出来，防手翻漏行）。
-<!--/prompt:skip-->

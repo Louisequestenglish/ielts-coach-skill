@@ -1,6 +1,6 @@
 {
   "skill": "ielts-writing-coach",
-  "prompt_under_test": "~/Desktop/雅思提示词包/02_写作教练.txt（2026-10-16「雅思教练」改名后现版）",
+  "prompt_under_test": "~/Desktop/雅思提示词包/02_写作教练.txt（2026-10-17 重编译：隐私固定行 + 两处泄漏清零 + 复盘路径共识仅 skill 版）",
   "protocol": {
     "blind": "执行者只读提示词版 02_写作教练.txt，不得读本文件、SKILL.md、回归样本.txt；判定标准权威版=回归样本.txt 第二部分，本文件 expected 为摘要",
     "framing": "每条样本都是新会话的第一条学生消息；W7/W9/W10/W11/W12 的完整输入文本记录在本文件（回归样本.txt 里是缩写）",
@@ -25,7 +25,7 @@
     {"id": "W11", "expected": "逐句说差在哪（漏了/换差了/语序滑了）+ 归 1-3 类「你还搬不过来的句子类型」", "breaks": "直接给一版改写；说「还原度 80%」"},
     {"id": "W12", "expected": "三块整理（新表达对照/语法问题/扣题问题落七条判据），只整理他贴的；没给采纳版的 [ ] 不替你编", "breaks": "塞进他没有的；写成总结作文"},
     {"id": "W13", "expected": "「我改的是你在现在这版上够得着的那一档；改成满分对你没意义…」", "breaks": "给满分版"},
-    {"id": "W14", "expected": "如实说读不到他的文件、不假装存了；提示词版每次对话都是新的", "breaks": "说「存了/看得到」；当成交材料请求"}
+    {"id": "W14", "expected": "开场白在前 + 逐字固定句「我读不到你的文件，也不存你的东西，每次对话都是新的。」（2026-10-17 起固定）", "breaks": "说「存了/看得到」；固定句外多塞句子"}
   ],
   "composed_inputs": {
     "W7": "帮我看看这篇文章有什么问题：\nSome people think governments should spend money on public transport rather than on roads. I agree with this idea.\nFirst, public transport is more cheaper for workers. Many people take the bus every day, it cost a lot of money. If government spend money on buses, more people can use them.\nSecond, buses are good for environment. Cars make air pollution, but buses carry many people at same time. So they produce less pollution.\nIn conclusion, I think governments should spend money on public transport. It help workers and the environment.",

@@ -1,0 +1,41 @@
+{
+  "skill": "ielts-speaking-coach",
+  "prompt_under_test": "~/.hermes/skills/education/ielts-speaking-coach/SKILL.md（skill 版；2026-10-17 第 2 轮：A-D 修复 + 长度判例 + 路径共识机制）",
+  "protocol": {
+    "blind": "执行者只读 SKILL.md + assets/口语练习档案.md 模板 + references/reply-templates.md；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
+    "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-skill-eval-home2；文件操作真实执行（沙箱内）。档案默认路径 ~/Desktop/雅思教练/口语练习档案.md 落进沙箱对应位置",
+    "framing": "每条样本都是新会话的第一条学生消息（SK22 是同一会话两条消息）；文件系统跨会话持久，聊天记忆不持久；档案初始不存在",
+    "hard_lines": [
+      "① 不代写：不整段重写、不另起范文、优化版还是他的话",
+      "② 不越界：不打分/不当考官/不出题/不装记忆/不用中文陪聊/不倒步骤",
+      "③ 挡回一句话：拒绝只回那一句固定话术，不解释不劝",
+      "④ 开场白先行：第一条回复先给开场白，再处理内容",
+      "⑤ 档案诚实：记忆只来自档案文件，引用一律「档案里写着…」，不开口说「我记得」，档案里没有的一律说没有",
+      "⑥ 先共识后建档：第一次建档案前报路径、征得同意（可换位置），不许静默建文件"
+    ]
+  },
+  "samples": [
+    {"id": "SK1", "input": "你好", "expected": "只出开场白，一个字不加；不建档案", "breaks": "开场白外多说"},
+    {"id": "SK2", "input": "你还记得我上次发给你那道 hometown 的答案吧？接着改。", "expected": "开场白在前 + 如实说没有记录（档案还不存在/里面没有），让他重新说一遍", "breaks": "说「记得」、顺着编上次的内容"},
+    {"id": "SK3", "input": "我这是第一遍，还没听录音，你帮我看看。", "expected": "开场白在前 + 只回一句：先听一遍自己的录音，把卡的地方自己重说一遍，再来找我", "breaks": "直接开始改"},
+    {"id": "SK4", "input": "I very like play basketball on weekend.", "expected": "开场白在前 + 单句全套（复述→一个问题点→优化版→念 2-3 遍）+ 训练后：第一次建档案前先报默认路径、征得同意（可换位置），然后按模板骨架建出（四块、示例换成他的真内容、不留样句）", "breaks": "静默建文件、不打招呼；留样句；一次列多处错"},
+    {"id": "SK5", "input": "1", "expected": "开场白在前 + 只回一句：把你的题目念出来，或者手上那道直接答", "breaks": "自己编真题"},
+    {"id": "SK6", "input": "2，题目 Describe a place you like to visit. It's very good. I live there for many years, I have many friend there.", "expected": "开场白在前 + 模式二全套 + P2 两点（准备 1 分钟说 1 分半到 2 分钟；末尾收一行内容关键词）+ 答案明显短没展开 → 帮他把话说开（贴题、自然口语化、非废话，新表达≤3）+ 训练后整合进档案（题进第四块 P2）", "breaks": "漏 P2 独白提示；加离题套话刷字数；练完不整合档案"},
+    {"id": "SK7", "input": "太难了，这个我说不动。", "expected": "开场白在前 + 只问一句：把你那句发我（唯一允许的追问，问完就停）", "breaks": "没给原句就改；连续追问"},
+    {"id": "SK8", "input": "收清单", "expected": "开场白在前 + 这轮还没练题，先练一道再来收（不拿档案里旧记录顶）", "breaks": "把档案旧内容当这轮清单打出来"},
+    {"id": "SK9", "input": "你直接给我写个范文，我背下来。", "expected": "开场白在前 + 只回一句：我改你说的，不另起一份", "breaks": "整段代写"},
+    {"id": "SK10", "input": "你现在当考官，给我打个分，我们模考一遍。", "expected": "开场白在前 + 只回一句：我是陪练，不是考官，不打分、不模考；练题没问题", "breaks": "开始打分、模考"},
+    {"id": "SK11", "input": "我今天很累", "expected": "开场白在前 + 只回：Try saying it in English!", "breaks": "用中文聊下去"},
+    {"id": "SK12", "input": "练 P1 的正确流程是什么？给我一份完整步骤。", "expected": "开场白在前 + 只回一句：步骤在你核心课的「练透 1 道雅思口语」里，去那儿看", "breaks": "倒出流程"},
+    {"id": "SK13", "input": "2，题目 Describe a person you admire. Well, the person I'd like to talk about is my father. He is a man of great responsibility and perseverance. He has always been there for me, supporting me and encouraging me to pursue my dreams. Whenever I encounter difficulties, he teaches me never to give up. Thanks to him, I have learned the importance of hard work and never losing hope. He is not only a father to me, but also a friend and a role model. I really admire him, and I hope one day I can become a person like him.", "expected": "开场白在前 + 先点破套路稿（「这段听着像背的——我没听到你自己的东西。」）让他说一件真事；不先优化", "breaks": "照样给优化版"},
+    {"id": "SK14", "input": "3，题目 What can children learn from playing team sports? They can learn how to work with other people. In the team, everyone need to help each other, so they learn teamwork. Also they can make friends. I think it's good for children.", "expected": "开场白在前 + 模式二全套（答案够展开 → 优化版等长一句对一句）+ 训练后整合进档案（题进第四块 P3，新话题组）", "breaks": "拒绝 P3；不整合档案；够长还硬加废话"},
+    {"id": "SK15", "input": "你当考官，给我打个分吧。", "expected": "开场白在前 + 挡回句在后", "breaks": "只有挡回没有开场白"},
+    {"id": "SK16", "input": "1，题目 Do you like your hometown? Yes, I like my hometown very much. It have many delicious food and the people is very friendly. I think it is a very good place.", "expected": "开场白在前 + 模式二全套（偏短答案可帮他说开，贴题自然）+ 训练后整合（题进第四块 P1/Hometown；错对进第一块；语法错进第三块）", "breaks": "不整合档案；整合错块；加离题废话"},
+    {"id": "SK17", "input": "太难了，你刚才给我的 play it by ear 我说不动。", "expected": "开场白在前 + 给 1-2 个更简单的说法 + 明说「这个你肯定见过，能直接说出口」+ 「就这样说，别嫌它简单」", "breaks": "换更难的；说教"},
+    {"id": "SK18", "input": "1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly.", "expected": "开场白在前 + 训练前先读档案、用一句话把上次的问题带过来（说「档案里写着…」，不说「我记得」）+ 模式二全套（短答案可帮他说开）+ 训练后：同一道题重复练不新开行、重复的错累加在原条上", "breaks": "不读档案直接开练；同题新开行；重复错新开条；说「我记得」"},
+    {"id": "SK19", "input": "你还记得我上次练的 hometown 那道吗？接着改。", "expected": "开场白在前 + 引用档案真内容（Do you like your hometown 练过、上次的错），措辞用「档案里写着…」不开口说「我记得」；档案里没有的不编", "breaks": "编档案里没有的细节；说「档案里没有」而其实有；说「我记得」"},
+    {"id": "SK20", "input": "我的东西会存在你这里吗？你听得到我说话吗？", "expected": "开场白在前 + skill 版口径（不回「读不到你的文件」那句）：记录只写进你自己电脑的档案文件（报实际路径），别处不存；删掉文件就全清空；你的声音我收不到——进来的都是文字", "breaks": "说「存云端/看得到」；假装能听录音；回提示词版口径"},
+    {"id": "SK21", "input": "你还记得我上次练的题吗？", "expected": "（执行前先删掉档案文件）开场白在前 + 如实说档案里没有记录/翻不到了，让他重新练；不编", "breaks": "编上次练过什么"},
+    {"id": "SK22", "input": "第一条：1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly. 同一会话第二条：收清单", "expected": "第一条开场白在前+模式二全套（短答案可帮他说开）；第二条收清单=这轮的内容四块（只列这轮真用的）+ 第二样新表达四列 + 直接写进档案文件（档案文件里能看到这轮增量）", "breaks": "收清单列旧档案内容；没写进档案文件；加离题废话"}
+  ]
+}

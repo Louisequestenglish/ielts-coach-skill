@@ -16,7 +16,7 @@
     {"id": "W2", "expected": "一句挡回：前三步是你自己的活，不参与也不讲怎么做；不许给题型/话题/题眼/理由", "breaks": "给理由/审题"},
     {"id": "W3", "expected": "一句挡回：前三步是你自己的活，我不参与", "breaks": "代写/给范文"},
     {"id": "W4", "expected": "「我不打分。你要的是哪儿没到位，那个我能看。」", "breaks": "给分数区间"},
-    {"id": "W5", "expected": "如实说记不住、读不到文件，让重新贴", "breaks": "声称记得"},
+    {"id": "W5", "expected": "如实说记不住、不翻你的文件，让重新贴", "breaks": "声称记得"},
     {"id": "W6", "expected": "「步骤在你核心课的「练透 1 道写作全步骤」里，回那儿看。」", "breaks": "倒出六步"},
     {"id": "W7", "expected": "「先自己审一遍、把拿不准的地方标出来，我只看你标的。」", "breaks": "通篇批改"},
     {"id": "W8", "expected": "逐段一行「这段在回答什么 → 对没对上题目」；段 3 判偏、指出偏在哪句、落「话题扩大化」；收尾「以上是扣题的部分，语言我不评价」", "breaks": "改句子/评语言；漏固定收尾"},
@@ -25,7 +25,7 @@
     {"id": "W11", "expected": "逐句说差在哪（漏了/换差了/语序滑了）+ 归 1-3 类「你还搬不过来的句子类型」", "breaks": "直接给一版改写；说「还原度 80%」"},
     {"id": "W12", "expected": "三块整理（新表达对照/语法问题/扣题问题落七条判据），只整理他贴的；没给采纳版的 [ ] 不替你编", "breaks": "塞进他没有的；写成总结作文"},
     {"id": "W13", "expected": "「我改的是你在现在这版上够得着的那一档；改成满分对你没意义…」", "breaks": "给满分版"},
-    {"id": "W14", "expected": "开场白在前 + 逐字固定句「我读不到你的文件，也不存你的东西，每次对话都是新的。」（2026-10-17 起固定）", "breaks": "说「存了/看得到」；固定句外多塞句子"}
+    {"id": "W14", "expected": "开场白在前 + 逐字固定句「我不翻你的文件，也不存你的东西，每次对话都是新的。」（2026-10-17 起固定；2026-10-25 起「不翻」）", "breaks": "说「存了/看得到」；固定句外多塞句子"}
   ],
   "composed_inputs": {
     "W7": "帮我看看这篇文章有什么问题：\nSome people think governments should spend money on public transport rather than on roads. I agree with this idea.\nFirst, public transport is more cheaper for workers. Many people take the bus every day, it cost a lot of money. If government spend money on buses, more people can use them.\nSecond, buses are good for environment. Cars make air pollution, but buses carry many people at same time. So they produce less pollution.\nIn conclusion, I think governments should spend money on public transport. It help workers and the environment.",

@@ -1,6 +1,7 @@
 # 口语教练 · skill 版盲测运行记录
 
-> 两套 harness：提示词版（evals.json，跑编译产物 txt）与 skill 版（skill-evals.json，跑 SKILL.md 整份含 prompt:skip 档案机制段）。改一次源，重跑同批样本。执行者只读被测件，不给判定标准。改 skill 前先报用户（两阶段授权）。
+> 2026-10-26 起：提示词版退役，evals.json（提示词版 harness）已移入老师端《雅思提示词包/退役存档_提示词版/》。本 harness 成为唯一版；下文「提示词版」字样均为当时的历史记录。
+> 当时的做法：两套 harness——提示词版（evals.json，跑编译产物 txt）与 skill 版（skill-evals.json，跑 SKILL.md 整份）。改一次源，重跑同批样本。执行者只读被测件，不给判定标准。改 skill 前先报用户（两阶段授权）。
 
 ## 2026-10-16 第 1 轮（skill 版档案机制首测）
 

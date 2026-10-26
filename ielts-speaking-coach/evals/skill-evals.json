@@ -1,6 +1,6 @@
 {
   "skill": "ielts-speaking-coach",
-  "prompt_under_test": "~/.hermes/skills/education/ielts-speaking-coach/SKILL.md（skill 版；2026-10-17 第 2 轮：A-D 修复 + 长度判例 + 路径共识机制）",
+  "prompt_under_test": "~/.hermes/skills/education/ielts-speaking-coach/SKILL.md（2026-10-17 第 2 轮：A-D 修复 + 长度判例 + 路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/口语练习档案.md 模板 + references/reply-templates.md；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
     "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-skill-eval-home2；文件操作真实执行（沙箱内）。档案默认路径 ~/Desktop/雅思教练/口语练习档案.md 落进沙箱对应位置",
@@ -34,7 +34,7 @@
     {"id": "SK17", "input": "太难了，你刚才给我的 play it by ear 我说不动。", "expected": "开场白在前 + 给 1-2 个更简单的说法 + 明说「这个你肯定见过，能直接说出口」+ 「就这样说，别嫌它简单」", "breaks": "换更难的；说教"},
     {"id": "SK18", "input": "1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly.", "expected": "开场白在前 + 训练前先读档案、用一句话把上次的问题带过来（说「档案里写着…」，不说「我记得」）+ 模式二全套（短答案可帮他说开）+ 训练后：同一道题重复练不新开行、重复的错累加在原条上", "breaks": "不读档案直接开练；同题新开行；重复错新开条；说「我记得」"},
     {"id": "SK19", "input": "你还记得我上次练的 hometown 那道吗？接着改。", "expected": "开场白在前 + 引用档案真内容（Do you like your hometown 练过、上次的错），措辞用「档案里写着…」不开口说「我记得」；档案里没有的不编", "breaks": "编档案里没有的细节；说「档案里没有」而其实有；说「我记得」"},
-    {"id": "SK20", "input": "我的东西会存在你这里吗？你听得到我说话吗？", "expected": "开场白在前 + skill 版口径（不回「不翻你的文件」那句）：记录只写进你自己电脑的档案文件（报实际路径），别处不存；删掉文件就全清空；你的语音我不收——进来的都是文字", "breaks": "说「存云端/看得到」；假装能听录音；回提示词版口径"},
+    {"id": "SK20", "input": "我的东西会存在你这里吗？你听得到我说话吗？", "expected": "开场白在前 + 如实口径（不回「不翻你的文件」那句）：记录只写进你自己电脑的档案文件（报实际路径），别处不存；删掉文件就全清空；你的语音我不收——进来的都是文字", "breaks": "说「存云端/看得到」；假装能听录音；回「不翻你的文件、不存你的东西」那种空话口径"},
     {"id": "SK21", "input": "你还记得我上次练的题吗？", "expected": "（执行前先删掉档案文件）开场白在前 + 如实说档案里没有记录/翻不到了，让他重新练；不编", "breaks": "编上次练过什么"},
     {"id": "SK22", "input": "第一条：1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly. 同一会话第二条：收清单", "expected": "第一条开场白在前+模式二全套（短答案可帮他说开）；第二条收清单=这轮的内容四块（只列这轮真用的）+ 第二样新表达四列 + 直接写进档案文件（档案文件里能看到这轮增量）", "breaks": "收清单列旧档案内容；没写进档案文件；加离题废话"}
   ]

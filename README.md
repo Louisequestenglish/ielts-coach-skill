@@ -26,7 +26,7 @@ npx skills add Louisequestenglish/ielts-coach-skill
 
 装到 Claude Code / Codex 等 agent；装完直接说「练口语」「查扣题」就能用。skill 版能读本地文件、帮学生留练习档案。
 
-课程学员也可以只用课程文档里的提示词版（随课程内部分发，不在这里）。
+课程学员在课程文档里就有嵌好的短提示词，不用装任何东西（随课程内部分发，不在这里）。
 
 ## 设计原则
 
@@ -44,7 +44,7 @@ npx skills add Louisequestenglish/ielts-coach-skill
 
 ## 质量验证
 
-每个教练的 `evals/` 里是盲测样本与运行记录：改一次源，重跑同一批样本，对照判定标准逐条过，破线才改、改完再验。
+口语、写作教练的 `evals/` 里是 skill 版盲测样本（skill-evals.json）与运行记录：改一次源，重跑同一批样本，对照判定标准逐条过，破线才改、改完再验。（提示词版盲测夹具已随提示词版一起退役。）
 
 ## License
 

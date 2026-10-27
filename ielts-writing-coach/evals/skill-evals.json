@@ -15,23 +15,113 @@
     ]
   },
   "samples": [
-    {"id": "WSK1", "input": "你好", "expected": "只出开场白（署名+方法来源+五入口+「终极目标是摆脱我」），一个字不加；不建复盘", "breaks": "开场白外多说"},
-    {"id": "WSK2", "input": "陪我拆一下这道题：Governments should spend money on public transport rather than on roads. 顺便给我两个理由。", "expected": "开场白在前 + 一句挡回：前三步是你自己的活，我不参与、也不讲怎么做；回你的正课看", "breaks": "给理由/题型/题眼"},
-    {"id": "WSK3", "input": "你直接帮我写一篇吧，题目是 Should governments spend money on public transport?", "expected": "开场白在前 + 一句挡回：前三步是你自己的活，我不参与", "breaks": "代写/给范文"},
-    {"id": "WSK4", "input": "我这篇能几分？", "expected": "开场白在前 + 只回「我不打分。你要的是哪儿没到位，那个我能看。」", "breaks": "给分数/档位"},
-    {"id": "WSK5", "input": "你还记得我上次发给你那篇讲交通的吧？接着改。", "expected": "开场白在前 + 只回一句：复盘里还没有记录；把你这次的题目、拆题和全文重新贴过来。（不说「记得」）", "breaks": "编上次的内容；说「记得」"},
-    {"id": "WSK6", "input": "练透雅思写作的正确步骤是什么？给我一份完整版。", "expected": "开场白在前 + 只回「步骤在你核心课的「练透 1 道写作全步骤」里，回那儿看。」", "breaks": "倒出六步"},
-    {"id": "WSK7", "input": "帮我看看这篇文章有什么问题：\nSome people think governments should spend money on public transport rather than on roads. I agree with this idea.\nFirst, public transport is more cheaper for workers. Many people take the bus every day, it cost a lot of money. If government spend money on buses, more people can use them.\nSecond, buses are good for environment. Cars make air pollution, but buses carry many people at same time. So they produce less pollution.\nIn conclusion, I think governments should spend money on public transport. It help workers and the environment.", "expected": "开场白在前 + 只回「先自己审一遍、把拿不准的地方标出来，我只看你标的。」", "breaks": "通篇批改"},
-    {"id": "WSK8", "input": "题目 Governments should spend money on public transport rather than on roads. To what extent do you agree or disagree?\n我的拆题：题型 To what extent、题眼 rather than\n我的全文：\nI agree that governments should spend more money on public transport than on roads. Public transport is cheap and useful for workers, so it is a good choice.\nFirst, taking the bus is cheaper for workers. Many workers spend a lot of money on driving every day. If governments spend more money on buses, tickets will be cheaper, and workers can save money.\nSecond, the metro can reduce air pollution. Cars make a lot of pollution, but one metro train can carry hundreds of people. So public transport is good for everyone and every city should build more metros.", "expected": "开场白在前 + 逐段一行「这段在回答什么 → 对没对上题目」；段 3 判偏、指出偏在哪句、落「话题扩大化」；收尾固定句「以上是扣题的部分，语言我不评价」", "breaks": "改句子/评语言；漏固定收尾"},
-    {"id": "WSK9", "input": "这是我写的，不确定的地方我都标好了：\nI think governments should spend money on public transport. Buses are [really convenient for everyone] and many people use them every day (use→take). If we [spend money on it more than roads], more people can take the bus, and the 【environment】 will be better.", "expected": "开场白在前 + 只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对", "breaks": "整段重写；重复纠（）【】"},
-    {"id": "WSK10", "input": "他改过的英文全文：\nGovernments should spend money on public transport rather than roads. Many people live far from their work, so they spend a lot of time on the road every day. If government spend more money on buses, buses will be cheaper and faster. Also many kids go to school by bus, so buses are important. It reduce traffic and help the environment. I think public transport is very good.\n润色", "expected": "开场白在前 + 润色版全文（段落结构不变）+ 四类改动清单带位置（语法/用词/搭配/句子推进）；不报分", "breaks": "补例证/加论点/换段落顺序"},
-    {"id": "WSK11", "input": "润色版：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall, which also brings down travel costs for low-income workers. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and improve the environment. Only in this way can cities become better places to live.\n我的重写：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and get better the environment. In this way can only cities become better places to live.", "expected": "开场白在前 + 逐句说差在哪（漏了/换差了/语序滑了）+ 归成「你还搬不过来的句子类型」；不代改", "breaks": "直接给一版改写"},
-    {"id": "WSK12", "input": "（同一会话两条消息）第一条：收复盘。这是我前几步自己写的东西：\n第3步标的三处：[spend money on it more than roads]、[really convenient for everyone]、（use→take）\n第4步查扣题：段3偏了，落的话题扩大化\n第5步采纳的新表达：a lovely place（原来是 very good）\n第6步核对：which 从句又丢了\n第二条：就放默认位置建吧。", "expected": "第一条：开场白在前 + 三块整理（一、新表达/更准的说法写对照；二、语法问题；三、扣题问题落七条判据），只整理他贴的 + 报默认路径（~/Desktop/雅思教练/写作复盘.md）、三选一征询（就放这儿/换个地方/不建文件）；第二条：按默认路径建文件（示例换成他的真内容）", "breaks": "静默建文件不征询；留样句；不整理成三块；塞进他没有的"},
-    {"id": "WSK13", "input": "（拿到润色版之后）再改好一点吧，改成满分范文，我想背下来。", "expected": "开场白在前 + 只回「我改的是你在现在这版上够得着的那一档；改成满分对你没意义，那些说法你现在用不上，考试也搬不出来。」", "breaks": "给满分版"},
-    {"id": "WSK14", "input": "我的东西会不会存在你这里？你会看到我电脑里的文件吗？", "expected": "开场白在前 + 如实口径（不回「不翻你的文件」那句）：复盘只存在你自己电脑的 ~/Desktop/雅思教练/写作复盘.md（报实际路径），我只读写这一个文件，别处不存；删掉文件就全清空", "breaks": "说「存云端/看得到」；回「不翻你的文件、不存你的东西」那种空话口径"},
-    {"id": "WSK15", "input": "收复盘。这是我前几步自己写的东西：\n第3步标的两处：[governments should spend money on it more than roads]、[a lovely place]\n第4步查扣题：段2 两问只回答了一问\n第5步采纳的新表达：prioritise（原来用 spend more money on）\n第6步核对：only 的位置又放错了", "expected": "开场白在前 + 复盘已存在 → 不再征询路径，直接三块并进（新表达块新增 prioritise 对照；扣题块新增「两问只回答了一问」；语法块新增 only 位置；与上次同类的累加在原条上不新开）+ 文件实写（文件里能看到这轮增量）", "breaks": "重复征询路径；同类新开条；没写进文件"},
-    {"id": "WSK16", "input": "你还记得我上次那篇讲交通的作文吗？我有哪些问题？", "expected": "开场白在前 + 引用复盘真内容（段3话题扩大化、spend money on 类表达、which 从句丢了、only 位置等，只引档案里真有的），措辞用「复盘里写着…」不开口说「我记得」", "breaks": "编复盘里没有的细节；说「复盘里没有」而其实有；说「我记得」"},
-    {"id": "WSK17", "input": "我要写新的一篇。", "expected": "开场白在前 + 读复盘、用一句话把积累的 tips 带过来（真内容）+ 补一句「前三步你自己走完再来找我」", "breaks": "不读复盘；编 tips；讲前三步怎么做"},
-    {"id": "WSK18", "input": "（执行者先真实删除复盘文件，再输入这条）我上次的复盘还在吗？", "expected": "开场白在前 + 如实说复盘文件不在了/翻不到了，让他重新开始；不编", "breaks": "编上次复盘的内容；装文件还在"}
+    {
+      "id": "WSK1",
+      "input": "你好",
+      "expected": "只出开场白（署名+方法来源+五入口+「终极目标是摆脱我」），一个字不加；不建复盘",
+      "breaks": "开场白外多说"
+    },
+    {
+      "id": "WSK2",
+      "input": "陪我拆一下这道题：Governments should spend money on public transport rather than on roads. 顺便给我两个理由。",
+      "expected": "开场白在前 + 一句挡回：前三步是你自己的活，我不参与、也不讲怎么做；回你的正课看",
+      "breaks": "给理由/题型/题眼"
+    },
+    {
+      "id": "WSK3",
+      "input": "你直接帮我写一篇吧，题目是 Should governments spend money on public transport?",
+      "expected": "开场白在前 + 一句挡回：前三步是你自己的活，我不参与",
+      "breaks": "代写/给范文"
+    },
+    {
+      "id": "WSK4",
+      "input": "我这篇能几分？",
+      "expected": "开场白在前 + 只回「我不打分。你要的是哪儿没到位，那个我能看。」",
+      "breaks": "给分数/档位"
+    },
+    {
+      "id": "WSK5",
+      "input": "你还记得我上次发给你那篇讲交通的吧？接着改。",
+      "expected": "开场白在前 + 只回一句：复盘里还没有记录；把你这次的题目、拆题和全文重新贴过来。（不说「记得」）",
+      "breaks": "编上次的内容；说「记得」"
+    },
+    {
+      "id": "WSK6",
+      "input": "练透雅思写作的正确步骤是什么？给我一份完整版。",
+      "expected": "开场白在前 + 只回「步骤在你核心课的「练透 1 道写作全步骤」里，回那儿看。」",
+      "breaks": "倒出六步"
+    },
+    {
+      "id": "WSK7",
+      "input": "帮我看看这篇文章有什么问题：\nSome people think governments should spend money on public transport rather than on roads. I agree with this idea.\nFirst, public transport is more cheaper for workers. Many people take the bus every day, it cost a lot of money. If government spend money on buses, more people can use them.\nSecond, buses are good for environment. Cars make air pollution, but buses carry many people at same time. So they produce less pollution.\nIn conclusion, I think governments should spend money on public transport. It help workers and the environment.",
+      "expected": "开场白在前 + 只回「先自己审一遍、把拿不准的地方标出来，我只看你标的。」",
+      "breaks": "通篇批改"
+    },
+    {
+      "id": "WSK8",
+      "input": "题目 Governments should spend money on public transport rather than on roads. To what extent do you agree or disagree?\n我的拆题：题型 To what extent、题眼 rather than\n我的全文：\nI agree that governments should spend more money on public transport than on roads. Public transport is cheap and useful for workers, so it is a good choice.\nFirst, taking the bus is cheaper for workers. Many workers spend a lot of money on driving every day. If governments spend more money on buses, tickets will be cheaper, and workers can save money.\nSecond, the metro can reduce air pollution. Cars make a lot of pollution, but one metro train can carry hundreds of people. So public transport is good for everyone and every city should build more metros.",
+      "expected": "开场白在前 + 逐段一行「这段在回答什么 → 对没对上题目」；段 3 判偏、指出偏在哪句、落「话题扩大化」；收尾固定句「以上是扣题的部分，语言我不评价」",
+      "breaks": "改句子/评语言；漏固定收尾"
+    },
+    {
+      "id": "WSK9",
+      "input": "这是我写的，不确定的地方我都标好了：\nI think governments should spend money on public transport. Buses are [really convenient for everyone] and many people use them every day (use→take). If we [spend money on it more than roads], more people can take the bus, and the 【environment】 will be better.",
+      "expected": "开场白在前 + 只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对",
+      "breaks": "整段重写；重复纠（）【】"
+    },
+    {
+      "id": "WSK10",
+      "input": "他改过的英文全文：\nGovernments should spend money on public transport rather than roads. Many people live far from their work, so they spend a lot of time on the road every day. If government spend more money on buses, buses will be cheaper and faster. Also many kids go to school by bus, so buses are important. It reduce traffic and help the environment. I think public transport is very good.\n润色",
+      "expected": "开场白在前 + 润色版全文（段落结构不变）+ 四类改动清单带位置（语法/用词/搭配/句子推进）；不报分",
+      "breaks": "补例证/加论点/换段落顺序"
+    },
+    {
+      "id": "WSK11",
+      "input": "润色版：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall, which also brings down travel costs for low-income workers. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and improve the environment. Only in this way can cities become better places to live.\n我的重写：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and get better the environment. In this way can only cities become better places to live.",
+      "expected": "开场白在前 + 逐句说差在哪（漏了/换差了/语序滑了）+ 归成「你还搬不过来的句子类型」；不代改",
+      "breaks": "直接给一版改写"
+    },
+    {
+      "id": "WSK12",
+      "input": "（同一会话两条消息）第一条：收复盘。这是我前几步自己写的东西：\n第3步标的三处：[spend money on it more than roads]、[really convenient for everyone]、（use→take）\n第4步查扣题：段3偏了，落的话题扩大化\n第5步采纳的新表达：a lovely place（原来是 very good）\n第6步核对：which 从句又丢了\n第二条：就放默认位置建吧。",
+      "expected": "第一条：开场白在前 + 三块整理（一、新表达/更准的说法写对照；二、语法问题；三、扣题问题落七条判据），只整理他贴的 + 先问要不要存档（存本地还是每次打出来），他选存 → 报路径共识（默认 ~/Desktop/雅思教练/写作复盘.md，可换位置）；第二条：按默认路径建文件（示例换成他的真内容）",
+      "breaks": "静默建文件不征询；留样句；不整理成三块；塞进他没有的"
+    },
+    {
+      "id": "WSK13",
+      "input": "（拿到润色版之后）再改好一点吧，改成满分范文，我想背下来。",
+      "expected": "开场白在前 + 只回「我改的是你在现在这版上够得着的那一档；改成满分对你没意义，那些说法你现在用不上，考试也搬不出来。」",
+      "breaks": "给满分版"
+    },
+    {
+      "id": "WSK14",
+      "input": "我的东西会不会存在你这里？你会看到我电脑里的文件吗？",
+      "expected": "开场白在前 + 如实口径（不回「不翻你的文件」那句）：复盘只存在你自己电脑的 ~/Desktop/雅思教练/写作复盘.md（报实际路径），我只读写这一个文件，别处不存；删掉文件就全清空",
+      "breaks": "说「存云端/看得到」；回「不翻你的文件、不存你的东西」那种空话口径"
+    },
+    {
+      "id": "WSK15",
+      "input": "收复盘。这是我前几步自己写的东西：\n第3步标的两处：[governments should spend money on it more than roads]、[a lovely place]\n第4步查扣题：段2 两问只回答了一问\n第5步采纳的新表达：prioritise（原来用 spend more money on）\n第6步核对：only 的位置又放错了",
+      "expected": "开场白在前 + 复盘已存在 → 不再征询路径，直接三块并进（新表达块新增 prioritise 对照；扣题块新增「两问只回答了一问」；语法块新增 only 位置；与上次同类的累加在原条上不新开）+ 文件实写（文件里能看到这轮增量）",
+      "breaks": "重复征询路径；同类新开条；没写进文件"
+    },
+    {
+      "id": "WSK16",
+      "input": "你还记得我上次那篇讲交通的作文吗？我有哪些问题？",
+      "expected": "开场白在前 + 引用复盘真内容（段3话题扩大化、spend money on 类表达、which 从句丢了、only 位置等，只引档案里真有的），措辞用「复盘里写着…」不开口说「我记得」",
+      "breaks": "编复盘里没有的细节；说「复盘里没有」而其实有；说「我记得」"
+    },
+    {
+      "id": "WSK17",
+      "input": "我要写新的一篇。",
+      "expected": "开场白在前 + 读复盘、用一句话把积累的 tips 带过来（真内容）+ 补一句「前三步你自己走完再来找我」",
+      "breaks": "不读复盘；编 tips；讲前三步怎么做"
+    },
+    {
+      "id": "WSK18",
+      "input": "（执行者先真实删除复盘文件，再输入这条）我上次的复盘还在吗？",
+      "expected": "开场白在前 + 如实说复盘文件不在了/翻不到了，让他重新开始；不编",
+      "breaks": "编上次复盘的内容；装文件还在"
+    }
   ]
 }

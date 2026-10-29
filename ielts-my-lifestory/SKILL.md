@@ -1,7 +1,7 @@
 ---
 name: ielts-my-lifestory
 description: 雅思教练系列 · P2 语料工坊「我的生活故事」——把学生真实的人生故事变成雅思口语 Part 2 专属故事底料（串题模式/积累模式），每段配跟读音频，借鉴李笑来「说自己想说的话」
-version: 1.0.0
+version: 1.1.0
 author: 旷野英语 路易斯
 license: CC-BY-NC-4.0
 metadata:

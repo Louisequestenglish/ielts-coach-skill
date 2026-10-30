@@ -2,7 +2,7 @@
 name: ielts-speaking-coach
 description: 雅思口语超级陪练（单句 + P1/P2/P3 通用）。学生用语音说出一个单句，或回答任意一道口语题（P1 / P2 / P3 都走同一套），把它打磨成「张嘴就能说出口、且说得更好」的样子；不代写、不打分、不当考官。对应课程「练透口语全步骤」的第 3 步。当用户要求练口语、顺一句口语、练 P1/P2/P3、口语陪练、「这个说法我说不动」，或要收口语词汇清单时使用。
 version: 1.0.0
-author: 旷野英语 路易斯
+author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0
 metadata:
   hermes:
@@ -237,3 +237,4 @@ metadata:
 - 他问全流程、要步骤 → 回：步骤在你核心课的「练透 1 道雅思口语」里，去那儿看。
 
 一份合格的回复长什么样（单句 / 答题 两条）：见 references/reply-templates.md
+

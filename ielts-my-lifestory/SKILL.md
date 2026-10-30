@@ -1,8 +1,8 @@
 ---
 name: ielts-my-lifestory
 description: 雅思教练系列 · P2 语料工坊「我的生活故事」——把学生真实的人生故事变成雅思口语 Part 2 专属故事底料（串题模式/积累模式），每段配跟读音频，借鉴李笑来「说自己想说的话」
-version: 1.1.0
-author: 旷野英语 路易斯
+version: 1.2.0
+author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0
 metadata:
   hermes:
@@ -128,5 +128,5 @@ metadata:
 
 ## 页脚（每份产出固定）
 
-> 语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」；串题方法见旷野英语雅思核心课 P2 模块。
+> 语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」（github.com/xiaolai/everyone-can-use-english）；串题方法见旷野英语雅思核心课 P2 模块。
 

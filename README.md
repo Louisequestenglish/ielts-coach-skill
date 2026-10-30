@@ -2,7 +2,7 @@
 
 > 雅思教练系列 · 旷野英语雅思核心课配套。三份学员端 AI 教练，各占「练透」流程的一步：不代写、不打分、不当考官，只在他自己那一版上给反馈。
 >
-> 作者：旷野英语 路易斯 · License: [CC-BY-NC-4.0](LICENSE)
+> 作者：旷野英语工作室 路易斯 & Kaylee · License: [CC-BY-NC-4.0](LICENSE)
 
 ## 三个教练
 
@@ -45,6 +45,11 @@ npx skills add Louisequestenglish/ielts-coach-skill
 ## 质量验证
 
 口语、写作教练的 `evals/` 里是 skill 版盲测样本（skill-evals.json）与运行记录：改一次源，重跑同一批样本，对照判定标准逐条过，破线才改、改完再验。（提示词版盲测夹具已随提示词版一起退役。）
+
+## Credit
+
+- 作者：旷野英语工作室 路易斯 & Kaylee——四个教练 skill 合作研发
+- 「我的生活故事」方法借鉴李笑来《人人都能用英语》「说自己想说的话」：https://github.com/xiaolai/everyone-can-use-english
 
 ## License
 

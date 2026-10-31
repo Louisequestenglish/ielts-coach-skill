@@ -20,16 +20,16 @@
 
 ## 安装
 
-选一条适合你的：
+四个技能各是一个独立安装包。按你的工具选一条：
 
 | 你的情况 | 安装方式 |
 |---|---|
-| 手机 / 豆包 App 用户 | 让老师发你技能分享链接，在**豆包 App 内**点开 → 「添加技能」。微信或浏览器里打开无效，必须是豆包 App |
-| Claude Code · 海外 / 有代理 | 一条命令：`npx skills add Louisequestenglish/ielts-coach-skill -g -y`（自动检查更新） |
-| Claude Code · 国内直连 | 一条命令：`npx skills add https://gitee.com/louises-english-quest/ielts-coach-skill/repository/archive/main.zip -g -y`（更新时重跑这条命令） |
-| 手动安装 | 打开 [Gitee 仓库](https://gitee.com/louises-english-quest/ielts-coach-skill) →「下载 ZIP」→ 解压 → 把四个文件夹拖进技能目录：macOS/Linux 放 `~/.claude/skills/`，Windows 放 `C:\Users\用户名\.claude\skills\`，WorkBuddy 放 `~/.workbuddy/skills/` |
+| Claude Code / Codex / Cursor / 千问代码等命令行 agent | 一条命令装全套：海外或代理 `npx skills add Louisequestenglish/ielts-coach-skill --all -y`；国内直连 `npx skills add https://gitee.com/louises-english-quest/ielts-coach-skill/repository/archive/main.zip --all -y`（更新时重跑同一条命令） |
+| WorkBuddy 桌面版 | 打开 [发行版页面](https://gitee.com/louises-english-quest/ielts-coach-skill/releases)（海外用 [GitHub 发行版](https://github.com/Louisequestenglish/ielts-coach-skill/releases)），下载最新版的四个单技能 zip → 技能页「导入技能」→ 选 zip 文件，一次传一个，四个传完列表即齐。注意：仓库主页的「下载 ZIP」是四技能整包，WorkBuddy 不认，会报「没有 skill.md」——只下发行版页面的四个单技能 zip |
+| 豆包工作（电脑版「工作」模式） | 打开发行版页面下载四个单技能 zip →「我的技能」→ 上传，逐个拖入。手机端豆包不支持安装技能 |
+| 手动安装（Claude Code 等） | 打开 [Gitee 仓库](https://gitee.com/louises-english-quest/ielts-coach-skill) →「下载 ZIP」→ 解压 → 把四个技能文件夹拖进技能目录：macOS/Linux 放 `~/.claude/skills/`，Windows 放 `C:\Users\用户名\.claude\skills\` |
 
-装到 Claude Code / Codex / WorkBuddy 等 agent；装完直接说「练口语」「查扣题」就能用。skill 版能读本地文件、帮学生留练习档案。
+装完直接说「练口语」「查扣题」就能用。skill 版能读本地文件、帮学生留练习档案。
 
 课程学员在课程文档里就有嵌好的短提示词，不用装任何东西（随课程内部分发，不在这里）。
 

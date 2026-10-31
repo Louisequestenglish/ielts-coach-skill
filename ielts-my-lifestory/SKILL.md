@@ -4,10 +4,6 @@ description: 雅思教练系列 · P2 语料工坊「我的生活故事」——
 version: 1.2.0
 author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0
-metadata:
-  hermes:
-    tags: [雅思, 口语, P2, 语料, 雅思教练]
-    related_skills: [ielts-speaking-coach, ielts-ai-coach-packaging]
 ---
 
 # 我的生活故事（ielts-my-lifestory）
@@ -129,4 +125,3 @@ metadata:
 ## 页脚（每份产出固定）
 
 > 语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」（github.com/xiaolai/everyone-can-use-english）；串题方法见旷野英语雅思核心课 P2 模块。
-

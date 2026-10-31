@@ -1,6 +1,6 @@
 {
   "skill": "ielts-speaking-coach",
-  "prompt_under_test": "~/.hermes/skills/education/ielts-speaking-coach/SKILL.md（2026-10-17 第 2 轮：A-D 修复 + 长度判例 + 路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）",
+  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-speaking-coach/）（2026-10-17 第 2 轮：A-D 修复 + 长度判例 + 路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/口语练习档案.md 模板 + references/reply-templates.md；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
     "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-skill-eval-home2；文件操作真实执行（沙箱内）。档案默认路径 ~/Desktop/雅思教练/口语练习档案.md 落进沙箱对应位置",

@@ -1,6 +1,6 @@
 {
   "skill": "ielts-reading-coach",
-  "prompt_under_test": "~/.hermes/skills/education/ielts-reading-coach/SKILL.md（2026-10-26 首建：提示词版退役后补建 skill 版夹具，三教练验证补齐，R1-R22 纯回复判定；2026-10-27 存档可选落地：扩 R23/R24 精读档案链 + assets/精读档案.md 进被测件）",
+  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-reading-coach/）（2026-10-26 首建：提示词版退役后补建 skill 版夹具，三教练验证补齐，R1-R22 纯回复判定；2026-10-27 存档可选落地：扩 R23/R24 精读档案链 + assets/精读档案.md 进被测件）",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/精读档案.md 模板 + references/ 全部 5 个文件（reply-templates.md / chunk-rules.md / sentence-rules.md / paragraph-rules.md / paragraph-demo.md）；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
     "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-reading-eval-home；文件操作真实执行（沙箱内）。档案默认路径 ~/Desktop/雅思教练/精读档案.md 落进沙箱对应位置；档案初始不存在（学生没选建档前=无档案）",

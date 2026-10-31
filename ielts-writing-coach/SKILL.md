@@ -4,10 +4,6 @@ description: 雅思写作教练（大作文 Task2）。学生自己走完「练�
 version: 1.0.0
 author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0
-metadata:
-  hermes:
-    tags: [雅思, 写作, 大作文, 扣题, 润色, 写作复盘, 雅思教练]
-    related_skills: [ielts-reading-coach, ielts-speaking-coach, ielts-ai-coach-packaging]
 ---
 
 # 雅思写作教练（大作文 Task2）
@@ -219,4 +215,3 @@ metadata:
 2. 中文为主，英文仅用于示范句和他自己的英文原文。
 3. 有问题告知原因；一次一个重点。
 4. 采纳了、改对了，简短肯定一句，让他记住。
-

@@ -1,6 +1,6 @@
 {
   "skill": "ielts-writing-coach",
-  "prompt_under_test": "~/.hermes/skills/education/ielts-writing-coach/SKILL.md（2026-10-17 首轮：隐私固定行 + 泄漏清零 + 复盘路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）",
+  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-writing-coach/）（2026-10-17 首轮：隐私固定行 + 泄漏清零 + 复盘路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/写作复盘.md 模板 + references/ 全部 5 个文件；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
     "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-writing-eval-home；文件操作真实执行（沙箱内）。复盘默认路径 ~/Desktop/雅思教练/写作复盘.md 落进沙箱对应位置",

@@ -4,10 +4,6 @@ description: 雅思口语超级陪练（单句 + P1/P2/P3 通用）。学生用�
 version: 1.0.0
 author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0
-metadata:
-  hermes:
-    tags: [雅思, 口语, P1, P2, P3, 单句, 陪练, 打磨, 雅思教练]
-    related_skills: [ielts-reading-coach, ielts-writing-ideation, ielts-ai-coach-packaging]
 ---
 
 # 雅思口语超级陪练（单句 + P1/P2/P3 通用）
@@ -237,4 +233,3 @@ metadata:
 - 他问全流程、要步骤 → 回：步骤在你核心课的「练透 1 道雅思口语」里，去那儿看。
 
 一份合格的回复长什么样（单句 / 答题 两条）：见 references/reply-templates.md
-

@@ -18,13 +18,18 @@
 |---|---|
 | `ielts-my-lifestory` 我的生活故事 | P2 语料工坊：把学生真实经历打磨成 P2 故事底料（串题 / 积累两种模式，逐段配跟读），只做材料、不教答题 |
 
-## 用法
+## 安装
 
-```bash
-npx skills add Louisequestenglish/ielts-coach-skill
-```
+选一条适合你的：
 
-装到 Claude Code / Codex 等 agent；装完直接说「练口语」「查扣题」就能用。skill 版能读本地文件、帮学生留练习档案。
+| 你的情况 | 安装方式 |
+|---|---|
+| 手机 / 豆包 App 用户 | 让老师发你技能分享链接，在**豆包 App 内**点开 → 「添加技能」。微信或浏览器里打开无效，必须是豆包 App |
+| Claude Code · 海外 / 有代理 | 一条命令：`npx skills add Louisequestenglish/ielts-coach-skill`（自动检查更新） |
+| Claude Code · 国内直连 | 一条命令：`npx skills add https://gitee.com/louises-english-quest/ielts-coach-skill/repository/archive/main.zip`（更新时重跑这条命令） |
+| 手动安装 | 打开 [Gitee 仓库](https://gitee.com/louises-english-quest/ielts-coach-skill) →「下载 ZIP」→ 解压 → 把四个文件夹拖进技能目录：macOS/Linux 放 `~/.claude/skills/`，Windows 放 `C:\Users\用户名\.claude\skills\`，WorkBuddy 放 `~/.workbuddy/skills/` |
+
+装到 Claude Code / Codex / WorkBuddy 等 agent；装完直接说「练口语」「查扣题」就能用。skill 版能读本地文件、帮学生留练习档案。
 
 课程学员在课程文档里就有嵌好的短提示词，不用装任何东西（随课程内部分发，不在这里）。
 

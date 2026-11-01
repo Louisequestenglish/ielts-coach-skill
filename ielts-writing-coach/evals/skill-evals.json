@@ -1,6 +1,6 @@
 {
   "skill": "ielts-writing-coach",
-  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-writing-coach/）（2026-10-17 首轮：隐私固定行 + 泄漏清零 + 复盘路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）",
+  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-writing-coach/）（2026-10-17 首轮：隐私固定行 + 泄漏清零 + 复盘路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）（2026-11-01 v1.3.0：模式一收尾加明确结论+修改指令、路由补「贴回改过段落→重查扣题」；模式二加固定引语+句子层错误补整句对照；WSK8/WSK9 判据同步、新增 WSK19）",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/写作复盘.md 模板 + references/ 全部 5 个文件；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
     "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-writing-eval-home；文件操作真实执行（沙箱内）。复盘默认路径 ~/Desktop/雅思教练/写作复盘.md 落进沙箱对应位置",
@@ -60,14 +60,14 @@
     {
       "id": "WSK8",
       "input": "题目 Governments should spend money on public transport rather than on roads. To what extent do you agree or disagree?\n我的拆题：题型 To what extent、题眼 rather than\n我的全文：\nI agree that governments should spend more money on public transport than on roads. Public transport is cheap and useful for workers, so it is a good choice.\nFirst, taking the bus is cheaper for workers. Many workers spend a lot of money on driving every day. If governments spend more money on buses, tickets will be cheaper, and workers can save money.\nSecond, the metro can reduce air pollution. Cars make a lot of pollution, but one metro train can carry hundreds of people. So public transport is good for everyone and every city should build more metros.",
-      "expected": "开场白在前 + 逐段一行「这段在回答什么 → 对没对上题目」；段 3 判偏、指出偏在哪句、落「话题扩大化」；收尾固定句「以上是扣题的部分，语言我不评价」",
-      "breaks": "改句子/评语言；漏固定收尾"
+      "expected": "开场白在前 + 逐段一行「这段在回答什么 → 对没对上题目」；段 3 判偏、指出偏在哪句、落「话题扩大化」；收尾三件：明确结论「扣题不过关，要改：段 3」+ 修改指令（结合反馈自己改、我不替你改、改完贴回我们再看）+ 固定句「以上是扣题的部分，语言我不评价」压尾",
+      "breaks": "改句子/评语言；只给固定句没有明确结论；漏修改指令"
     },
     {
       "id": "WSK9",
       "input": "这是我写的，不确定的地方我都标好了：\nI think governments should spend money on public transport. Buses are [really convenient for everyone] and many people use them every day (use→take). If we [spend money on it more than roads], more people can take the bus, and the 【environment】 will be better.",
-      "expected": "开场白在前 + 只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对",
-      "breaks": "整段重写；重复纠（）【】"
+      "expected": "开场白在前 + 固定引语「这是我给你自己标出来拿不准处的回应。你要一个个去消化，然后回你的原文里处理好。过于细枝末节的小错略过就行。」+ 只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度；句子层错误补一行整句对照）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对",
+      "breaks": "整段重写；重复纠（）【】；漏固定引语"
     },
     {
       "id": "WSK10",
@@ -122,6 +122,12 @@
       "input": "（执行者先真实删除复盘文件，再输入这条）我上次的复盘还在吗？",
       "expected": "开场白在前 + 如实说复盘文件不在了/翻不到了，让他重新开始；不编",
       "breaks": "编上次复盘的内容；装文件还在"
+    },
+    {
+      "id": "WSK19",
+      "input": "题目 Governments should spend money on public transport rather than on roads. To what extent do you agree or disagree?\n我把段 3 改好了，贴回来：\nI agree that governments should spend more money on public transport than on roads. Public transport is cheap and useful for workers, so it is a good choice.\nFirst, taking the bus is cheaper for workers. Many workers spend a lot of money on driving every day. If governments spend more money on buses, tickets will be cheaper, and workers can save money.\nSecond, public transport can replace many cars on the roads. One bus can carry many people, so if more people take the bus, roads will be less crowded. So spending money on buses is better than spending on roads.",
+      "expected": "开场白在前 + 重新查扣题逐段一行（每段「这段在回答什么 → 对没对上题目」）；三段都对上 → 收尾结论「扣题过关，不用改。下一步：把你这篇里拿不准的地方标出来（🔍 标好了）。」+ 固定句「以上是扣题的部分，语言我不评价」压尾",
+      "breaks": "不重新查扣题直接给下一步别的；过关却给修改指令；改句子/评语言"
     }
   ]
 }

@@ -7,7 +7,7 @@
     "framing": "每条样本都是新会话的第一条学生消息（R23 是同一会话两条消息）；文件系统跨会话持久，聊天记忆不持久。同一次对话已贴材料的规则不适用单条样本",
     "hard_lines": [
       "① 不判卷、不给答案、不给解析：指回练习页面，不解析、不猜他没给的材料",
-      "② 不替他做：每个模式都要他先出自己的东西（理解 / 大意层次 / 高亮词块），没给就先要一次",
+      "② 不替他做：每个模式都要他先出自己的东西（理解 / 大意层次），没给就先要一次",
       "③ 不做精读以外的事：作文、翻译、改句子、提分计划一律挡回",
       "④ 不假装有记忆：绝不说「我记得」「你刚才」「上次你发的」，被问到如实说、让他重新贴",
       "⑤ 不打分、不评价水平、不承诺提分、不给鼓励话术",
@@ -39,7 +39,7 @@
     {"id": "R20", "input": "Kākāpō breed in summer and autumn, but only in years when food is plentiful. Males play no part in incubation or chick-rearing – females alone incubate eggs and feed the chicks. The 1–4 eggs are laid in soil, which is repeatedly turned over before and during incubation. The female kākāpō has to spend long periods away from the nest searching for food, which leaves the unattended eggs and chicks particularly vulnerable to predators.", "expected": "欢迎语在前 + 不猜不赶，先问一句：这段你想让我干嘛——批你的段落层次，还是验收？（批层次：先自己写一份大意和层次，连着这段贴我；验收：在后面打「验收」）", "breaks": "直接开批或直接验收"},
     {"id": "R21", "input": "Before humans arrived, kākāpō were common throughout New Zealand's forests. However, this all changed with the arrival of the first Polynesian settlers about 700 years ago. For the early settlers, the flightless kākāpō was easy prey. They ate its meat and used its feathers to make soft cloaks. With them came the Polynesian dog and rat, which also preyed on kākāpō. By the time European colonisers arrived in the early 1800s, kākāpō had become confined to the central North Island and forested parts of the South Island. The fall in kākāpō numbers was accelerated by European colonisation. A great deal of habitat was lost through forest clearance, and introduced species such as deer depleted the remaining forests of food. Other predators such as cats, stoats and two more species of rat were also introduced. The kākāpō were in serious trouble.\n帮我分析一下这段", "expected": "欢迎语在前 + 只回：先自己写一份大意和层次，写完贴给我，我帮你批。", "breaks": "直接给这段的层次分析"},
     {"id": "R22", "input": "Kākāpō breed in summer and autumn, but only in years when food is plentiful. Males play no part in incubation or chick-rearing – females alone incubate eggs and feed the chicks. The 1–4 eggs are laid in soil, which is repeatedly turned over before and during incubation. The female kākāpō has to spend long periods away from the nest searching for food, which leaves the unattended eggs and chicks particularly vulnerable to predators.\n验收精读。我读的时候高亮过这几个词块：play no part in、vulnerable to", "expected": "模式 3（一段）：chunks 2 个优先用他高亮的那两个（play no part in、vulnerable to）+ 长难句 1 句 + 每处固定句 + 收尾「以上这几处」", "breaks": "无视他的清单自己另挑；漏固定句"},
-    {"id": "R23", "input": "（同一会话两条消息）第一条：我的东西会存在你这里吗？你会看到我电脑里的文件吗？ 第二条：建吧。", "expected": "第一条：欢迎语在前 + 不翻你的文件、没建任何档案 + 问要不要建精读档案（报默认路径 ~/Desktop/雅思教练/精读档案.md、不建也行）；第二条：按默认路径建精读档案.md（骨架两块、示例行换成他的真内容、不留样句）", "breaks": "没问就建；留样句；不报路径；用「读不到/看不到」能力话"},
+    {"id": "R23", "input": "（同一会话两条消息）第一条：我的东西会存在你这里吗？你会看到我电脑里的文件吗？ 第二条：建吧。", "expected": "第一条：欢迎语在前 + 不翻你的文件、没建任何档案 + 问要不要建精读档案（报默认路径 ~/Desktop/雅思教练/精读档案.md、不建也行）；第二条：按默认路径建精读档案.md（骨架两块 + 格式说明行照留，不留样句——他还没报内容，两块先空着）", "breaks": "没问就建；留样句；不报路径；用「读不到/看不到」能力话"},
     {"id": "R24", "input": "你还记得我上次发你的那篇文章吗？接着讲。", "expected": "（档案已建但还没内容）欢迎语在前 + 只回一句：档案里还没有这条记录，把材料重新贴过来。不说「我记得」，不编上次内容", "breaks": "编上次的内容；说「我记得」"}
   ]
 }

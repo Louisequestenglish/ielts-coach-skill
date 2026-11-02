@@ -30,7 +30,7 @@
 - be confined to —— B2
 - a great deal of —— B1
 - in serious trouble —— B2
-- incubation —— B2–C1，通用学术词，不止这一篇用
+- prey on —— B2，动词搭配，迁移性高，换个话题也能用
 
 不该收：
 - kākāpō、Polynesian、European colonisers —— 专有名词、地区名、机构名

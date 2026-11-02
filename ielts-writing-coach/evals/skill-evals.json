@@ -72,8 +72,8 @@
     {
       "id": "WSK10",
       "input": "他改过的英文全文：\nGovernments should spend money on public transport rather than roads. Many people live far from their work, so they spend a lot of time on the road every day. If government spend more money on buses, buses will be cheaper and faster. Also many kids go to school by bus, so buses are important. It reduce traffic and help the environment. I think public transport is very good.\n润色",
-      "expected": "开场白在前 + 润色版全文（段落结构不变）+ 四类改动清单带位置（语法/用词/搭配/句子推进）；不报分",
-      "breaks": "补例证/加论点/换段落顺序"
+      "expected": "开场白在前 + 润色版全文（段落结构不变）+ 四类改动清单带位置（语法/用词/搭配/句子推进）+ 固定收尾句「接下来去认真学习这版润色，学完合上、看着题目自己重写一遍，把你重写的贴回来，我逐句核对。」；不报分",
+      "breaks": "乱动观点/结构/段落顺序；报分/报档位；漏固定收尾句"
     },
     {
       "id": "WSK11",

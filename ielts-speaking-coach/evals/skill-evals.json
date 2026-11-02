@@ -3,7 +3,7 @@
   "prompt_under_test": "源 SKILL.md（老师端 education/ielts-speaking-coach/）（2026-10-17 第 2 轮：A-D 修复 + 长度判例 + 路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）；2026-11-02 补丁A（用户模拟学生逐条拍板）：标点不计错/先呈现再反馈/转录坏先澄清猜一句/收尾练到吐提醒/收清单自动落盘口径/开场白就选落盘+解释/扩充挡回看课/P2长度三情形/拉长不加新内容/三块清单两拍（必改·优化对照·多样性→练完给完整版）/单句双版（基础+进阶）/新表达加粗",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/口语练习档案.md 模板 + references/reply-templates.md；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
-    "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-skill-eval-home2；文件操作真实执行（沙箱内）。档案默认路径 ~/Desktop/雅思教练/口语练习档案.md 落进沙箱对应位置",
+    "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-skill-eval-home2；文件操作真实执行（沙箱内）。档案默认路径 ~/Desktop/雅思教练/口语/口语练习档案.md 落进沙箱对应位置",
     "framing": "每条样本都是新会话的第一条学生消息（SK22 是同一会话两条消息）；文件系统跨会话持久，聊天记忆不持久；档案初始不存在",
     "hard_lines": [
       "① 不代写：不整段重写、不另起范文、优化版还是他的话",
@@ -36,7 +36,7 @@
     {
       "id": "SK4",
       "input": "（同一会话两条消息）第一条：I very like play basketball on weekend. 第二条：就放默认位置建吧。",
-      "expected": "第一条：开场白在前（含落盘选择）+ 单句全套（原句原封不动呈现→直接指语法/表达明显不对的→基础优化版+进阶优化版→念 2-3 遍）+ 他选落盘 → 报路径共识（默认 ~/Desktop/雅思教练/口语练习档案.md，可换位置）；第二条：按模板骨架建出（四块、示例换成他的真内容、不留样句）",
+      "expected": "第一条：开场白在前（含落盘选择）+ 单句全套（原句原封不动呈现→直接指语法/表达明显不对的→基础优化版+进阶优化版→念 2-3 遍）+ 他选落盘 → 报路径共识（默认 ~/Desktop/雅思教练/口语/口语练习档案.md，可换位置）；第二条：按模板骨架建出（四块、示例换成他的真内容、不留样句）",
       "breaks": "静默建文件；留样句；只给一个优化版；标点当错指"
     },
     {
@@ -221,13 +221,13 @@
     },
     {
       "id": "SK35",
-      "input": "（沙箱预置：~/OneDrive/Desktop/雅思教练/口语练习档案.md，四块有内容——错对表 It have/people is 各 1 次、题 P1/Hometown 1 道；无指针文件）我更新了软件，接着练。1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly.",
+      "input": "（沙箱预置：~/OneDrive/Desktop/雅思教练/口语/口语练习档案.md，四块有内容——错对表 It have/people is 各 1 次、题 P1/Hometown 1 道；无指针文件）我更新了软件，接着练。1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly.",
       "expected": "开场白（含存/不存选择）在前 + 定位链：按 ~/Desktop 找不到、继续探测到 ~/OneDrive/Desktop 真存在 → 读到旧档案 → 读档带账（「档案里写着…」hometown 老错 It have/people is）+ 三块清单 + 结尾话术；不重建、不覆盖旧档案（本轮增量并进原文件）",
       "breaks": "按 ~/Desktop 找不到就说没档案；重建新档案把旧的盖掉"
     },
     {
       "id": "SK36",
-      "input": "（沙箱预置：~/桌面/雅思教练/口语练习档案.md，四块有内容——练过的单句 1 行、题 P1/Hobbies 1 道；无指针文件）4 I am agree that playing sports is good for our healthy.",
+      "input": "（沙箱预置：~/桌面/雅思教练/口语/口语练习档案.md，四块有内容——练过的单句 1 行、题 P1/Hobbies 1 道；无指针文件）4 I am agree that playing sports is good for our healthy.",
       "expected": "开场白在前 + 定位链探测到中文「桌面」目录 → 读到旧档案 → 读档带账 + 单句双版（基础+进阶）+ 念 2-3 遍",
       "breaks": "探测不到中文桌面路径就说没档案；重建覆盖"
     },
@@ -239,9 +239,15 @@
     },
     {
       "id": "SK38",
-      "input": "（沙箱预置：~/Desktop/雅思教练/口语练习档案.md 已存在且有旧内容）第一条：你好。第二条：存。",
+      "input": "（沙箱预置：~/Desktop/雅思教练/口语/口语练习档案.md 已存在且有旧内容）第一条：你好。第二条：存。",
       "expected": "第二条：定位链发现默认位置已有档案 → 直接接上继续（不再报路径共识、不再问放哪），可一句话确认「接着你桌面那份档案继续」",
       "breaks": "无视旧档案重新问放哪/走建档；重建覆盖"
+    },
+    {
+      "id": "SK39",
+      "input": "（沙箱预置：~/Desktop/雅思教练/口语练习档案.md 已存在且有旧内容——旧位置在根目录，没搬进子文件夹）第一条：你好。第二条：存。",
+      "expected": "第二条：定位链旧位置兜底——根目录的旧档案也认 → 直接接上继续（不搬、不重建、不覆盖；不再报路径共识、不再问放哪），可一句话确认「接着你桌面那份档案继续」",
+      "breaks": "无视根目录旧档案重新问放哪/走建档；重建覆盖；或把旧档案搬走"
     }
   ]
 }

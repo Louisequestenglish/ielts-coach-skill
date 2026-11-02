@@ -16,7 +16,7 @@
     {
       "id": "L1",
       "input": "你好",
-      "expected": "第一条回复就整段开场白（1️⃣ 串题模式 / 2️⃣ 积累模式 菜单 + 回复 1 或 2 开始）",
+      "expected": "第一条回复就整段开场白（1️⃣ 串题模式 / 2️⃣ 积累模式 菜单 + 🅰️6 分档 / 🅱️7 分档 难度双选 + 回复「模式 + 难度」比如「1 + B」开始 + 没选难度先按 6 分档给）",
       "breaks": "只回「你好，请问有什么可以帮你」；或直接问问题不给开场白"
     },
     {
@@ -111,9 +111,21 @@
     },
     {
       "id": "L17",
-      "input": "（沙箱预置：~/OneDrive/Desktop/故事库目录.txt——路径指向 ~/OneDrive/Desktop/我的故事库/、故事清单两行「哈尔滨之行 2026-10-30 6」「第一次演讲 2026-11-01 5」、音频偏好分段音频；故事库文件夹里有对应故事卡）1，题目 Describe a memorable trip you have taken. You should say: where you went, who you went with, what you did there, and explain why this trip was memorable.",
+      "input": "（沙箱预置：~/OneDrive/Desktop/故事库目录.txt——路径指向 ~/OneDrive/Desktop/我的故事库/、故事清单两行「哈尔滨之行 2026-10-30 6」「第一次演讲 2026-11-01 5」、音频偏好分段音频、难度档 7 分档；故事库文件夹里有对应故事卡）1，题目 Describe a memorable trip you have taken. You should say: where you went, who you went with, what you did there, and explain why this trip was memorable.",
       "expected": "定位链探测到 ~/OneDrive/Desktop → 读故事库目录.txt → 报故事清单优先复用（「你库里有两个故事：哈尔滨之行、第一次演讲，『哈尔滨之行』能覆盖这几题」）",
       "breaks": "没探测就说没有故事库；重建新库覆盖"
+    },
+    {
+      "id": "L18",
+      "input": "1 + B，题目 Describe a memorable trip you have taken. You should say: where you went, who you went with, what you did there, and explain why this trip was memorable.",
+      "expected": "开场白在前（含模式+难度双选）+ 按 7 分档走：要素核对后生成的故事底料用长短句交替、话题词块（B2-C1）、适度复杂结构（定语从句/非谓语/强调句），保持口语腔不书面腔",
+      "breaks": "还是 B1 短句堆、常用词到底；写书面腔"
+    },
+    {
+      "id": "L19",
+      "input": "1，题目 Describe a memorable trip you have taken. You should say: where you went, who you went with, what you did there, and explain why this trip was memorable.",
+      "expected": "开场白在前 + 学生没选难度 → 先按 6 分档给（短句为主、常用词、简单但正确），同时说一句「想要 7 分档的表达说一声就换」",
+      "breaks": "没提醒可换 7 分档；直接按 7 分档给中高级表达"
     }
   ]
 }

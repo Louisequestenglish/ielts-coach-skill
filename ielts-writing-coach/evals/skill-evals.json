@@ -66,8 +66,8 @@
     {
       "id": "WSK9",
       "input": "这是我写的，不确定的地方我都标好了：\nI think governments should spend money on public transport. Buses are [really convenient for everyone] and many people use them every day (use→take). If we [spend money on it more than roads], more people can take the bus, and the 【environment】 will be better.",
-      "expected": "开场白在前 + 固定引语「这是我给你自己标出来拿不准处的回应。你要一个个去消化，然后回你的原文里处理好。过于细枝末节的小错略过就行。」+ 只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度；句子层错误补一行整句对照）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对",
-      "breaks": "整段重写；重复纠（）【】；漏固定引语"
+      "expected": "开场白在前 + 固定引语「这是我给你自己标出来拿不准处的回应。你要一个个去消化，然后回你的原文里处理好。过于细枝末节的小错略过就行。」+ 只处理 [ ] 两处、逐处三样（更准的说法/错在哪/1-2 替代标难度；句子层错误补一行整句对照）；（）和【】已改好的不重复纠；收尾小错归类+拼写成对+固定句「接下来去一个个消化吧，然后给我你消化后的全文，我来给你润色。」",
+      "breaks": "整段重写；重复纠（）【】；漏固定引语；漏润色交接句"
     },
     {
       "id": "WSK10",

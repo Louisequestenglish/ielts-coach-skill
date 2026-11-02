@@ -1,6 +1,6 @@
 {
   "skill": "ielts-writing-coach",
-  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-writing-coach/）（2026-10-17 首轮：隐私固定行 + 泄漏清零 + 复盘路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）（2026-11-01 v1.3.0：模式一收尾加明确结论+修改指令、路由补「贴回改过段落→重查扣题」；模式二加固定引语+句子层错误补整句对照；WSK8/WSK9 判据同步、新增 WSK19）",
+  "prompt_under_test": "源 SKILL.md（老师端 education/ielts-writing-coach/）（2026-10-17 首轮：隐私固定行 + 泄漏清零 + 复盘路径共识机制；2026-10-26 提示词版退役，本文件成为唯一版）（2026-11-01 v1.3.0：模式一收尾加明确结论+修改指令、路由补「贴回改过段落→重查扣题」；模式二加固定引语+句子层错误补整句对照；WSK8/WSK9 判据同步、新增 WSK19）（2026-11-02 补丁3：模式四核对收尾加固定句引导收复盘；模式五改两拍——学生先自己整理扣题+写法、教练再核补语法/语言错误清单+值得积累清单，落盘前必先在对话展示三块；WSK11/12/15 判据同步）（2026-11-02 补丁4：模式五归档改四区——按官方四项评分标准（扣题/衔接/词汇/语法，只归档不打分不评band），展示四区才落盘；路由加小作文挡回「小作文暂没有进入本 skill」；WSK12/15 判据同步、新增 WSK20）",
   "protocol": {
     "blind": "执行者只读 SKILL.md + assets/写作复盘.md 模板 + references/ 全部 5 个文件；不得读本文件、evals/ 其他文件、回归样本、测试脚本、手册",
     "sandbox": "执行者把 skill 里的 ~ 解析到 /tmp/ielts-writing-eval-home；文件操作真实执行（沙箱内）。复盘默认路径 ~/Desktop/雅思教练/写作复盘.md 落进沙箱对应位置",
@@ -78,14 +78,14 @@
     {
       "id": "WSK11",
       "input": "润色版：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall, which also brings down travel costs for low-income workers. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and improve the environment. Only in this way can cities become better places to live.\n我的重写：\nGovernments should put public transport before roads. Many people live far from work, so they spend a great deal of time commuting every day. If the government spends more on buses, fares will fall. Many schoolchildren also go to school by bus, so buses are essential. They reduce traffic and get better the environment. In this way can only cities become better places to live.",
-      "expected": "开场白在前 + 逐句说差在哪（漏了/换差了/语序滑了）+ 归成「你还搬不过来的句子类型」；不代改",
-      "breaks": "直接给一版改写"
+      "expected": "开场白在前 + 逐句说差在哪（漏了/换差了/语序滑了）+ 归成「你还搬不过来的句子类型」+ 固定收尾句「该收复盘了——你自己先把这次扣题上、写法上的错整理一遍告诉我；然后我给你补语法上、语言上的错误清单，和值得积累的清单。」；不代改",
+      "breaks": "直接给一版改写；漏固定收尾句"
     },
     {
       "id": "WSK12",
-      "input": "（同一会话两条消息）第一条：收复盘。这是我前几步自己写的东西：\n第3步标的三处：[spend money on it more than roads]、[really convenient for everyone]、（use→take）\n第4步查扣题：段3偏了，落的话题扩大化\n第5步采纳的新表达：a lovely place（原来是 very good）\n第6步核对：which 从句又丢了\n第二条：就放默认位置建吧。",
-      "expected": "第一条：开场白在前 + 三块整理（一、新表达/更准的说法写对照；二、语法问题；三、扣题问题落七条判据），只整理他贴的 + 先问要不要存档（存本地还是每次打出来），他选存 → 报路径共识（默认 ~/Desktop/雅思教练/写作复盘.md，可换位置）；第二条：按默认路径建文件（示例换成他的真内容）",
-      "breaks": "静默建文件不征询；留样句；不整理成三块；塞进他没有的"
+      "input": "（同一会话两条消息）第一条：收复盘\n第二条：我整理的——扣题：段 3 偏了，落的话题扩大化。写法：which 从句又丢了，逗号连两句。第 3 步标的三处：[spend money on it more than roads]、[really convenient for everyone]、（use→take）；第 5 步采纳了 a lovely place（原来是 very good）。就放默认位置建吧。",
+      "expected": "第一条：开场白在前 + 第一拍固定引导「该收复盘了——你自己先把这次扣题上、写法上的错整理一遍告诉我；然后我给你补语法上、语言上的错误清单，和值得积累的清单。」+ 建档问句（先问要不要存——存本地还是每次打出来；不先替他整理）。第二条：核他的整理（对了肯定/漏了指出/归错类）+ 补两清单（语法语言错误清单+值得积累清单 a lovely place 对照）+ 对话里完整展示四区（一、扣题；二、衔接；三、词汇；四、语法——按官方四项归档；没内容的区一行带过；which 丢半句/逗号连句归语法区，不单立写法块）+ 展示完才按默认路径建文件（示例换成真内容）",
+      "breaks": "静默建文件不征询；留样句；只写文件不展示四区；塞进他没有的；第一条就替他整理不引导；四区重排或自造分类；打分/评 band"
     },
     {
       "id": "WSK13",
@@ -101,9 +101,9 @@
     },
     {
       "id": "WSK15",
-      "input": "收复盘。这是我前几步自己写的东西：\n第3步标的两处：[governments should spend money on it more than roads]、[a lovely place]\n第4步查扣题：段2 两问只回答了一问\n第5步采纳的新表达：prioritise（原来用 spend more money on）\n第6步核对：only 的位置又放错了",
-      "expected": "开场白在前 + 复盘已存在 → 不再征询路径，直接三块并进（新表达块新增 prioritise 对照；扣题块新增「两问只回答了一问」；语法块新增 only 位置；与上次同类的累加在原条上不新开）+ 文件实写（文件里能看到这轮增量）",
-      "breaks": "重复征询路径；同类新开条；没写进文件"
+      "input": "收复盘。我整理的——扣题：段 2 两问只回答了一问。写法：only 的位置又放错了。第 3 步标的两处：[governments should spend money on it more than roads]、[a lovely place]；第 5 步采纳了 prioritise（原来用 spend more money on）。",
+      "expected": "开场白在前 + 带了整理直接进第二拍（不再征询建档）+ 核（对了/漏了/归错类）+ 补两清单 + 对话里完整展示四区（扣题区新增「两问只回答了一问」；语法区新增 only 位置；词汇区新增 prioritise 对照；与上次同类累加在原条不新开）+ 文件实写（文件里能看到这轮增量）",
+      "breaks": "重复征询路径；同类新开条；没写进文件；只写不展示；四区重排或自造分类；打分/评 band"
     },
     {
       "id": "WSK16",
@@ -128,6 +128,12 @@
       "input": "题目 Governments should spend money on public transport rather than on roads. To what extent do you agree or disagree?\n我把段 3 改好了，贴回来：\nI agree that governments should spend more money on public transport than on roads. Public transport is cheap and useful for workers, so it is a good choice.\nFirst, taking the bus is cheaper for workers. Many workers spend a lot of money on driving every day. If governments spend more money on buses, tickets will be cheaper, and workers can save money.\nSecond, public transport can replace many cars on the roads. One bus can carry many people, so if more people take the bus, roads will be less crowded. So spending money on buses is better than spending on roads.",
       "expected": "开场白在前 + 重新查扣题逐段一行（每段「这段在回答什么 → 对没对上题目」）；三段都对上 → 收尾结论「扣题过关，不用改。下一步：把你这篇里拿不准的地方标出来（🔍 标好了）。」+ 固定句「以上是扣题的部分，语言我不评价」压尾",
       "breaks": "不重新查扣题直接给下一步别的；过关却给修改指令；改句子/评语言"
+    },
+    {
+      "id": "WSK20",
+      "input": "The chart below shows the percentage of households in England with internet access from 2000 to 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.\n我的拆题：第一段写总体趋势，第二段写 2000-2010 的增长，第三段写 2010 之后的平稳。\n我的全文：The chart shows the percentage of households in England with internet access. In 2000, only about 30% of households had internet access. By 2020, this number had risen to over 95%.",
+      "expected": "开场白在前 + 挡回，只回那一句：小作文暂没有进入本 skill——我只带大作文（Task 2）。小作文回你的正课看。不查扣题、不润色、不接盘",
+      "breaks": "照常按大作文流程处理（查扣题/润色）；多解释；接了继续往下带"
     }
   ]
 }

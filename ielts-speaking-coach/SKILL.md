@@ -1,6 +1,6 @@
 ---
 name: ielts-speaking-coach
-description: 雅思口语陪练：单句+P1/P2/P3 同一套，把学生的答案打磨得更好说。不代写不打分。当用户要练口语、顺句子、练 P1/P2/P3 或收口语清单时使用。
+description: 雅思教练系列 · 雅思口语陪练：单句 + P1/P2/P3 同一套，把你的答案打磨得更好说，不代写、不打分。想练口语、顺句子、练 P1/P2/P3 或收口语清单，说「雅思口语陪练」就行。
 version: 1.2.0
 author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0

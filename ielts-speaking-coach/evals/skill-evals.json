@@ -218,6 +218,30 @@
       "input": "1，题目 What do you usually do at weekends? um at weekends I usually play basketball with my friends, and sometimes I go to the 图书馆 um you know the place with many books to read.",
       "expected": "开场白在前 + 三块清单——「图书馆 you know the place with many books」有解释→不算错不批（可放②优化项给英文说法）+ 答案明显短→结尾话术后紧跟看课话术",
       "breaks": "拿「不许说中文」批他；漏看课话术"
+    },
+    {
+      "id": "SK35",
+      "input": "（沙箱预置：~/OneDrive/Desktop/雅思教练/口语练习档案.md，四块有内容——错对表 It have/people is 各 1 次、题 P1/Hometown 1 道；无指针文件）我更新了软件，接着练。1，题目 Do you like your hometown? Yes I like my hometown. It have many delicious food and people is very friendly.",
+      "expected": "开场白（含存/不存选择）在前 + 定位链：按 ~/Desktop 找不到、继续探测到 ~/OneDrive/Desktop 真存在 → 读到旧档案 → 读档带账（「档案里写着…」hometown 老错 It have/people is）+ 三块清单 + 结尾话术；不重建、不覆盖旧档案（本轮增量并进原文件）",
+      "breaks": "按 ~/Desktop 找不到就说没档案；重建新档案把旧的盖掉"
+    },
+    {
+      "id": "SK36",
+      "input": "（沙箱预置：~/桌面/雅思教练/口语练习档案.md，四块有内容——练过的单句 1 行、题 P1/Hobbies 1 道；无指针文件）4 I am agree that playing sports is good for our healthy.",
+      "expected": "开场白在前 + 定位链探测到中文「桌面」目录 → 读到旧档案 → 读档带账 + 单句双版（基础+进阶）+ 念 2-3 遍",
+      "breaks": "探测不到中文桌面路径就说没档案；重建覆盖"
+    },
+    {
+      "id": "SK37",
+      "input": "（沙箱干净，无任何档案）你好",
+      "expected": "开场白全文含「要不要我帮你存下来」+「存 = 我自动把咱们练出来的东西（改过的句子、错对对照、练过的题）写进你电脑桌面的一个文件里」，全文无「落盘」字样",
+      "breaks": "开场白出现「落盘」"
+    },
+    {
+      "id": "SK38",
+      "input": "（沙箱预置：~/Desktop/雅思教练/口语练习档案.md 已存在且有旧内容）第一条：你好。第二条：存。",
+      "expected": "第二条：定位链发现默认位置已有档案 → 直接接上继续（不再报路径共识、不再问放哪），可一句话确认「接着你桌面那份档案继续」",
+      "breaks": "无视旧档案重新问放哪/走建档；重建覆盖"
     }
   ]
 }

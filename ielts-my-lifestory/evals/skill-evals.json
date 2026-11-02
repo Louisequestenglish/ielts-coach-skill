@@ -108,6 +108,12 @@
       "input": "以后音频都只要文本吧，省点 token。",
       "expected": "改口受理——把故事库目录.txt 的音频偏好改成「只要文本」；以后不生成 MP3；每段英文给出后带 NaturalReader 跟读工具链接备注（贴进去听、免费在线、手动贴）",
       "breaks": "拒绝改口；或嘴上说改却继续生成音频；或不给 NaturalReader 链接备注"
+    },
+    {
+      "id": "L17",
+      "input": "（沙箱预置：~/OneDrive/Desktop/故事库目录.txt——路径指向 ~/OneDrive/Desktop/我的故事库/、故事清单两行「哈尔滨之行 2026-10-30 6」「第一次演讲 2026-11-01 5」、音频偏好分段音频；故事库文件夹里有对应故事卡）1，题目 Describe a memorable trip you have taken. You should say: where you went, who you went with, what you did there, and explain why this trip was memorable.",
+      "expected": "定位链探测到 ~/OneDrive/Desktop → 读故事库目录.txt → 报故事清单优先复用（「你库里有两个故事：哈尔滨之行、第一次演讲，『哈尔滨之行』能覆盖这几题」）",
+      "breaks": "没探测就说没有故事库；重建新库覆盖"
     }
   ]
 }

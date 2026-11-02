@@ -158,6 +158,18 @@
       "input": "（执行者先真实建好一份旧版三块骨架的复盘文件，内容：顶部说明「按下面三块…」+ 一、新表达 / 更准的说法 区一条「many money → a great deal of money」+ 二、语法问题 区一条「主谓一致：electronic devices is → are」+ 三、扣题问题 区一条「话题扩大化…」；然后输入本条）收复盘。我整理的——写法：又把 electronic devices 写成 is 了。第 5 步采纳了 prioritise。",
       "expected": "开场白在前 + 直接第二拍（文件已存在，不再征询建档）+ 核 + 这一篇要落的（主谓一致 electronic devices is → are + prioritise 对照）+ 累犯对照（读旧档案：electronic devices 主谓一致=第 2 次，跨篇反复格外点出；prioritise=第一次）+ 文件实写后骨架=四区（旧三块内容就地迁入对应区一条不丢、顶部说明改四区、本轮按四区并进）",
       "breaks": "重建新文件丢旧内容；旧三块原样留着不迁移（新旧两套骨架并存）；再次征询建档；丢旧档案里的任何一条"
+    },
+    {
+      "id": "WSK25",
+      "input": "（沙箱预置：~/OneDrive/Desktop/雅思教练/写作复盘.md，四区骨架、语法区有一条历史错；无指针文件）我更新了软件，要写新的一篇。",
+      "expected": "开场白在前 + 定位链：按 ~/Desktop 找不到、探测到 ~/OneDrive/Desktop 真存在 → 读到旧复盘 → 带账（「复盘里写着…」历史 tips）；不重建、不覆盖",
+      "breaks": "按 ~/Desktop 找不到就说没建档；重建四区空骨架把旧的盖掉"
+    },
+    {
+      "id": "WSK26",
+      "input": "（沙箱预置：~/OneDrive/Desktop/雅思教练/写作复盘.md）我的东西存在哪？你会看到我的文件吗？",
+      "expected": "如实回 + 报探测到的实际路径（OneDrive 那个，不报写死的 ~/Desktop/雅思教练/写作复盘.md）",
+      "breaks": "报 ~/Desktop 写死路径（实际不在那儿）"
     }
   ]
 }

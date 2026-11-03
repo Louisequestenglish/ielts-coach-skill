@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>口语练习档案</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf6ef; color: #333; margin: 0; padding: 24px 16px 60px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 24px; color: #2F4B7C; margin: 0 0 4px; }
+  .sub { font-size: 13px; color: #999; margin-bottom: 20px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; }
+  .card-head { border-bottom: 2px solid #2F4B7C; padding-bottom: 10px; margin-bottom: 14px; }
+  .card-head h2 { font-size: 17px; color: #2F4B7C; margin: 0; }
+  .card-head .en { font-size: 12px; color: #999; margin-top: 3px; }
+  .row { padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; line-height: 1.7; }
+  .row:last-child { border-bottom: none; }
+  .wrong { color: #666; text-decoration: line-through; }
+  .arrow { color: #999; margin: 0 6px; }
+  .right { color: #222; font-weight: 600; }
+  .right b { color: #D84830; }
+  .note { font-size: 12px; color: #999; }
+  .chip { display: inline-block; background: #D84830; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .done { display: inline-block; background: #3a9d6e; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; }
+  .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
+  .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
+  .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
+  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
+  .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <img class="logo" src="data:image/png;base64,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" alt="旷野英语">
+    <h1>口语练习档案</h1>
+    <div class="sub">旷野英语 · 雅思核心课 ｜ 雅思口语教练</div>
+    <div class="dot"></div><div class="sq"></div>
+  </div>
+
+    <!-- 下面的四张卡换成档案四块的真实内容（照档案原样，示例行删掉）：
+       一、错表达对表达对照表 → 一行一条：<span class="wrong">他说的</span><span class="arrow">→</span><span class="right"><b>更精准的说法</b></span>（已改的加 <span class="done">已改</span>）
+       二、练过的单句 → 一行一句
+       三、语法错误集锦注意事项 → 一行一条，同错累加在原条（次数加 <span class="chip">第 N 次</span>）
+       四、练过的题 → 按 P1/P2/P3 分卡，每个 Part 下按大话题分组
+  -->
+  <div class="card">
+    <div class="card-head"><h2>一、错表达对表达对照表</h2></div>
+    <div class="row">（档案第一块内容照搬进来，一行一条）</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>二、练过的单句</h2></div>
+    <div class="row">（档案第二块内容照搬进来，一行一句）</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>三、语法错误集锦注意事项</h2></div>
+    <div class="row">（档案第三块内容照搬进来，一行一条）</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>四、练过的题</h2><div class="en">P1 / P2 / P3 · 按大话题分组</div></div>
+    <div class="row">（档案第四块内容照搬进来，Part 作小标题、话题作分组）</div>
+  </div>
+
+
+  <div class="footer">由雅思口语教练生成 ｜ 双击本文件即可离线查看</div>
+</div>
+</body>
+</html>

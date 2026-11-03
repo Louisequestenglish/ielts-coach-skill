@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的故事库</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf6ef; color: #333; margin: 0; padding: 24px 16px 60px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
+  .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
+  .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
+  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
+  .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
+  .sec { background: #2F4B7C; color: #fff; border-radius: 10px; padding: 10px 16px; margin: 28px 0 14px; font-size: 15px; font-weight: 600; }
+  .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; }
+  .beat { padding: 14px 0; border-bottom: 1px dashed #eee; }
+  .beat:last-child { border-bottom: none; }
+  .beat h3 { font-size: 13px; color: #D84830; margin: 0 0 8px; }
+  .en { font-size: 15px; line-height: 1.8; color: #222; margin: 0 0 6px; }
+  .en b { color: #D84830; }
+  .zh { font-size: 13px; color: #666; margin: 0 0 6px; }
+  .kw { font-size: 12px; color: #2F4B7C; margin: 0 0 4px; }
+  .hi { font-size: 12px; color: #999; margin: 0 0 8px; }
+  audio { width: 100%; margin: 6px 0 0; }
+  .chip { display: inline-block; background: #D84830; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <img class="logo" src="data:image/png;base64,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" alt="旷野英语">
+    <h1>我的故事库</h1>
+    <div class="sub">旷野英语 · 雅思核心课 ｜ 我的生活故事</div>
+    <div class="dot"></div><div class="sq"></div>
+  </div>
+
+  <!-- 生成规则：读「生活故事」子文件夹的故事库目录.txt 拿清单（顺序照目录），每个故事读它的故事卡.md：
+       逐 beat 排（英文正文（好表达加粗 <b>）+ 中文对照 + 🔑内容关键词 + ✨亮点表达）；
+       该故事「音频」文件夹里的 mp3 按 beat 序号读出来 base64 内嵌成播放条（<audio controls src="data:audio/mpeg;base64,...">，
+       有「全.mp3」就在最后一个 beat 后加「整篇连读」播放条）；没有音频文件夹 → 不放播放条，
+       sec 行 chip 写「暂无音频」；示例行删掉。 -->
+
+  <div class="sec">🎤 （故事名）<span class="chip">N 个 beat</span><span class="chip">（音频状态：3 段 + 整篇 / 分段 / 暂无音频）</span></div>
+  <div class="card">
+    <div class="beat">
+      <h3>Beat 1</h3>
+      <p class="en">（英文正文，好表达加粗）</p>
+      <p class="zh">（中文对照）</p>
+      <p class="kw">🔑 内容关键词：…</p>
+      <p class="hi">✨ 亮点表达：…</p>
+      <audio controls src="data:audio/mpeg;base64,…"></audio>
+    </div>
+    <div class="beat"><h3>整篇连读</h3><audio controls src="data:audio/mpeg;base64,…"></audio></div>
+  </div>
+
+  <!-- 串题档案：读「生活故事/串题档案.md」，每个 ## 一节一张卡（所串题目 + 复用故事照实填，日期带进 h3）；
+       没有串题档案.md 或文件为空 → 整节删掉。 -->
+
+  <div class="sec">🧵 串题档案</div>
+  <div class="card">
+    <div class="beat">
+      <h3>（日期｜所串题目）</h3>
+      <p class="kw">复用故事：…</p>
+    </div>
+  </div>
+
+  <div class="footer">语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」（github.com/xiaolai/everyone-can-use-english）；串题方法见旷野英语雅思核心课 P2 模块。<br>由雅思教练生成 ｜ 双击本文件即可离线查看</div>
+</div>
+</body>
+</html>

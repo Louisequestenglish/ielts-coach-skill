@@ -25,6 +25,9 @@
   .hi { font-size: 12px; color: #999; margin: 0 0 8px; }
   audio { width: 100%; margin: 6px 0 0; }
   .chip { display: inline-block; background: #D84830; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .expr { padding: 8px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
+  .expr:last-child { border-bottom: none; }
+  .expr b { color: #2F4B7C; }
   .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; line-height: 1.8; }
 </style>
 </head>
@@ -66,6 +69,15 @@
       <h3>（日期｜所串题目）</h3>
       <p class="kw">复用故事：…</p>
     </div>
+  </div>
+
+  <!-- 精华表达：读「生活故事」子文件夹里的 精华表达.md（跨故事汇总），一行一条：
+       表达<b>加粗</b> + 中文意思 + 来自哪个故事（重复出现的标 <span class="chip">又用了 N 次</span>）；
+       没有 精华表达.md 或文件为空 → 整节删掉。 -->
+
+  <div class="sec">⭐ 精华表达</div>
+  <div class="card">
+    <div class="expr"><b>（表达）</b> —— （中文意思）<span class="chip">（来自哪个故事）</span></div>
   </div>
 
   <div class="footer">语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」（github.com/xiaolai/everyone-can-use-english）；串题方法见旷野英语雅思核心课 P2 模块。<br>由雅思教练生成 ｜ 双击本文件即可离线查看</div>

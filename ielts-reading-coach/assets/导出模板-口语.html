@@ -20,6 +20,15 @@
   .right { color: #222; font-weight: 600; }
   .right b { color: #D84830; }
   .note { font-size: 12px; color: #999; }
+  table.expr { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.expr th { text-align: left; background: #EDF1F8; color: #2F4B7C; padding: 7px 10px; border-bottom: 2px solid #2F4B7C; }
+  table.expr td { border-bottom: 1px solid #eee; padding: 7px 10px; vertical-align: top; }
+  table.expr tr:last-child td { border-bottom: none; }
+  .part h3 { font-size: 13px; color: #D84830; margin: 12px 0 6px; }
+  details.q { border-bottom: 1px dashed #eee; padding: 6px 0; }
+  details.q:last-of-type { border-bottom: none; }
+  details.q summary { cursor: pointer; font-size: 14px; color: #222; font-weight: 600; }
+  details.q .qbody { font-size: 14px; color: #444; line-height: 1.8; margin: 8px 0 4px 14px; }
   .chip { display: inline-block; background: #D84830; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
   .done { display: inline-block; background: #3a9d6e; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
   .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; }
@@ -42,29 +51,37 @@
   </div>
 
     <!-- 下面的四张卡换成档案四块的真实内容（照档案原样，示例行删掉）：
-       一、错表达对表达对照表 → 一行一条：<span class="wrong">他说的</span><span class="arrow">→</span><span class="right"><b>更精准的说法</b></span>（已改的加 <span class="done">已改</span>）
-       二、练过的单句 → 一行一句
-       三、语法错误集锦注意事项 → 一行一条，同错累加在原条（次数加 <span class="chip">第 N 次</span>）
-       四、练过的题 → 按 P1/P2/P3 分卡，每个 Part 下按大话题分组
+       一、错表达对表达对照表 → 一行一条：<span class="wrong">他说的</span><span class="arrow">→</span><span class="right"><b>更精准的说法</b></span>（已改的加 <span class="done">已改</span>）；练过的单句也并进这张卡
+       二、语法错误集锦注意事项 → 一行一条，同错累加在原条（次数加 <span class="chip">第 N 次</span>）
+       三、练过的题 → 按 P1/P2/P3 分节（<div class="part"><h3>P1</h3></div> 作小标题，每个 Part 下按大话题排），
+          每题一个折叠条：<details class="q"><summary>题目原文</summary><div class="qbody">这道题最后定稿的完整版本</div></details>
+          （还没出完整版的题只写题目原文、没有展开内容；同一道题以最新定稿为准）
+       四、精华表达 → 四列表格（文本<b>加粗</b>/意思提醒/原句/got it），重复出现的标 <span class="chip">又用了 N 次</span>
   -->
   <div class="card">
-    <div class="card-head"><h2>一、错表达对表达对照表</h2></div>
+    <div class="card-head"><h2>一、错表达对表达对照表</h2><div class="en">练过的单句也并进这里</div></div>
     <div class="row">（档案第一块内容照搬进来，一行一条）</div>
   </div>
 
   <div class="card">
-    <div class="card-head"><h2>二、练过的单句</h2></div>
-    <div class="row">（档案第二块内容照搬进来，一行一句）</div>
+    <div class="card-head"><h2>二、语法错误集锦注意事项</h2></div>
+    <div class="row">（档案第二块内容照搬进来，一行一条）</div>
   </div>
 
   <div class="card">
-    <div class="card-head"><h2>三、语法错误集锦注意事项</h2></div>
-    <div class="row">（档案第三块内容照搬进来，一行一条）</div>
+    <div class="card-head"><h2>三、练过的题</h2><div class="en">P1 / P2 / P3 · 按大话题分组 · 点开看最终版本</div></div>
+    <div class="part"><h3>P1</h3></div>
+    <details class="q"><summary>（题目原文）</summary><div class="qbody">（这道题最后定稿的完整版本）</div></details>
+    <div class="part"><h3>P2</h3></div>
+    <details class="q"><summary>（题目原文）</summary><div class="qbody">（这道题最后定稿的完整版本）</div></details>
   </div>
 
   <div class="card">
-    <div class="card-head"><h2>四、练过的题</h2><div class="en">P1 / P2 / P3 · 按大话题分组</div></div>
-    <div class="row">（档案第四块内容照搬进来，Part 作小标题、话题作分组）</div>
+    <div class="card-head"><h2>四、精华表达</h2><div class="en">收清单第二样的新表达落这里</div></div>
+    <table class="expr">
+      <tr><th>文本</th><th>意思提醒</th><th>原句</th><th>got it</th></tr>
+      <tr><td>（档案第四块内容照搬进来，一行一条）</td><td></td><td></td><td></td></tr>
+    </table>
   </div>
 
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我精读过的文章库</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf6ef; color: #333; margin: 0; padding: 24px 16px 60px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 12px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
+  .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
+  .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
+  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
+  .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
+  .hint { background: #EDF1F8; border-left: 4px solid #2F4B7C; color: #2F4B7C; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; margin-bottom: 10px; line-height: 1.6; }
+  .toolbar { background: #fff; border-radius: 12px; padding: 10px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .toolbar label { font-size: 12px; color: #999; }
+  .toolbar select { border: 1px solid #ddd; border-radius: 8px; padding: 6px 8px; font-size: 13px; color: #2F4B7C; background: #fff; outline: none; }
+  .toolbar .count { margin-left: auto; font-size: 12px; color: #999; }
+  .sec { background: #2F4B7C; color: #fff; border-radius: 10px; padding: 8px 14px; margin: 22px 0 10px; font-size: 14px; font-weight: 600; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 12px; }
+  .card > summary.title { list-style: none; cursor: pointer; padding: 14px 22px; font-size: 15.5px; color: #2F4B7C; font-weight: 600; outline: none; display: flex; align-items: center; }
+  .card > summary.title::-webkit-details-marker { display: none; }
+  .card > summary.title::before { content: '▸ '; color: #D84830; margin-right: 6px; }
+  .card[open] > summary.title::before { content: '▾ '; }
+  .card > summary.title:hover { color: #D84830; }
+  .card .date { margin-left: auto; font-size: 12px; color: #999; font-weight: 400; }
+  .card .body { padding: 2px 22px 16px; }
+  .card .body p { font-size: 14.5px; line-height: 1.9; color: #333; margin: 12px 0 0; }
+  .card .body details { border-top: 1px dashed #eee; margin-top: 12px; padding-top: 8px; }
+  .card .body summary { cursor: pointer; color: #2F4B7C; font-size: 13px; font-weight: 600; outline: none; list-style: none; }
+  .card .body summary::-webkit-details-marker { display: none; }
+  .card .body summary:hover { color: #D84830; }
+  .tr { background: #f4f1ea; border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
+  .tr p { font-size: 13.5px; line-height: 1.9; color: #666; margin: 0 0 8px; }
+  .tr p:last-child { margin-bottom: 0; }
+  .empty { text-align: center; color: #bbb; font-size: 13px; padding: 40px 0; background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; line-height: 2; }
+  .footer a { color: #2F4B7C; text-decoration: none; font-weight: 600; }
+  .footer a:hover { color: #D84830; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <img class="logo" src="data:image/png;base64,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" alt="旷野英语">
+    <h1>我精读过的文章库</h1>
+    <div class="sub">旷野英语 · 雅思核心课 ｜ 雅思阅读精读教练</div>
+    <div class="dot"></div><div class="sq"></div>
+  </div>
+
+  <div class="hint">精读过的文章都存这。想泛读哪篇，点开篇名直接读——不抠句子，顺一遍意思，读得比上次顺，这篇就算吃透了。卡住就展开「中文意思参考」自查。</div>
+
+  <div class="toolbar">
+    <label>话题</label>
+    <select id="f-cat">
+      <option value="all">全部</option>
+      <option>教育</option><option>科技</option><option>环境</option><option>健康</option><option>社会</option><option>历史</option><option>动植物</option><option>商业</option><option>文化</option><option>其他</option>
+    </select>
+    <label>时间</label>
+    <select id="f-time">
+      <option value="all">全部</option>
+      <option value="7">最近 7 天</option>
+      <option value="30">最近 30 天</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="footer"><a href="我的阅读库.html">← 我的阅读库</a><br>由雅思精读教练生成 ｜ 双击本文件即可离线查看</div>
+</div>
+
+<script>
+  // ═══ 生成说明（教练生成时按 精读文章.md 填写，生成完保留本注释亦可）═══
+  // NOW：填生成当天日期，时刻保持 12:00:00，时间筛选按它算。
+  // DATA：精读文章.md 每篇一个对象，按日期倒序排：
+  //   t = 文章标题；cat = 话题（十类之一）；date = 存库日期（YYYY-MM-DD）；
+  //   paras = 正文段落数组（英文原文，一段一个元素）；
+  //   tr = 「中文意思参考」段落数组（与 paras 一一对应）——是诠释不是逐字机械翻译，
+  //        专有名词、专业术语保留英文不译；学生卡住才自己展开看，别直接亮给他。
+  const NOW = new Date('2026-11-07T12:00:00');
+  const DATA = [
+    // { t: 'The Purpose of Homework', cat: '教育', date: '2026-11-06', paras: ['...'], tr: ['...'] },
+  ];
+
+  function daysAgo(d){ return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
+  function passFilter(item){
+    const cat = document.getElementById('f-cat').value, t = document.getElementById('f-time').value;
+    if (cat !== 'all' && item.cat !== cat) return false;
+    if (t !== 'all' && daysAgo(item.date) > +t) return false;
+    return true;
+  }
+  function render(){
+    const box = document.getElementById('list');
+    box.innerHTML = '';
+    const groups = {};
+    DATA.forEach(item => {
+      if (!passFilter(item)) return;
+      (groups[item.cat] = groups[item.cat] || []).push(item);
+    });
+    let total = 0;
+    Object.entries(groups).forEach(([cat, items]) => {
+      const sec = document.createElement('div'); sec.className = 'sec';
+      sec.textContent = '📚 ' + cat + ' ｜ ' + items.length + ' 篇';
+      box.appendChild(sec);
+      items.forEach(item => {
+        const card = document.createElement('details'); card.className = 'card';
+        card.innerHTML = '<summary class="title"><span>📄 ' + item.t + '</span><span class="date">' + item.date + '</span></summary><div class="body">' +
+          item.paras.map(p => '<p>' + p + '</p>').join('') +
+          '<details><summary>🌐 中文意思参考</summary><div class="tr">' +
+          item.tr.map(p => '<p>' + p + '</p>').join('') + '</div></details></div>';
+        box.appendChild(card);
+      });
+      total += items.length;
+    });
+    if (!total) {
+      box.innerHTML = '<div class="empty">这个条件下没有存过的文章</div>';
+    }
+    document.getElementById('count').textContent = '显示 ' + total + ' 篇';
+  }
+  ['f-cat','f-time'].forEach(id => document.getElementById(id).addEventListener('change', render));
+  render();
+</script>
+</body>
+</html>

@@ -59,6 +59,11 @@
   .xbeat .zh { margin-bottom: 0; }
   .empty { background: #fff; border-radius: 12px; padding: 18px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; font-size: 13px; color: #999; }
   .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; line-height: 1.8; }
+  .savebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .savebar button { font-size: 14px; padding: 6px 14px; border: 1px solid #2F4B7C; color: #2F4B7C; background: #fff; border-radius: 6px; cursor: pointer; }
+  .savebar button:hover { background: #eef3fb; }
+  .savetip { font-size: 13px; color: #888; }
+  .savehint { font-size: 13px; }
 </style>
 </head>
 <body>
@@ -103,6 +108,8 @@
     ];
   </script>
 
+  <div class="savebar"><button id="btn-save">💾 保存状态进文件</button><span class="savetip">勾选/折叠默认只记在这台电脑的浏览器里——点保存写进文件本身，清记录、换电脑都不丢</span><span class="savehint" id="savehint"></span></div>
+
   <div class="sec fold-head" id="head-stories">🎤 纯练故事<span class="fold-arrow">▾</span></div>
   <div id="stories-wrap">
     <div class="toolbar"><label for="f-topic">话题</label><select id="f-topic"></select><label for="f-stime">时间</label><select id="f-stime"></select><span class="cnt" id="story-cnt"></span></div>
@@ -128,7 +135,10 @@
   // —— 三节折叠（节头点击收起/展开，状态存本地，下次打开记住）——
   function bindFold(head, wrap, key) {
     let open = true;
-    try { if (localStorage.getItem(key) === '0') open = false; } catch (e) {}
+    try {
+      if (localStorage.getItem(key) === '0') open = false;
+      else if (localStorage.getItem(key) === null && typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.folds && key in window.__SAVED__.folds) open = window.__SAVED__.folds[key] !== '0';
+    } catch (e) {}
     const arrow = head.querySelector('.fold-arrow');
     function apply() {
       wrap.style.display = open ? '' : 'none';
@@ -145,6 +155,7 @@
 
   // —— 通用：打开当天 + 时间档（全部/近 7 天/近 1 个月/更久之前）——
   const NOW = new Date();
+  let localCheck = {};
   function daysAgo(d) { if (!d) return Infinity; return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
   function passTime(d, t) {
     if (t === 'all') return true;
@@ -248,8 +259,8 @@
   const exprCnt = document.getElementById('expr-cnt');
   if (EXPR.length) {
     eTime.innerHTML = '<option value="all">全部</option><option value="7">近 7 天</option><option value="30">近 1 个月</option><option value="old">更久之前</option>';
-    let localCheck = {};
     try { localCheck = JSON.parse(localStorage.getItem('ysgk-expr-check') || '{}'); } catch (e) { localCheck = {}; }
+    if (typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.checks) localCheck = Object.assign(window.__SAVED__.checks, localCheck);
     function renderExprs() {
       const t = eTime.value;
       const shownIdx = [];
@@ -287,6 +298,45 @@
     document.getElementById('head-expr').style.display = 'none';
     document.getElementById('exprs-wrap').style.display = 'none';
   }
+
+  // 💾 保存：把勾选/折叠状态写进这个 HTML 文件本身（清浏览器记录、换电脑都不丢）
+  function collectState() {
+    const s = { checks: Object.assign({}, localCheck), folds: {} };
+    try { ['ysgk-fold-stories', 'ysgk-fold-xuanti', 'ysgk-fold-expr'].forEach(k => { const v = localStorage.getItem(k); if (v !== null) s.folds[k] = v; }); } catch (e) {}
+    return s;
+  }
+  async function saveState() {
+    const hint = document.getElementById('savehint');
+    const set = (t, ok) => { hint.textContent = t; hint.style.color = ok ? '#3a9d6e' : '#c0392b'; };
+    try {
+      const state = collectState();
+      const M = '/*STAT' + 'E*/window.__SAVED__';
+      let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const line = M + ' = ' + JSON.stringify(state).replace(/<\//g, '<\\/') + ';\n';
+      if (html.indexOf(M) >= 0) html = html.replace(/\/\*STATE\*\/window\.__SAVED__ = [^\n]*\n/, () => line);
+      else html = html.replace(/const NOW = new Date\(\);\n/, 'const NOW = new Date();\n' + line);
+      const name = decodeURIComponent((location.pathname.split('/').pop()) || '我的故事库.html');
+      if (window.showSaveFilePicker) {
+        const h = await window.showSaveFilePicker({ suggestedName: name, types: [{ description: 'HTML 文件', accept: { 'text/html': ['.html'] } }] });
+        const w = await h.createWritable();
+        await w.write(new File([html], name, { type: 'text/html' }));
+        await w.close();
+        set('✅ 已保存——状态写进文件本身了，清浏览器记录也不丢', true);
+      } else {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+        a.download = name;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        set('✅ 已生成新文件——用它替换原来的文件就行', true);
+      }
+    } catch (e) {
+      if (e && e.name === 'AbortError') { set('', true); return; }
+      set('⚠️ 没存上：' + (e && e.message ? e.message : e), false);
+    }
+  }
+  const saveBtn = document.getElementById('btn-save');
+  if (saveBtn) saveBtn.addEventListener('click', saveState);
 </script>
 </body>
 </html>

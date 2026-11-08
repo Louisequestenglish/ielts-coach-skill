@@ -42,6 +42,11 @@
   .empty { text-align: center; color: #bbb; font-size: 13px; padding: 40px 0; background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
   .pool { font-size: 12px; color: #999; margin: 4px 0 0; }
   .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; }
+  .savebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .savebar button { font-size: 14px; padding: 6px 14px; border: 1px solid #2F4B7C; color: #2F4B7C; background: #fff; border-radius: 6px; cursor: pointer; }
+  .savebar button:hover { background: #eef3fb; }
+  .savetip { font-size: 13px; color: #888; }
+  .savehint { font-size: 13px; }
 </style>
 </head>
 <body>
@@ -83,9 +88,11 @@
     <span class="count" id="count"></span>
   </div>
 
+  <div class="savebar"><button id="btn-save">💾 保存状态进文件</button><span class="savetip">勾选默认只记在这台电脑的浏览器里——点保存写进文件本身，清记录、换电脑都不丢</span><span class="savehint" id="savehint"></span></div>
+
   <div id="list"></div>
 
-  <p class="pool">挑勾只在「🔤 只看英文」里开放——单词孤零零摆着，认得出才算掌握。勾上 = 进「我已掌握」；去掉勾 = 回「还不熟」。刚整理进来的词默认都在「还不熟」里。<br>勾会记在这台电脑的这个浏览器里（关掉再打开还在）；换浏览器、换设备或清掉浏览器记录就没了。想让教练那边的生词库也同步更新，说一声。</p>
+  <p class="pool">挑勾只在「🔤 只看英文」里开放——单词孤零零摆着，认得出才算掌握。勾上 = 进「我已掌握」；去掉勾 = 回「还不熟」。刚整理进来的词默认都在「还不熟」里。<br>勾默认记在这台电脑的这个浏览器里（关掉再打开还在）；想连清浏览器记录、换电脑都不丢，勾完点上面的「💾 保存状态进文件」把状态写进这个文件本身（Safari 等浏览器会下载新文件，用新文件替换原来的就行）。想让教练那边的生词库也同步更新，说一声。</p>
 
   <div class="footer"><a href="我的阅读库.html">← 我的阅读库</a><br>由雅思精读教练生成 ｜ 双击本文件即可离线查看</div>
 </div>
@@ -105,6 +112,7 @@
   // localStorage 还在（按 file:// origin 记），所以 MD 的 ☐/✅ 是正主、页面勾选是自测暂存。
   let localCheck = {};
   try { localCheck = JSON.parse(localStorage.getItem('ysyk-check') || '{}'); } catch (e) { localCheck = {}; }
+  if (typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.checks) localCheck = Object.assign(window.__SAVED__.checks, localCheck);
   DATA.forEach(item => { if (item.w in localCheck) item.done = localCheck[item.w]; });
   let VIEW = 'full';
   let STATE = 'todo';
@@ -192,6 +200,43 @@
   ['f-cat','f-time'].forEach(id => document.getElementById(id).addEventListener('change', render));
   updateGuide();
   render();
+
+  // 💾 保存：把勾选状态写进这个 HTML 文件本身（清浏览器记录、换电脑都不丢）
+  function collectState() {
+    return { checks: Object.assign({}, localCheck), folds: {} };
+  }
+  async function saveState() {
+    const hint = document.getElementById('savehint');
+    const set = (t, ok) => { hint.textContent = t; hint.style.color = ok ? '#3a9d6e' : '#c0392b'; };
+    try {
+      const state = collectState();
+      const M = '/*STAT' + 'E*/window.__SAVED__';
+      let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const line = M + ' = ' + JSON.stringify(state).replace(/<\//g, '<\\/') + ';\n';
+      if (html.indexOf(M) >= 0) html = html.replace(/\/\*STATE\*\/window\.__SAVED__ = [^\n]*\n/, () => line);
+      else html = html.replace(/const NOW = new Date\(\);\n/, 'const NOW = new Date();\n' + line);
+      const name = decodeURIComponent((location.pathname.split('/').pop()) || '生词库.html');
+      if (window.showSaveFilePicker) {
+        const h = await window.showSaveFilePicker({ suggestedName: name, types: [{ description: 'HTML 文件', accept: { 'text/html': ['.html'] } }] });
+        const w = await h.createWritable();
+        await w.write(new File([html], name, { type: 'text/html' }));
+        await w.close();
+        set('✅ 已保存——状态写进文件本身了，清浏览器记录也不丢', true);
+      } else {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+        a.download = name;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        set('✅ 已生成新文件——用它替换原来的文件就行', true);
+      }
+    } catch (e) {
+      if (e && e.name === 'AbortError') { set('', true); return; }
+      set('⚠️ 没存上：' + (e && e.message ? e.message : e), false);
+    }
+  }
+  const saveBtn = document.getElementById('btn-save');
+  if (saveBtn) saveBtn.addEventListener('click', saveState);
 </script>
 </body>
 </html>

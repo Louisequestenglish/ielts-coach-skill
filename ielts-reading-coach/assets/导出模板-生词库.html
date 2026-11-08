@@ -91,11 +91,11 @@
 
 <script>
   // ═══ 生成说明（教练生成时按生词库.md 填写，生成完保留本注释亦可）═══
-  // NOW：填生成当天日期，时刻保持 12:00:00，时间筛选按它算。
+  // NOW 不用填——打开页面的当天自动算，时间筛选按打开当天倒推。
   // DATA：生词库.md 每条一行填一个对象：
   //   w = 生词文本（不加粗符号）；zh = 意思提醒；en = 原句（生词处用 <b></b> 标出）；
   //   cat = 该节类别；date = 该节日期（YYYY-MM-DD）；done = ☐ → false，✅ → true。
-  const NOW = new Date('2026-11-07T12:00:00');
+  const NOW = new Date();
   const DATA = [
     // { w: 'play no part in', zh: '不参与、不起作用', en: 'The schools <b>play no part in</b> the decision.', cat: '环境', date: '2026-11-05', done: false },
   ];

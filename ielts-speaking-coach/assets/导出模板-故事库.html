@@ -33,8 +33,9 @@
   .toolbar { background: #fff; border-radius: 12px; padding: 12px 18px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; }
   .toolbar select { font: inherit; color: #2F4B7C; border: 1px solid #2F4B7C; border-radius: 8px; padding: 5px 10px; background: #fff; cursor: pointer; }
   .toolbar .cnt { margin-left: auto; font-size: 12px; color: #999; }
-  .sec.search { display: flex; align-items: center; justify-content: space-between; }
-  .sec.search input { font: inherit; font-weight: normal; font-size: 13px; width: 150px; border: none; border-radius: 8px; padding: 5px 10px; color: #333; outline: none; }
+  .sec.fold-head { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; }
+  .sec .fold-arrow { font-size: 12px; opacity: .85; }
+  .sec.search input { margin-left: auto; font: inherit; font-weight: normal; font-size: 13px; width: 150px; border: none; border-radius: 8px; padding: 5px 10px; color: #333; outline: none; }
   .xhead { font-size: 15px; font-weight: 600; color: #D84830; margin: 0 0 6px; }
   .xrow { padding: 9px 0; border-bottom: 1px dashed #eee; }
   .xrow:last-child { border-bottom: none; }
@@ -79,20 +80,44 @@
     ];
   </script>
 
-  <div class="toolbar"><label for="f-topic">选择话题</label><select id="f-topic"></select><span class="cnt" id="story-cnt"></span></div>
-  <div id="stories"></div>
+  <div class="sec fold-head" id="head-stories">🎤 纯练故事<span class="fold-arrow">▾</span></div>
+  <div id="stories-wrap">
+    <div class="toolbar"><label for="f-topic">选择话题</label><select id="f-topic"></select><span class="cnt" id="story-cnt"></span></div>
+    <div id="stories"></div>
+  </div>
 
-  <div class="sec search">🧵 串题档案<input id="f-search" placeholder="搜 P2 题…"></div>
-  <div id="xuantis"></div>
-  <div class="empty" id="x-empty" style="display:none">没有匹配的题</div>
+  <div class="sec search fold-head" id="head-xuanti">🧵 串题<span class="fold-arrow">▾</span><input id="f-search" placeholder="搜 P2 题…"></div>
+  <div id="xuantis-wrap">
+    <div id="xuantis"></div>
+    <div class="empty" id="x-empty" style="display:none">没有匹配的题</div>
+  </div>
 
+  <div class="sec fold-head" id="head-expr">⭐ 精华表达<span class="fold-arrow">▾</span></div>
   <div id="exprs"></div>
 
   <div class="footer">语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」（github.com/xiaolai/everyone-can-use-english）；串题方法见旷野英语雅思核心课 P2 模块。<br>由雅思教练生成 ｜ 双击本文件即可离线查看</div>
 </div>
 
 <script>
-  // —— 故事区：选择话题下拉 + 按标签分组 ——
+  // —— 三节折叠（节头点击收起/展开，状态存本地，下次打开记住）——
+  function bindFold(head, wrap, key) {
+    let open = true;
+    try { if (localStorage.getItem(key) === '0') open = false; } catch (e) {}
+    const arrow = head.querySelector('.fold-arrow');
+    function apply() {
+      wrap.style.display = open ? '' : 'none';
+      if (arrow) arrow.textContent = open ? '▾' : '▸';
+    }
+    head.onclick = function (e) {
+      if (e && e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) return;
+      open = !open;
+      try { localStorage.setItem(key, open ? '1' : '0'); } catch (e) {}
+      apply();
+    };
+    apply();
+  }
+
+  // —— 🎤 纯练故事：选择话题下拉 + 按标签分组 ——
   const storyBox = document.getElementById('stories');
   const sel = document.getElementById('f-topic');
   const cnt = document.getElementById('story-cnt');
@@ -131,8 +156,9 @@
     document.querySelector('.toolbar').style.display = 'none';
     storyBox.innerHTML = '<div class="empty">还没有故事——想讲你的故事，说「我的故事」就行。</div>';
   }
+  bindFold(document.getElementById('head-stories'), document.getElementById('stories-wrap'), 'ysgk-fold-stories');
 
-  // —— 串题区：故事串卡 + 搜 P2 题 ——
+  // —— 🧵 串题：故事串卡 + 搜 P2 题 ——
   const xBox = document.getElementById('xuantis');
   const xEmpty = document.getElementById('x-empty');
   function renderXuantis() {
@@ -163,18 +189,23 @@
       });
       xEmpty.style.display = any ? 'none' : '';
     };
+    bindFold(document.getElementById('head-xuanti'), document.getElementById('xuantis-wrap'), 'ysgk-fold-xuanti');
   } else {
-    document.querySelector('.sec.search').style.display = 'none';
+    document.getElementById('head-xuanti').style.display = 'none';
   }
 
-  // —— 精华表达 ——
+  // —— ⭐ 精华表达 ——
   if (EXPR.length) {
-    document.getElementById('exprs').innerHTML =
-      '<div class="sec">⭐ 精华表达</div><div class="card">' +
+    const exprBox = document.getElementById('exprs');
+    exprBox.innerHTML =
+      '<div class="card">' +
       EXPR.map(e => '<div class="expr"><b>' + e.e + '</b> —— ' + e.z +
         '<span class="chip">' + e.from + '</span>' +
         (e.n > 1 ? '<span class="chip b">又用了 ' + e.n + ' 次</span>' : '') +
         '</div>').join('') + '</div>';
+    bindFold(document.getElementById('head-expr'), exprBox, 'ysgk-fold-expr');
+  } else {
+    document.getElementById('head-expr').style.display = 'none';
   }
 </script>
 </body>

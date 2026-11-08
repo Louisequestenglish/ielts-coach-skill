@@ -10,6 +10,12 @@
   h1 { font-size: 24px; color: #2F4B7C; margin: 0 0 4px; }
   .sub { font-size: 13px; color: #999; margin-bottom: 20px; }
   .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; }
+  details.block { margin-bottom: 20px; }
+  details.block summary { cursor: pointer; background: #fff; border-radius: 12px; padding: 14px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); font-size: 17px; color: #2F4B7C; font-weight: 600; list-style: none; border-bottom: 2px solid #2F4B7C; }
+  details.block summary::-webkit-details-marker { display: none; }
+  details.block summary .en { font-size: 12px; color: #999; font-weight: 400; margin-left: 8px; }
+  details.block[open] summary { border-radius: 12px 12px 0 0; }
+  details.block .card { margin: 10px 0 0; }
   .card-head { border-bottom: 2px solid #2F4B7C; padding-bottom: 10px; margin-bottom: 14px; }
   .card-head h2 { font-size: 17px; color: #2F4B7C; margin: 0; }
   .card-head .en { font-size: 12px; color: #999; margin-top: 3px; }
@@ -42,28 +48,37 @@
   </div>
 
     <!-- 下面的四张卡换成复盘四区的真实内容（照档案原样，示例行删掉）：
-       每区内部按档案现有顺序照搬（档案里已按「最高频 & 影响最严重」排好，别重排）；
-       累犯加 <span class="chip">第 N 次</span>，已改的加 <span class="done">已改</span>
+        四区各一个折叠条 <details class="block" open>（标题作 summary、默认展开、点标题收起），卡内容放折叠条里。
+        每区内部按档案现有顺序照搬（档案里已按「最高频 & 影响最严重」排好，别重排）；
+        累犯加 <span class="chip">第 N 次</span>，已改的加 <span class="done">已改</span>
   -->
-  <div class="card">
-    <div class="card-head"><h2>一、扣题</h2><div class="en">Task Response · 任务回应</div></div>
-    <div class="row">（档案第一区内容照搬进来，一行一条）</div>
-  </div>
+  <details class="block" open>
+    <summary>一、扣题 <span class="en">Task Response · 任务回应</span></summary>
+    <div class="card">
+      <div class="row">（档案第一区内容照搬进来，一行一条）</div>
+    </div>
+  </details>
 
-  <div class="card">
-    <div class="card-head"><h2>二、衔接</h2><div class="en">Coherence &amp; Cohesion · 连贯与衔接</div></div>
-    <div class="row">（档案第二区内容照搬进来，一行一条）</div>
-  </div>
+  <details class="block" open>
+    <summary>二、衔接 <span class="en">Coherence &amp; Cohesion · 连贯与衔接</span></summary>
+    <div class="card">
+      <div class="row">（档案第二区内容照搬进来，一行一条）</div>
+    </div>
+  </details>
 
-  <div class="card">
-    <div class="card-head"><h2>三、词汇</h2><div class="en">Lexical Resource · 词汇资源</div></div>
-    <div class="row">（档案第三区内容照搬进来，一行一条）</div>
-  </div>
+  <details class="block" open>
+    <summary>三、词汇 <span class="en">Lexical Resource · 词汇资源</span></summary>
+    <div class="card">
+      <div class="row">（档案第三区内容照搬进来，一行一条）</div>
+    </div>
+  </details>
 
-  <div class="card">
-    <div class="card-head"><h2>四、语法</h2><div class="en">Grammatical Range &amp; Accuracy · 语法多样性与准确性</div></div>
-    <div class="row">（档案第四区内容照搬进来，一行一条）</div>
-  </div>
+  <details class="block" open>
+    <summary>四、语法 <span class="en">Grammatical Range &amp; Accuracy · 语法多样性与准确性</span></summary>
+    <div class="card">
+      <div class="row">（档案第四区内容照搬进来，一行一条）</div>
+    </div>
+  </details>
 
 
   <div class="footer">由雅思写作教练生成 ｜ 双击本文件即可离线查看</div>

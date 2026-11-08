@@ -15,6 +15,7 @@
   .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
   .sec { background: #2F4B7C; color: #fff; border-radius: 10px; padding: 10px 16px; margin: 28px 0 14px; font-size: 15px; font-weight: 600; }
   .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; }
+  .shead { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; font-size: 16px; font-weight: 700; color: #333; margin: 0 0 14px; padding-left: 10px; border-left: 4px solid #D84830; }
   .beat { padding: 14px 0; border-bottom: 1px dashed #eee; }
   .beat:last-child { border-bottom: none; }
   .beat h3 { font-size: 13px; color: #D84830; margin: 0 0 8px; }
@@ -30,9 +31,17 @@
   .expr { padding: 8px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
   .expr:last-child { border-bottom: none; }
   .expr b { color: #2F4B7C; }
-  .toolbar { background: #fff; border-radius: 12px; padding: 12px 18px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; }
+  .exrow { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+  .exrow input[type=checkbox] { width: 17px; height: 17px; accent-color: #3a9d6e; flex: none; margin-top: 3px; cursor: pointer; }
+  .exbody { flex: 1; }
+  .exdate { font-size: 11px; color: #bbb; margin-left: 6px; }
+  .expr.done .exbody { color: #6a8fd0; }
+  .expr.done b { color: #3d66b8; }
+  .toolbar { background: #fff; border-radius: 12px; padding: 12px 18px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; flex-wrap: wrap; }
+  .toolbar label { font-size: 13px; color: #555; }
   .toolbar select { font: inherit; color: #2F4B7C; border: 1px solid #2F4B7C; border-radius: 8px; padding: 5px 10px; background: #fff; cursor: pointer; }
   .toolbar .cnt { margin-left: auto; font-size: 12px; color: #999; }
+  .toolbar .hint { font-size: 11px; color: #bbb; }
   .sec.fold-head { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; }
   .sec .fold-arrow { font-size: 12px; opacity: .85; }
   .sec.search input { margin-left: auto; font: inherit; font-weight: normal; font-size: 13px; width: 150px; border: none; border-radius: 8px; padding: 5px 10px; color: #333; outline: none; }
@@ -41,6 +50,13 @@
   .xrow:last-child { border-bottom: none; }
   .xrow .kw { margin-bottom: 2px; }
   .xrow .hi { margin-bottom: 0; }
+  .xrun { background: #fbf7ee; border: 1px solid #efe6d4; border-left: 3px solid #D84830; border-radius: 8px; padding: 10px 12px; margin-top: 8px; }
+  .xbased { font-size: 12px; color: #D84830; font-weight: 600; margin: 0 0 6px; }
+  .xopen { font-size: 13px; color: #555; margin: 0 0 8px; }
+  .xbeat { padding: 8px 0; }
+  .xbeat + .xbeat { border-top: 1px dashed #eee; }
+  .xbeat .en { margin-bottom: 3px; }
+  .xbeat .zh { margin-bottom: 0; }
   .empty { background: #fff; border-radius: 12px; padding: 18px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; font-size: 13px; color: #999; }
   .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; line-height: 1.8; }
 </style>
@@ -49,7 +65,7 @@
 <div class="wrap">
 
   <div class="brand">
-    <img class="logo" src="data:image/png;base64,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" alt="旷野英语">
+    <img class="logo" src="data:image/png;base64,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" alt="旷野英语">
     <h1>我的故事库</h1>
     <div class="sub">旷野英语 · 雅思核心课 ｜ 我的生活故事</div>
     <div class="dot"></div><div class="sq"></div>
@@ -58,31 +74,38 @@
   <!-- 生成规则（教练照填，示例数据替换成真实档案；没有的区段把数组清空，对应小节自动不显示）：
        读「生活故事」子文件夹的故事库目录.txt 拿故事清单（顺序照目录），每个故事读它的故事卡.md：
        STORIES 每个故事 = { name:故事名, tag:话题标签（故事卡标题下一行的「> 话题：X」里的 X；旧故事没标签 → 留空，自动归「未分类」）,
+         d:入库日期（目录.txt 故事清单里的日期；没有 → 留空，自动归「更久之前」）,
          beats:[ { en:英文正文（好表达加粗 <b>）, zh:中文对照, kw:内容关键词, hi:亮点表达, audio:该 beat 的 mp3 base64（音频文件夹里有就内嵌，没有 → 留空）}, … ],
          full:全.mp3 的 base64（有整篇连读就填，没有 → 留空） }
-       XUANTI 读 串题档案.md：新格式每个「故事串」节一张卡 { head:'故事串N · 故事名', rows:[ { d:日期, q:所串题目, s:'取哪些段 + 开头要点' }, … ] }；
-       旧格式（日期｜所串题目）照旧出卡（接旧不搬）：{ head:'日期', rows:[ { q:所串题目, s:'复用故事：X' } ] }。
-       EXPR 读 精华表达.md：一行一条 { e:表达, z:中文意思, from:来自哪个故事, n:重复次数（重复出现标「又用了 N 次」，n>1 才出 chip） }。
+       XUANTI 读 串题档案.md：新格式每个「故事串」节一张卡 { head:'故事串N · 故事名', rows:[ { d:日期, q:所串题目, s:开头要点, from:故事名, beats:[ {en:英文正文, zh:中文对照}, … ] }, … ] }；
+         每行先把方案里「取 Beat X」提到的 beat 从对应故事卡.md 把全文抄进来（beats 填正文、from 填故事名、s 只留开头要点部分）——学生不用自己翻故事区；
+         库里没有对应故事卡/beat（比如学生直接练串题、没建故事库）→ beats 留空、from 留空、s 写完整方案行，页面照旧只显示方案。
+         旧格式（日期｜所串题目）照旧出卡（接旧不搬）：{ head:'日期', rows:[ { q:所串题目, s:'复用故事：X' } ] }，能解析出 beat 就同样把正文带出来。
+       EXPR 读 精华表达.md：一行一条 { e:表达, z:中文意思, from:来自哪个故事, n:重复次数（重复出现标「又用了 N 次」，n>1 才出 chip）, d:记录日期（重复出现更新为最近一次；旧条目没有 → 留空，自动归「更久之前」） }。
+       时间筛选（纯练故事/精华表达）=全部/近 7 天/近 1 个月/更久之前，按打开页面的当天倒推，不用填「今天」。
        注意：英文正文常带撇号（couldn't），会打断单引号字符串——含撇号的字段改用双引号包住。 -->
   <script>
     const STORIES = [
-      { name: '哈尔滨之行', tag: '旅行', beats: [
+      { name: '哈尔滨之行', tag: '旅行', d: '2026-11-06', beats: [
         { en: '（英文正文，好表达加粗）', zh: '（中文对照）', kw: '（内容关键词）', hi: '（亮点表达）', audio: '' }
       ], full: '' }
     ];
     const XUANTI = [
       { head: '故事串一 · 哈尔滨之行', rows: [
-        { d: '2026-11-03', q: 'Describe a journey you remember well', s: '取 Beat 1+2，开头说时间地点' }
+        { d: '2026-11-03', q: 'Describe a journey you remember well', s: '开头说时间地点', from: '哈尔滨之行', beats: [
+          { en: '（所取 beat 的英文正文，好表达加粗）', zh: '（中文对照）' }
+        ] },
+        { d: '2026-11-01', q: 'Describe a place you enjoyed visiting', s: '取 Beat 2，开头说第一次尝锅包肉', from: '', beats: [] }
       ] }
     ];
     const EXPR = [
-      { e: '（表达）', z: '（中文意思）', from: '哈尔滨之行', n: 1 }
+      { e: '（表达）', z: '（中文意思）', from: '哈尔滨之行', n: 1, d: '2026-11-06' }
     ];
   </script>
 
   <div class="sec fold-head" id="head-stories">🎤 纯练故事<span class="fold-arrow">▾</span></div>
   <div id="stories-wrap">
-    <div class="toolbar"><label for="f-topic">选择话题</label><select id="f-topic"></select><span class="cnt" id="story-cnt"></span></div>
+    <div class="toolbar"><label for="f-topic">话题</label><select id="f-topic"></select><label for="f-stime">时间</label><select id="f-stime"></select><span class="cnt" id="story-cnt"></span></div>
     <div id="stories"></div>
   </div>
 
@@ -93,7 +116,10 @@
   </div>
 
   <div class="sec fold-head" id="head-expr">⭐ 精华表达<span class="fold-arrow">▾</span></div>
-  <div id="exprs"></div>
+  <div id="exprs-wrap">
+    <div class="toolbar"><label for="f-etime">时间</label><select id="f-etime"></select><span class="cnt" id="expr-cnt"></span><span class="hint">勾选 = 这条练熟了（状态记住）</span></div>
+    <div id="exprs"></div>
+  </div>
 
   <div class="footer">语料生成法借鉴自李笑来《人人都能用英语》「说自己想说的话」（github.com/xiaolai/everyone-can-use-english）；串题方法见旷野英语雅思核心课 P2 模块。<br>由雅思教练生成 ｜ 双击本文件即可离线查看</div>
 </div>
@@ -117,17 +143,28 @@
     apply();
   }
 
-  // —— 🎤 纯练故事：选择话题下拉 + 按标签分组 ——
+  // —— 通用：打开当天 + 时间档（全部/近 7 天/近 1 个月/更久之前）——
+  const NOW = new Date();
+  function daysAgo(d) { if (!d) return Infinity; return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
+  function passTime(d, t) {
+    if (t === 'all') return true;
+    if (t === 'old') return daysAgo(d) > 30;
+    return daysAgo(d) <= +t;
+  }
+
+  // —— 🎤 纯练故事：话题 + 时间筛选 ——
   const storyBox = document.getElementById('stories');
   const sel = document.getElementById('f-topic');
+  const sTime = document.getElementById('f-stime');
   const cnt = document.getElementById('story-cnt');
   function audioStatus(s) {
     const n = s.beats.filter(b => b.audio).length;
     if (!n) return '暂无音频';
     return s.full ? n + ' 段 + 整篇' : n + ' 段音频';
   }
-  function renderStories(tag) {
-    const shown = tag === 'uncat' ? STORIES.filter(s => !s.tag) : (tag === 'all' ? STORIES : STORIES.filter(s => s.tag === tag));
+  function renderStories() {
+    const tag = sel.value, t = sTime.value;
+    const shown = STORIES.filter(s => (tag === 'uncat' ? !s.tag : (tag === 'all' ? true : s.tag === tag)) && passTime(s.d, t));
     cnt.textContent = '共 ' + shown.length + ' 个故事';
     storyBox.innerHTML = shown.map(s => {
       let beatsHtml = s.beats.map((b, i) =>
@@ -137,12 +174,12 @@
         (b.audio ? '<audio controls src="' + b.audio + '"></audio>' : '') + '</div>'
       ).join('');
       if (s.full) beatsHtml += '<div class="beat"><h3>整篇连读</h3><audio controls src="' + s.full + '"></audio></div>';
-      return '<div class="sec">🎤 ' + s.name +
+      return '<div class="card"><div class="shead">🎤 ' + s.name +
         (s.tag ? '<span class="chip tag">' + s.tag + '</span>' : '') +
         '<span class="chip">' + s.beats.length + ' 个 beat</span><span class="chip b">' + audioStatus(s) + '</span></div>' +
-        '<div class="card">' + beatsHtml + '</div>';
+        beatsHtml + '</div>';
     }).join('');
-    if (!shown.length) storyBox.innerHTML = '<div class="empty">这个分类里还没有故事</div>';
+    if (!shown.length) storyBox.innerHTML = '<div class="empty">没有符合条件的故事</div>';
   }
   if (STORIES.length) {
     const topics = [...new Set(STORIES.map(s => s.tag).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'zh'));
@@ -150,24 +187,35 @@
     let opts = '<option value="all">全部话题</option>' + topics.map(t => '<option value="' + t + '">' + t + '</option>').join('');
     if (hasUncat) opts += '<option value="uncat">未分类</option>';
     sel.innerHTML = opts;
-    sel.onchange = () => renderStories(sel.value);
-    renderStories('all');
+    sTime.innerHTML = '<option value="all">全部</option><option value="7">近 7 天</option><option value="30">近 1 个月</option><option value="old">更久之前</option>';
+    sel.onchange = renderStories;
+    sTime.onchange = renderStories;
+    renderStories();
   } else {
     document.querySelector('.toolbar').style.display = 'none';
     storyBox.innerHTML = '<div class="empty">还没有故事——想讲你的故事，说「我的故事」就行。</div>';
   }
   bindFold(document.getElementById('head-stories'), document.getElementById('stories-wrap'), 'ysgk-fold-stories');
 
-  // —— 🧵 串题：故事串卡 + 搜 P2 题 ——
+  // —— 🧵 串题：故事串卡 + 搜 P2 题；解析出 beat 的行把全文摆出来 ——
   const xBox = document.getElementById('xuantis');
   const xEmpty = document.getElementById('x-empty');
   function renderXuantis() {
     xBox.innerHTML = XUANTI.map(c =>
       '<div class="card"><div class="xhead">' + c.head + '</div>' +
-      c.rows.map(r =>
-        '<div class="xrow"><p class="kw">' + (r.d ? r.d + '｜' : '') + r.q + '</p>' +
-        '<p class="hi">' + (r.d ? '→ ' : '') + r.s + '</p></div>'
-      ).join('') + '</div>'
+      c.rows.map(r => {
+        let body;
+        if (r.beats && r.beats.length) {
+          body = '<div class="xrun">' +
+            (r.from ? '<p class="xbased">基于你练过的《' + r.from + '》</p>' : '') +
+            (r.s ? '<p class="xopen">开头：' + r.s + '</p>' : '') +
+            r.beats.map(b => '<div class="xbeat"><p class="en">' + b.en + '</p>' + (b.zh ? '<p class="zh">' + b.zh + '</p>' : '') + '</div>').join('') +
+            '</div>';
+        } else {
+          body = '<p class="hi">' + (r.d ? '→ ' : '') + r.s + '</p>';
+        }
+        return '<div class="xrow"><p class="kw">' + (r.d ? r.d + '｜' : '') + r.q + '</p>' + body + '</div>';
+      }).join('') + '</div>'
     ).join('');
   }
   if (XUANTI.length) {
@@ -194,18 +242,50 @@
     document.getElementById('head-xuanti').style.display = 'none';
   }
 
-  // —— ⭐ 精华表达 ——
+  // —— ⭐ 精华表达：时间筛选 + 勾选复习（状态存本地）——
+  const exprBox = document.getElementById('exprs');
+  const eTime = document.getElementById('f-etime');
+  const exprCnt = document.getElementById('expr-cnt');
   if (EXPR.length) {
-    const exprBox = document.getElementById('exprs');
-    exprBox.innerHTML =
-      '<div class="card">' +
-      EXPR.map(e => '<div class="expr"><b>' + e.e + '</b> —— ' + e.z +
-        '<span class="chip">' + e.from + '</span>' +
-        (e.n > 1 ? '<span class="chip b">又用了 ' + e.n + ' 次</span>' : '') +
-        '</div>').join('') + '</div>';
-    bindFold(document.getElementById('head-expr'), exprBox, 'ysgk-fold-expr');
+    eTime.innerHTML = '<option value="all">全部</option><option value="7">近 7 天</option><option value="30">近 1 个月</option><option value="old">更久之前</option>';
+    let localCheck = {};
+    try { localCheck = JSON.parse(localStorage.getItem('ysgk-expr-check') || '{}'); } catch (e) { localCheck = {}; }
+    function renderExprs() {
+      const t = eTime.value;
+      const shownIdx = [];
+      EXPR.forEach((e, i) => { if (passTime(e.d, t)) shownIdx.push(i); });
+      exprCnt.textContent = '共 ' + shownIdx.length + ' 条';
+      if (!shownIdx.length) {
+        exprBox.innerHTML = '<div class="empty">这个时间段还没有表达</div>';
+        return;
+      }
+      exprBox.innerHTML = '<div class="card">' + shownIdx.map(i => {
+        const e = EXPR[i];
+        const done = localCheck[e.e] === true;
+        return '<div class="expr' + (done ? ' done' : '') + '"><label class="exrow">' +
+          '<input type="checkbox" data-i="' + i + '"' + (done ? ' checked' : '') + '>' +
+          '<span class="exbody"><b>' + e.e + '</b> —— ' + e.z +
+          '<span class="chip">' + e.from + '</span>' +
+          (e.n > 1 ? '<span class="chip b">又用了 ' + e.n + ' 次</span>' : '') +
+          (e.d ? '<span class="exdate">' + e.d + '</span>' : '') +
+          '</span></label></div>';
+      }).join('') + '</div>';
+      exprBox.querySelectorAll('input[type=checkbox]').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const i = +cb.dataset.i;
+          const e = EXPR[i];
+          localCheck[e.e] = cb.checked;
+          try { localStorage.setItem('ysgk-expr-check', JSON.stringify(localCheck)); } catch (err) {}
+          renderExprs();
+        });
+      });
+    }
+    eTime.onchange = renderExprs;
+    renderExprs();
+    bindFold(document.getElementById('head-expr'), document.getElementById('exprs-wrap'), 'ysgk-fold-expr');
   } else {
     document.getElementById('head-expr').style.display = 'none';
+    document.getElementById('exprs-wrap').style.display = 'none';
   }
 </script>
 </body>

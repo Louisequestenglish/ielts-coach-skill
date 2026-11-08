@@ -62,8 +62,9 @@
     <label>时间</label>
     <select id="f-time">
       <option value="all">全部</option>
-      <option value="7">最近 7 天</option>
-      <option value="30">最近 30 天</option>
+      <option value="7">近 7 天</option>
+      <option value="30">近 1 个月</option>
+      <option value="old">更久之前</option>
     </select>
     <span class="count" id="count"></span>
   </div>
@@ -86,10 +87,11 @@
     // { t: 'The Purpose of Homework', cat: '教育', date: '2026-11-06', paras: ['...'], tr: ['...'] },
   ];
 
-  function daysAgo(d){ return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
+  function daysAgo(d){ if (!d) return Infinity; return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
   function passFilter(item){
     const cat = document.getElementById('f-cat').value, t = document.getElementById('f-time').value;
     if (cat !== 'all' && item.cat !== cat) return false;
+    if (t === 'old') return daysAgo(item.date) > 30;
     if (t !== 'all' && daysAgo(item.date) > +t) return false;
     return true;
   }

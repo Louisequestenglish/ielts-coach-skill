@@ -1,7 +1,7 @@
 ---
 name: ielts-reading-coach
 description: 雅思教练系列 · 雅思阅读精读教练：分析长难句、批改段落层次、验收长难句与词块、整理生词。题目答案解析一律指回你的练习页面。想带练精读、分析长难句、批层次、验收或整理生词，说「雅思阅读陪练」就行。
-version: 1.5.0
+version: 1.6.0
 author: 旷野英语工作室 路易斯 & Kaylee
 license: CC-BY-NC-4.0
 ---

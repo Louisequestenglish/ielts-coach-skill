@@ -10,7 +10,7 @@
   .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
   .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
   .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
-  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .sub { font-size: 13px; color: #6f6f6f; margin: 0; }
   .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
   .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
   .sec { background: #2F4B7C; color: #fff; border-radius: 10px; padding: 10px 16px; margin: 28px 0 14px; font-size: 15px; font-weight: 600; }
@@ -18,14 +18,9 @@
   a.link:hover { box-shadow: 0 2px 8px rgba(0,0,0,.08); }
   a.link .tt { flex: 1; }
   a.link h2 { font-size: 16px; color: #2F4B7C; margin: 0; }
-  a.link .en { font-size: 12px; color: #999; margin-top: 3px; }
-  a.link .go { color: #D84830; font-size: 13px; font-weight: 600; flex-shrink: 0; }
-  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; line-height: 1.8; }
-  .card { background: #fff; border-radius: 12px; padding: 12px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 14px; }
-  .expr { padding: 8px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
-  .expr:last-child { border-bottom: none; }
-  .expr b { color: #2F4B7C; }
-  .expr .src { font-size: 12px; color: #999; margin-left: 6px; }
+  a.link .en { font-size: 12px; color: #6f6f6f; margin-top: 3px; }
+  a.link .go { color: #C0392B; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+  .footer { text-align: center; font-size: 12px; color: #6f6f6f; margin-top: 30px; line-height: 1.8; }
 </style>
 </head>
 <body>
@@ -48,10 +43,11 @@
        每个存在的教练一节 = 节头 + 一张链接卡（整张卡就是链接，点进该教练的总入口页；
        .en 写这页里都有什么 + 真实条数）；没有的整节删掉，别放空节。
        阅读教练的卡指向「精读/我的阅读库.html」总入口（生词库 / 文章库 / 长难句三库都在里面）。
-       「我的表达库」节：口语档案有「精华表达」块、且生活故事文件夹有 精华表达.md（两摊都有）
-       才生成这一节——两处表达合并去重、按字母排、每条标来源（口语练习/故事：故事名）；
-       只有一摊 → 整节删掉（各自档案里就有，总页不重复）。
-       覆盖重生成；MD 档案只读不动。生成完本注释可删掉（保留也无妨）。 -->
+       总页就是这四节，不放别的节（表达自测入口在口语练习档案页的精华表达卡链接行里）。
+       覆盖重生成；MD 档案只读不动（回流勾选除外）。总页保持最新：之后每次覆盖刷新任一子页
+       （存档案 / 导出来看看 / 打开表达库 / 打开生词库页等）后，
+       若「雅思教练」根已有本总页 → 顺带按本规则覆盖重生成（各卡条数摘要跟着新）；
+       没有 → 不生成（总页只在学生要时出）。生成完本注释可删掉（保留也无妨）。 -->
 
   <div class="sec">🎤 人生故事</div>
   <a class="link" href="生活故事/我的故事库.html">
@@ -67,20 +63,15 @@
 
   <div class="sec">🗣️ 口语教练</div>
   <a class="link" href="口语/口语练习档案.html">
-    <div class="tt"><h2>口语练习档案</h2><div class="en">错对 N 条 · 语法 N 类 · 练题 N 题 · 精华 N 条</div></div>
+    <div class="tt"><h2>口语练习档案</h2><div class="en">纠正 N 条 · 语法 N 类 · 练题 N 题 · 精华 N 条</div></div>
     <span class="go">打开 →</span>
   </a>
 
   <div class="sec">✍️ 写作教练</div>
   <a class="link" href="写作/写作复盘.html">
-    <div class="tt"><h2>写作复盘</h2><div class="en">扣题 N 条 · 衔接 N 条 · 词汇 N 条 · 语法 N 条</div></div>
+    <div class="tt"><h2>写作复盘</h2><div class="en">Tips N 条 · 纠错 N 条 · 表达 N 条 · 练习 N 篇</div></div>
     <span class="go">打开 →</span>
   </a>
-
-  <div class="sec">⭐ 我的表达库</div>
-  <div class="card">
-    <div class="expr"><b>（表达）</b> —— （中文意思）<span class="src">（来源：口语练习 / 故事：故事名）</span></div>
-  </div>
 
   <div class="footer">总档案是目录页，点开看每个教练的完整档案；存本地不联网，真要换电脑就把档案文件带走、到新电脑上让教练重新生成。<br>由雅思教练生成 ｜ 双击本文件即可离线查看</div>
 </div>

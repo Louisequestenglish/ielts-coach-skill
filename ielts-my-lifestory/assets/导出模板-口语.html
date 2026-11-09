@@ -7,43 +7,69 @@
 <style>
   body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf6ef; color: #333; margin: 0; padding: 24px 16px 60px; }
   .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 24px; color: #2F4B7C; margin: 0 0 4px; }
-  .sub { font-size: 13px; color: #999; margin-bottom: 20px; }
-  .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; }
-  details.block { margin-bottom: 20px; }
-  details.block summary { cursor: pointer; background: #fff; border-radius: 12px; padding: 14px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); font-size: 17px; color: #2F4B7C; font-weight: 600; list-style: none; border-bottom: 2px solid #2F4B7C; }
-  details.block summary::-webkit-details-marker { display: none; }
-  details.block summary .en { font-size: 12px; color: #999; font-weight: 400; margin-left: 8px; }
-  details.block[open] summary { border-radius: 12px 12px 0 0; }
-  details.block .card { margin: 10px 0 0; }
-  .card-head { border-bottom: 2px solid #2F4B7C; padding-bottom: 10px; margin-bottom: 14px; }
-  .card-head h2 { font-size: 17px; color: #2F4B7C; margin: 0; }
-  .card-head .en { font-size: 12px; color: #999; margin-top: 3px; }
-  .row { padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; line-height: 1.7; }
-  .row:last-child { border-bottom: none; }
-  .wrong { color: #666; text-decoration: line-through; }
-  .arrow { color: #999; margin: 0 6px; }
-  .right { color: #222; font-weight: 600; }
-  .right b { color: #D84830; }
-  .note { font-size: 12px; color: #999; }
-  table.expr { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  table.expr th { text-align: left; background: #EDF1F8; color: #2F4B7C; padding: 7px 10px; border-bottom: 2px solid #2F4B7C; }
-  table.expr td { border-bottom: 1px solid #eee; padding: 7px 10px; vertical-align: top; }
-  table.expr tr:last-child td { border-bottom: none; }
-  .part h3 { font-size: 13px; color: #D84830; margin: 12px 0 6px; }
-  details.q { border-bottom: 1px dashed #eee; padding: 6px 0; }
-  details.q:last-of-type { border-bottom: none; }
-  details.q summary { cursor: pointer; font-size: 14px; color: #222; font-weight: 600; }
-  details.q .qbody { font-size: 14px; color: #444; line-height: 1.8; margin: 8px 0 4px 14px; }
-  .chip { display: inline-block; background: #D84830; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
-  .done { display: inline-block; background: #3a9d6e; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
-  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; }
   .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
   .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
   .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
-  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .sub { font-size: 13px; color: #6f6f6f; margin: 0; }
   .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
   .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
+  details.block { margin-bottom: 20px; }
+  details.block summary { cursor: pointer; background: #2F4B7C; border-radius: 12px; padding: 14px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); font-size: 17px; color: #fff; font-weight: 600; list-style: none; }
+  details.block summary::-webkit-details-marker { display: none; }
+  details.block summary .en { font-size: 12px; color: #D9E4F4; font-weight: 400; margin-left: 8px; }
+  details.block[open] summary { border-radius: 12px 12px 0 0; }
+  details.block .card { background: #fff; border-radius: 0 0 12px 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .row { padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; line-height: 1.7; }
+  .row:last-child { border-bottom: none; }
+  .wrong { color: #666; text-decoration: line-through; }
+  .arrow { color: #6f6f6f; margin: 0 6px; }
+  .right { color: #222; font-weight: 600; }
+  .right b { color: #C0392B; }
+  .note { font-size: 12px; color: #6f6f6f; }
+  .chip { display: inline-block; background: #C0392B; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .chk { display: inline-block; background: #E8EEF8; color: #2F4B7C; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .viewswitch { background: #EDF1F8; border-radius: 12px; padding: 6px; margin-bottom: 10px; display: flex; gap: 6px; }
+  .viewswitch button { flex: 1; border: none; padding: 10px 0; border-radius: 8px; font-size: 14.5px; font-weight: 600; cursor: pointer; background: #fff; color: #2F4B7C; transition: background .15s; }
+  .viewswitch button.active { background: #2F4B7C; color: #fff; }
+  .viewswitch button.active.en { background: #C0392B; }
+  .guide { background: #EDF1F8; border-left: 4px solid #2F4B7C; color: #2F4B7C; border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 10px; line-height: 1.6; }
+  .guide.en { background: #fdefe8; border-left-color: #D84830; color: #C0392B; }
+  .chip.b { background: #2F4B7C; }
+  .chip.g { background: #E8EEF8; color: #2F4B7C; }
+  .expr { padding: 8px 0; border-bottom: 1px dashed #eee; font-size: 14px; line-height: 1.7; }
+  .expr:last-child { border-bottom: none; }
+  .expr b { color: #2F4B7C; }
+  .expr.done b { color: #6f6f6f; }
+  .exrow { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+  .exrow input[type=checkbox] { width: 17px; height: 17px; accent-color: #3a9d6e; flex: none; margin-top: 3px; cursor: pointer; }
+  .exbody { flex: 1; }
+  .exref { font-size: 12.5px; color: #555; margin-top: 3px; }
+  .exdate { font-size: 11px; color: #6f6f6f; margin-left: 6px; }
+  .hint { font-size: 11px; color: #6f6f6f; }
+  .stateswitch { background: #EDF1F8; border-radius: 12px; padding: 6px; margin-bottom: 10px; display: flex; gap: 6px; }
+  .stateswitch button { flex: 1; border: none; padding: 10px 0; border-radius: 8px; font-size: 14.5px; font-weight: 600; cursor: pointer; background: #fff; color: #2F4B7C; transition: background .15s; }
+  .stateswitch button.active.todo { background: #C0392B; color: #fff; }
+  .stateswitch button.active.done { background: #2F4B7C; color: #fff; }
+  .stateswitch button.active.all { background: #444; color: #fff; }
+  .toolbar { background: #EDF1F8; border-radius: 12px; padding: 10px 16px; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .toolbar label { font-size: 12px; color: #6f6f6f; }
+  .toolbar select { border: 1px solid #ddd; border-radius: 8px; padding: 6px 8px; font-size: 13px; color: #2F4B7C; background: #fff; outline: none; }
+  .toolbar .count { margin-left: auto; font-size: 12px; color: #6f6f6f; }
+  .sec { background: #fff; color: #555; border-left: 4px solid #ddd; border-radius: 8px; padding: 8px 14px; margin: 18px 0 10px; font-size: 14px; font-weight: 600; }
+  details.q { border-bottom: 1px dashed #eee; padding: 6px 0; }
+  details.q:last-of-type { border-bottom: none; }
+  details.q summary { cursor: pointer; font-size: 14px; color: #222; line-height: 1.7; list-style: none; }
+  details.q.done summary { color: #6f6f6f; }
+  details.q summary::-webkit-details-marker { display: none; }
+  details.q summary input[type=checkbox] { width: 16px; height: 16px; accent-color: #3a9d6e; margin-right: 6px; vertical-align: -2px; cursor: pointer; }
+  details.q .qbody { font-size: 14px; color: #444; line-height: 1.8; margin: 8px 0 4px 26px; }
+  .empty { text-align: center; color: #6f6f6f; font-size: 13px; padding: 30px 0; }
+  .savebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .savebar button { font-size: 14px; padding: 6px 14px; border: 1px solid #2F4B7C; color: #2F4B7C; background: #fff; border-radius: 6px; cursor: pointer; }
+  .savebar button:hover { background: #eef3fb; }
+  .savetip { font-size: 13px; color: #6f6f6f; }
+  .savehint { font-size: 13px; }
+  .footer { text-align: center; font-size: 12px; color: #6f6f6f; margin-top: 30px; }
 </style>
 </head>
 <body>
@@ -56,51 +82,469 @@
     <div class="dot"></div><div class="sq"></div>
   </div>
 
-    <!-- 下面的四张卡换成档案四块的真实内容（照档案原样，示例行删掉）：
-        四块各一个折叠条 <details class="block" open>（标题作 summary、默认展开、点标题收起），卡内容放折叠条里。
-       一、错表达对表达对照表 → 一行一条：<span class="wrong">他说的</span><span class="arrow">→</span><span class="right"><b>更精准的说法</b></span>（已改的加 <span class="done">已改</span>）；练过的单句也并进这张卡；语法错误一律别放这，全在第二张卡
-       二、语法错误集锦注意事项 → 一行一条，同错累加在原条（次数加 <span class="chip">第 N 次</span>）
-       三、练过的题 → 块内按 P1/P2/P3 分节（<div class="part"><h3>P1</h3></div> 作小标题，每个 Part 下按大话题排），
-          每题一个折叠条：<details class="q"><summary>题目原文</summary><div class="qbody">这道题最后定稿的完整版本</div></details>
-          （还没出完整版的题只写题目原文、没有展开内容；同一道题以最新定稿为准）
-       四、精华表达 → 三列表格（文本<b>加粗</b>/意思提醒/原句），重复出现的标 <span class="chip">又用了 N 次</span>
-    -->
-  <details class="block" open>
-    <summary>一、错表达对表达对照表 <span class="en">练过的单句也并进这里</span></summary>
+    <!-- 生成规则：六块——表达纠正处/语法错误记录处照档案第一二块静态填（一行一条，示例行删掉）；
+        练过的 P1/P2/P3 按档案第三块填 QP1/QP2/QP3 数据（结构见 script 顶部注释，三个 Part 各一块，默认展开、点蓝头收起）；
+        精华表达自测照 script 顶部 EXPR 注释填（读档案第四块 + 生活故事档案的 精华表达.md，两边合并标来源）。
+        每次存档案后：按本骨架覆盖重生成本页（先走 script 顶部【生成规则·勾选回流】）。生成完本注释可删掉（保留也无妨）。 -->
+
+  <details class="block" open id="block-err">
+    <summary>一、表达纠正处 <span class="en">练过的单句也并进这里</span></summary>
     <div class="card">
-      <div class="row">（档案第一块内容照搬进来，一行一条）</div>
+      <div class="row">（档案第一块内容照搬进来，一行一条：<span class="wrong">他说的</span><span class="arrow">→</span><span class="right">更精准的说法</span>，已改的加 <span class="chk">已改</span>）</div>
     </div>
   </details>
 
-  <details class="block" open>
-    <summary>二、语法错误集锦注意事项</summary>
+  <details class="block" open id="block-gram">
+    <summary>二、语法错误记录处</summary>
     <div class="card">
-      <div class="row">（档案第二块内容照搬进来，一行一条）</div>
+      <div class="row">（档案第二块内容照搬进来，一行一条；同错累加在原条，加 <span class="chip">第 N 次</span>）</div>
     </div>
   </details>
 
-  <details class="block" open>
-    <summary>三、练过的题 <span class="en">P1 / P2 / P3 · 按大话题分组 · 点开看最终版本</span></summary>
+  <details class="block" open id="block-p1">
+    <summary>三、练过的 P1 <span class="en">三组筛选：状态 · 日期 · 话题 ｜ 勾 = 这题能脱稿流利说</span></summary>
     <div class="card">
-      <div class="part"><h3>P1</h3></div>
-      <details class="q"><summary>（题目原文）</summary><div class="qbody">（这道题最后定稿的完整版本）</div></details>
-      <div class="part"><h3>P2</h3></div>
-      <details class="q"><summary>（题目原文）</summary><div class="qbody">（这道题最后定稿的完整版本）</div></details>
+      <div class="stateswitch">
+        <button id="s1-todo" class="active todo">🔥 刚计入</button>
+        <button id="s1-done" class="done">✅ 自认已练熟</button>
+        <button id="s1-all" class="all">📚 全部</button>
+      </div>
+      <div class="toolbar">
+        <label>日期</label>
+        <select id="pq1-time">
+          <option value="all">全部</option>
+          <option value="7">近 7 天</option>
+          <option value="30">近 1 个月</option>
+          <option value="old">更久之前</option>
+        </select>
+        <label>话题</label>
+        <select id="pq1-topic">
+          <option value="all">全部</option>
+          <option value="Work">Work</option>
+          <option value="Studies">Studies</option>
+          <option value="Home & accommodation">Home & accommodation</option>
+          <option value="The area you live in">The area you live in</option>
+          <option value="Hometown">Hometown</option>
+          <option value="Hobbies">Hobbies</option>
+          <option value="Friends">Friends</option>
+          <option value="Family">Family</option>
+          <option value="Weather">Weather</option>
+          <option value="其他">其他</option>
+        </select>
+        <span class="count" id="pq1-count"></span>
+      </div>
+      <div id="pq1-list"></div>
     </div>
   </details>
 
-  <details class="block" open>
-    <summary>四、精华表达 <span class="en">收清单第二样的新表达落这里</span></summary>
+  <details class="block" open id="block-p2">
+    <summary>四、练过的 P2 <span class="en">三组筛选：状态 · 日期 · 话题（人/事/物/地） ｜ 勾 = 这题能脱稿流利说</span></summary>
     <div class="card">
-      <table class="expr">
-        <tr><th>文本</th><th>意思提醒</th><th>原句</th></tr>
-        <tr><td>（档案第四块内容照搬进来，一行一条）</td><td></td><td></td></tr>
-      </table>
+      <div class="stateswitch">
+        <button id="s2-todo" class="active todo">🔥 刚计入</button>
+        <button id="s2-done" class="done">✅ 自认已练熟</button>
+        <button id="s2-all" class="all">📚 全部</button>
+      </div>
+      <div class="toolbar">
+        <label>日期</label>
+        <select id="pq2-time">
+          <option value="all">全部</option>
+          <option value="7">近 7 天</option>
+          <option value="30">近 1 个月</option>
+          <option value="old">更久之前</option>
+        </select>
+        <label>话题</label>
+        <select id="pq2-topic">
+          <option value="all">全部</option>
+          <option value="人">人</option>
+          <option value="事">事</option>
+          <option value="物">物</option>
+          <option value="地">地</option>
+          <option value="其他">其他</option>
+        </select>
+        <span class="count" id="pq2-count"></span>
+      </div>
+      <div id="pq2-list"></div>
     </div>
   </details>
 
+  <details class="block" open id="block-p3">
+    <summary>五、练过的 P3 <span class="en">三组筛选：状态 · 日期 · 话题 ｜ 勾 = 这题能脱稿流利说</span></summary>
+    <div class="card">
+      <div class="stateswitch">
+        <button id="s3-todo" class="active todo">🔥 刚计入</button>
+        <button id="s3-done" class="done">✅ 自认已练熟</button>
+        <button id="s3-all" class="all">📚 全部</button>
+      </div>
+      <div class="toolbar">
+        <label>日期</label>
+        <select id="pq3-time">
+          <option value="all">全部</option>
+          <option value="7">近 7 天</option>
+          <option value="30">近 1 个月</option>
+          <option value="old">更久之前</option>
+        </select>
+        <label>话题</label>
+        <select id="pq3-topic">
+          <option value="all">全部</option>
+          <option value="教育">教育</option>
+          <option value="科技">科技</option>
+          <option value="环境">环境</option>
+          <option value="媒体">媒体</option>
+          <option value="犯罪">犯罪</option>
+          <option value="城市">城市</option>
+          <option value="健康">健康</option>
+          <option value="文化">文化</option>
+          <option value="工作">工作</option>
+          <option value="家庭">家庭</option>
+          <option value="旅行">旅行</option>
+          <option value="其他">其他</option>
+        </select>
+        <span class="count" id="pq3-count"></span>
+      </div>
+      <div id="pq3-list"></div>
+    </div>
+  </details>
+
+  <details class="block" open id="block-expr">
+    <summary>六、精华表达自测 <span class="en">口语 + 人生故事的表达都在这测 ｜ 勾选只在「只看表达」开放</span></summary>
+    <div class="card">
+      <div class="viewswitch"><button id="ev-full" class="active">👁 英中对照</button><button id="ev-en" class="en">🔤 只看表达</button></div>
+      <div class="guide" id="expr-guide"></div>
+      <div class="stateswitch"><button id="es-todo" class="active todo">🔥 还不熟</button><button id="es-done" class="done">✅ 已练熟</button><button id="es-all" class="all">📚 全部</button></div>
+      <div class="toolbar"><label>时间</label><select id="f-etime"></select><span class="count" id="expr-cnt"></span><span class="hint">勾选只在「🔤 只看表达」里开放——不看中文认得出才算练熟</span></div>
+      <div id="exprs"></div>
+    </div>
+  </details>
+
+  <div class="savebar"><button id="btn-save">💾 保存状态进文件</button><span class="savetip">练熟勾选和折叠会自动写进这个文件本身（清记录、换电脑都不丢）——第一次点一下「保存」，弹框里点一下「雅思教练」文件夹，再点「选择」，之后不用再点</span><span class="savehint" id="savehint"></span></div>
 
   <div class="footer">由雅思口语教练生成 ｜ 双击本文件即可离线查看</div>
 </div>
+
+<script>
+  // ═══ 生成说明（教练生成时按档案填写，生成完保留本注释亦可）═══
+  // QP1/QP2/QP3：档案第三块每个 Part 下每题一个对象：
+  //   d = 日期（YYYY-MM-DD，最近一次练这篇的日期；只作「日期」筛选的依据，页面上不显示；旧档案没日期的留 d:'' → 归「更久之前」）
+  //   t = 大话题（跟档案 #### 一致，从各 Part 的固定话题组里就近选一个，归不进就写「其他」；
+  //       P1 = Work / Studies / Home & accommodation / The area you live in / Hometown / Hobbies / Friends / Family / Weather；
+  //       P2 = 人 / 事 / 物 / 地；P3 = 教育 / 科技 / 环境 / 媒体 / 犯罪 / 城市 / 健康 / 文化 / 工作 / 家庭 / 旅行）
+  //   q = 题目原文；ver = 这道题最后定稿的完整版本（每段一行，数组）；done = 档案行首有 ✅ → true
+  // NOW 不用填——打开页面的当天自动算。每次存档案后：按本骨架覆盖重生成本页。
+  // 【生成规则·勾选回流（每次重生成本页前必做，这是「MD 只读」唯一例外）】
+  // 先读旧「口语练习档案.html」文件里的 STATE 行（/*STAT' + 'E*/window.__SAVED__ = {…}; 那一行；旧文件不存在或没有这行 → 跳过回流）：
+  // ① checks 里为 true 的题 → 档案第三块对应题目行首加 ✅；echecks 里为 true 的表达 → 档案第四块对应行首 ☐ 改 ✅，
+  //    并同步把 生活故事「档案」子文件夹里 精华表达.md 对应条目行首 ☐ 改 ✅（只加不减：false 不动 MD；找不到对应条目就跳过）
+  // ② 新文件把 MD 里行首带 ✅ 的题写进 checks、带 ✅ 的表达写进 echecks，baked STATE 行插在 const NOW = new Date(); 之后：
+  //    /*STAT' + 'E*/window.__SAVED__ = {"checks":{"p1::Do you like your hometown?":true,…},"echecks":{"be really into sth":true,…},"folds":{"ysyb-fold-p1":"1",…}};
+  //    checks/echecks/folds 全空 → 不写 STATE 行（首次点保存时自动生成）。JSON 里 </ 写成 <\/。
+  const NOW = new Date();
+  const QP1 = [
+    // { d: '2026-11-09', t: 'Hometown', q: 'Do you like your hometown?', ver: ['定稿第 1 段', '定稿第 2 段'], done: false },
+  ];
+  const QP2 = [
+    // { d: '2026-11-09', t: '地', q: 'Describe a place you visited that you liked.', ver: ['定稿全文（每段一行）'], done: false },
+  ];
+  const QP3 = [
+    // { d: '2026-11-09', t: '旅行', q: 'Do you think young people travel more than older people?', ver: ['定稿全文（每段一行）'], done: false },
+  ];
+  // EXPR（第六块精华表达自测，口语+故事合并）：读 口语练习档案.md 第四块（行式 `- ☐ 日期｜**表达** — 意思 ｜ 原句`）
+  //   + 生活故事「档案」子文件夹里的 精华表达.md（同款行式，出处是故事名）：
+  //   e=表达, z=中文意思, ref=原句（口语）或 出自《X》（故事）, src=来源（'口语'/'故事'，出对应 chip）,
+  //   n=重复次数（行尾「又用了 N 次」的 N，n>1 才出 chip）, d=记录日期（旧条目没日期留空，归「更久之前」）, done=行首 ✅ → true（☐ → false）
+  const EXPR = [
+    // { e: 'be really into sth', z: '很喜欢、迷上某事', ref: "I'm really into playing basketball at the weekend.", src: '口语', n: 1, d: '2026-11-09' },
+    // { e: 'hit me in the face', z: '扑面而来', ref: '出自《哈尔滨之行》', src: '故事', n: 1, d: '2026-11-06' },
+  ];
+
+  // ── 练过的题：三组筛选（状态/日期/话题）并行 + 勾 = 练熟（回流档案行首 ✅）；日期只作筛选依据不显示 ──
+  let localCheck = {};
+  try { localCheck = JSON.parse(localStorage.getItem('ysyb-qcheck') || '{}'); } catch (e) { localCheck = {}; }
+  if (typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.checks) localCheck = Object.assign(window.__SAVED__.checks, localCheck);
+  [QP1, QP2, QP3].forEach((arr, i) => arr.forEach(item => { const k = 'p' + (i + 1) + '::' + item.q; if (k in localCheck) item.done = localCheck[k]; }));
+
+  function daysAgo(d){ if (!d) return Infinity; return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
+  const STATES = { 1: 'todo', 2: 'todo', 3: 'todo' };
+  function syncState(p){
+    ['todo','done','all'].forEach(st => document.getElementById('s' + p + '-' + st).classList.toggle('active', STATES[p] === st));
+  }
+  [1,2,3].forEach(p => {
+    document.getElementById('s' + p + '-todo').addEventListener('click', () => { STATES[p] = 'todo'; syncState(p); renderP(p); });
+    document.getElementById('s' + p + '-done').addEventListener('click', () => { STATES[p] = 'done'; syncState(p); renderP(p); });
+    document.getElementById('s' + p + '-all').addEventListener('click', () => { STATES[p] = 'all'; syncState(p); renderP(p); });
+    document.getElementById('pq' + p + '-time').addEventListener('change', () => renderP(p));
+    document.getElementById('pq' + p + '-topic').addEventListener('change', () => renderP(p));
+  });
+  function passP(item, p){
+    const t = document.getElementById('pq' + p + '-time').value;
+    if (t === 'old') { if (daysAgo(item.d) <= 30) return false; }
+    else if (t !== 'all' && daysAgo(item.d) > +t) return false;
+    const tp = document.getElementById('pq' + p + '-topic').value;
+    if (tp !== 'all' && (item.t || '其他') !== tp) return false;
+    if (STATES[p] === 'todo' && item.done) return false;
+    if (STATES[p] === 'done' && !item.done) return false;
+    return true;
+  }
+  function qcard(item, p){
+    const el = document.createElement('details');
+    el.className = 'q' + (item.done ? ' done' : '');
+    el.innerHTML = '<summary><input type="checkbox"' + (item.done ? ' checked' : '') + '>' + item.q + '</summary>' +
+      '<div class="qbody">' + item.ver.map(v => '<p>' + v + '</p>').join('') + '</div>';
+    el.querySelector('input').addEventListener('click', e => {
+      e.stopPropagation();
+      item.done = e.target.checked;
+      localCheck['p' + p + '::' + item.q] = e.target.checked;
+      try { localStorage.setItem('ysyb-qcheck', JSON.stringify(localCheck)); } catch (err) {}
+      renderP(p);
+      if (typeof autoSave === 'function') autoSave();
+    });
+    return el;
+  }
+  function renderP(p){
+    const DATA = [QP1, QP2, QP3][p - 1];
+    const box = document.getElementById('pq' + p + '-list');
+    box.innerHTML = '';
+    if (!DATA.length) { box.innerHTML = '<div class="empty">这个 Part 还没有练过的题——练了就来填</div>'; document.getElementById('pq' + p + '-count').textContent = '显示 0 题'; return; }
+    const groups = {};
+    DATA.forEach(item => { if (!passP(item, p)) return; const t = item.t || '其他'; (groups[t] = groups[t] || []).push(item); });
+    let n = 0;
+    Object.entries(groups).forEach(([t, items]) => {
+      const sec = document.createElement('div'); sec.className = 'sec'; sec.textContent = '📂 ' + t + ' ｜ ' + items.length + ' 题';
+      box.appendChild(sec);
+      items.forEach(item => { box.appendChild(qcard(item, p)); n++; });
+    });
+    if (!n) {
+      const tip = STATES[p] === 'todo' ? '这个 Part 的题都练熟啦 🎉' : (STATES[p] === 'done' ? '还没有勾过练熟的题' : '这个条件下还没有题');
+      box.innerHTML = '<div class="empty">' + tip + '</div>';
+    }
+    document.getElementById('pq' + p + '-count').textContent = '显示 ' + n + ' 题';
+  }
+
+  // ── 六块折叠：状态存浏览器，教练重生成时随 STATE 行带进新文件 ──
+  [['block-err','ysyb-fold-err'],['block-gram','ysyb-fold-gram'],['block-p1','ysyb-fold-p1'],['block-p2','ysyb-fold-p2'],['block-p3','ysyb-fold-p3'],['block-expr','ysyb-fold-expr']].forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    let open = el.open === true;
+    try {
+      if (localStorage.getItem(key) === '0') open = false;
+      else if (localStorage.getItem(key) === null && typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.folds && key in window.__SAVED__.folds) open = window.__SAVED__.folds[key] !== '0';
+    } catch (e) {}
+    el.open = open;
+    el.addEventListener('toggle', () => { try { localStorage.setItem(key, el.open ? '1' : '0'); } catch (e) {} });
+  });
+
+  // ── 第六块：精华表达自测（口语+故事合并；英中对照/只看表达 × 还不熟/已练熟/全部 × 时间四档；勾选只在只看表达开放）──
+  const exprBox = document.getElementById('exprs');
+  const eTime = document.getElementById('f-etime');
+  const exprCnt = document.getElementById('expr-cnt');
+  const exprGuide = document.getElementById('expr-guide');
+  let echecks = {};
+  try { echecks = JSON.parse(localStorage.getItem('ysyb-expr-check') || '{}'); } catch (e) { echecks = {}; }
+  if (typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.echecks) echecks = Object.assign(window.__SAVED__.echecks, echecks);
+  EXPR.forEach(item => { if (echecks[item.e] === true) item.done = true; });
+  if (EXPR.length) {
+    eTime.innerHTML = '<option value="all">全部</option><option value="7">近 7 天</option><option value="30">近 1 个月</option><option value="old">更久之前</option>';
+    let eVw = 'full';
+    let eSt = 'todo';
+    function updateExprGuide() {
+      if (eVw === 'en') {
+        exprGuide.className = 'guide en';
+        exprGuide.innerHTML = '✍️ 现在只看表达本身——中文意思和出处都藏起来了：<br>认得出的 → 勾上 ✅，进「已练熟」；认不出的 → 别勾，留在「还不熟」继续记。';
+      } else {
+        exprGuide.className = 'guide';
+        exprGuide.innerHTML = '🔒 英中对照时不能挑勾——要检验自己到底记没记住，切到「🔤 只看表达」：<br>不看中文认得出，才算真的练熟。';
+      }
+    }
+    function syncExprSwitches() {
+      document.getElementById('ev-full').classList.toggle('active', eVw === 'full');
+      document.getElementById('ev-en').classList.toggle('active', eVw === 'en');
+      document.getElementById('es-todo').classList.toggle('active', eSt === 'todo');
+      document.getElementById('es-done').classList.toggle('active', eSt === 'done');
+      document.getElementById('es-all').classList.toggle('active', eSt === 'all');
+    }
+    function renderExprs() {
+      const t = eTime.value;
+      const html = [];
+      EXPR.forEach((e, i) => {
+        if (t === 'old') { if (daysAgo(e.d) <= 30) return; }
+        else if (t !== 'all' && daysAgo(e.d) > +t) return;
+        const done = e.done === true;
+        if (eSt === 'todo' && done) return;
+        if (eSt === 'done' && !done) return;
+        const src = e.src === '故事' ? '<span class="chip b">故事</span>' : '<span class="chip">口语</span>';
+        const body = (eVw === 'en')
+          ? '<b>' + e.e + '</b>'
+          : '<b>' + e.e + '</b> —— ' + e.z + src +
+            (e.n > 1 ? '<span class="chip g">又用了 ' + e.n + ' 次</span>' : '') +
+            (e.d ? '<span class="exdate">' + e.d + '</span>' : '') +
+            '<div class="exref">' + e.ref + '</div>';
+        const tick = (eVw === 'en')
+          ? '<input type="checkbox" data-i="' + i + '"' + (done ? ' checked' : '') + '>'
+          : '';
+        html.push('<div class="expr' + (done ? ' done' : '') + '"><label class="exrow">' + tick +
+          '<span class="exbody">' + body + '</span></label></div>');
+      });
+      exprCnt.textContent = '显示 ' + html.length + ' 条';
+      if (!html.length) {
+        const tip = eSt === 'todo' ? '还不熟的都练熟啦 🎉' : (eSt === 'done' ? '还没有勾过的表达' : '这个条件下一句都没有');
+        exprBox.innerHTML = '<div class="empty">' + tip + '</div>';
+        return;
+      }
+      exprBox.innerHTML = '<div class="card">' + html.join('') + '</div>';
+      exprBox.querySelectorAll('input[type=checkbox]').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const i = +cb.dataset.i;
+          const e = EXPR[i];
+          e.done = cb.checked;
+          echecks[e.e] = cb.checked;
+          try { localStorage.setItem('ysyb-expr-check', JSON.stringify(echecks)); } catch (err) {}
+          renderExprs();
+          if (typeof autoSave === 'function') autoSave();
+        });
+      });
+    }
+    document.getElementById('ev-full').addEventListener('click', () => { eVw = 'full'; updateExprGuide(); syncExprSwitches(); renderExprs(); });
+    document.getElementById('ev-en').addEventListener('click', () => { eVw = 'en'; updateExprGuide(); syncExprSwitches(); renderExprs(); });
+    document.getElementById('es-todo').addEventListener('click', () => { eSt = 'todo'; syncExprSwitches(); renderExprs(); });
+    document.getElementById('es-done').addEventListener('click', () => { eSt = 'done'; syncExprSwitches(); renderExprs(); });
+    document.getElementById('es-all').addEventListener('click', () => { eSt = 'all'; syncExprSwitches(); renderExprs(); });
+    eTime.onchange = renderExprs;
+    updateExprGuide();
+    syncExprSwitches();
+    renderExprs();
+  } else {
+    exprBox.innerHTML = '<div class="empty">攒下的好表达都在这测——练口语和讲故事时的新表达都会进来</div>';
+  }
+
+  // 💾 保存：把勾选和折叠状态写进这个 HTML 文件本身（清浏览器记录、换电脑都不丢）
+  function collectState() {
+    const folds = {};
+    try { ['ysyb-fold-err','ysyb-fold-gram','ysyb-fold-p1','ysyb-fold-p2','ysyb-fold-p3','ysyb-fold-expr'].forEach(k => { const v = localStorage.getItem(k); if (v !== null) folds[k] = v; }); } catch (e) {}
+    return { checks: Object.assign({}, localCheck), echecks: Object.assign({}, echecks), folds: folds };
+  }
+  function idbOpen() { return new Promise((res, rej) => { const r = indexedDB.open('ysyb-t', 1); r.onupgradeneeded = () => { try { r.result.createObjectStore('h'); } catch (e) {} }; r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); }); }
+  const idbT = (p, ms) => new Promise((res) => { const t = setTimeout(() => res(null), ms); p.then(v => { clearTimeout(t); res(v); }, () => { clearTimeout(t); res(null); }); });
+  async function getSavedDir() { try { const db = await idbT(idbOpen(), 1500); if (!db) return null; return await idbT(new Promise((res, rej) => { const g = db.transaction('h', 'readonly').objectStore('h').get('d'); g.onsuccess = () => res(g.result || null); g.onerror = () => rej(g.error); }), 1500); } catch (e) { return null; } }
+  async function putSavedDir(d) { try { const db = await idbT(idbOpen(), 1500); if (!db) return; await idbT(new Promise((res, rej) => { const tx = db.transaction('h', 'readwrite'); tx.objectStore('h').put(d, 'd'); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }), 1500); } catch (e) {} }
+  async function delSavedDir() { try { const db = await idbT(idbOpen(), 1000); if (!db) return; await idbT(new Promise((res, rej) => { const tx = db.transaction('h', 'readwrite'); tx.objectStore('h').delete('d'); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }), 1000); } catch (e) {} }
+  function pickFailN() { try { return parseInt(localStorage.getItem('ysyb-pickfail') || '0', 10) || 0; } catch (e) { return 0; } }
+  function bumpPickFail() { try { localStorage.setItem('ysyb-pickfail', String(pickFailN() + 1)); } catch (e) {} }
+  function clearPickFail() { try { localStorage.removeItem('ysyb-pickfail'); } catch (e) {} }
+  function pickerId() { const n = pickFailN(); return 'ysyb-dir' + (n ? '-' + (n % 5) : ''); }
+  async function writeHandle(h, html, name) { const w = await h.createWritable(); await w.write(new File([html], name, { type: 'text/html' })); await w.close(); }
+  const SUB = '口语'; // 档案规定放在「雅思教练」文件夹的这个子文件夹里
+  async function resolveFileHandle(dir, sub, name) {
+    const cands = [name, sub + '/' + name, '雅思教练/' + sub + '/' + name];
+    try {
+      const segs = decodeURIComponent(location.pathname).split('/').filter(Boolean);
+      const i = segs.indexOf(name);
+      for (let k = 1; k <= 4; k++) { if (i - k >= 0) cands.push(segs.slice(i - k, i + 1).join('/')); }
+    } catch (e) {}
+    const seen = new Set();
+    for (const rel of cands) {
+      if (seen.has(rel)) continue; seen.add(rel);
+      try {
+        const parts = rel.split('/').filter(Boolean);
+        let h = dir;
+        for (let p = 0; p < parts.length - 1; p++) h = await h.getDirectoryHandle(parts[p], { create: false });
+        return await h.getFileHandle(parts[parts.length - 1], { create: false });
+      } catch (e) {
+        if (e && e.name !== 'NotFoundError' && e.name !== 'TypeMismatchError') throw e;
+      }
+    }
+    return null;
+  }
+  const pageLoadedAt = Date.now();
+  let lastWriteAt = 0;
+  async function saveState(auto) {
+    const hint = document.getElementById('savehint');
+    const set = (t, ok) => { hint.textContent = t; hint.style.color = ok ? '#2E7D54' : '#c0392b'; };
+    const canFs = typeof indexedDB !== 'undefined' && !!window.showDirectoryPicker;
+    let dir = null;
+    if (canFs) {
+      const dirP = getSavedDir();
+      dir = await idbT(dirP, auto ? 1500 : 350);
+      if (dir) {
+        try { if (await dir.queryPermission({ mode: 'readwrite' }) !== 'granted') dir = null; } catch (e) { dir = null; }
+      }
+    }
+    if (auto && !dir) {
+      set('勾选已记在浏览器里——点一下「💾 保存状态进文件」、弹框直接点「选择」，以后勾了就自动写进文件', false);
+      return;
+    }
+    let first = false;
+    if (canFs && !dir) {
+      first = true;
+      try {
+        dir = await window.showDirectoryPicker({ id: pickerId(), mode: 'readwrite', startIn: 'desktop' });
+      } catch (e) {
+        if (e && e.name === 'AbortError') { set('', true); return; }
+        throw e;
+      }
+    }
+    try {
+      const state = collectState();
+      const M = '/*STAT' + 'E*/window.__SAVED__';
+      let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const line = M + ' = ' + JSON.stringify(state).replace(/<\//g, '<\\/') + ';\n';
+      if (html.indexOf(M) >= 0) html = html.replace(/\/\*STATE\*\/window\.__SAVED__ = [^\n]*\n/, () => line);
+      else html = html.replace(/const NOW = new Date\(\);(\r?\n)/, 'const NOW = new Date();$1' + line);
+      const name = decodeURIComponent((location.pathname.split('/').pop()) || '口语练习档案.html');
+      if (canFs) {
+        try {
+          let h = await resolveFileHandle(dir, SUB, name);
+          if (!h) {
+            delSavedDir(); bumpPickFail();
+            try { dir = await window.showDirectoryPicker({ id: pickerId(), mode: 'readwrite', startIn: 'desktop' }); }
+            catch (e) { if (e && e.name === 'AbortError') { set('', true); return; } throw e; }
+            first = true;
+            h = await resolveFileHandle(dir, SUB, name);
+          }
+          if (!h) { bumpPickFail(); set('⚠️ 没找到「' + name + '」——再点一次保存，弹框会再出现：点一下「雅思教练」文件夹（文件就在它里面的子文件夹里），再点「选择」', false); return; }
+          const f = await h.getFile();
+          if (f.lastModified > (lastWriteAt || pageLoadedAt) + 500) {
+            set('⚠️ 这个文件刚才在别处更新过（比如教练重新生成）——重新打开文件再继续，别盖掉新内容', false);
+            return;
+          }
+          await writeHandle(h, html, name);
+          await putSavedDir(dir); clearPickFail();
+          lastWriteAt = Date.now();
+          set(first ? '✅ 已保存——记住这个文件夹了，以后勾选自动写进这个文件，不用再点' : (auto ? '✅ 已自动写进文件' : '✅ 已保存——写进这个文件夹里的文件了'), true);
+          return;
+        } catch (e) {
+          if (e && e.name === 'NotFoundError') { set('⚠️ 没找到「' + name + '」——再点一次保存，在弹框里进到档案在的那个文件夹再点「选择」', false); return; }
+          throw e;
+        }
+      }
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+      a.download = name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      set('✅ 已生成新文件——用它替换原来的文件就行', true);
+    } catch (e) {
+      if (e && e.name === 'AbortError') { set('', true); return; }
+      set('⚠️ 没存上：' + (e && e.message ? e.message : e), false);
+    }
+  }
+  let saveTimer = null, saving = false, saveAgain = false;
+  function autoSave() {
+    if (typeof indexedDB === 'undefined' || !window.showDirectoryPicker) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(runSave, 400);
+  }
+  async function runSave() {
+    if (saving) { saveAgain = true; return; }
+    saving = true;
+    try { await saveState(true); } catch (e) {}
+    saving = false;
+    if (saveAgain) { saveAgain = false; runSave(); }
+  }
+  const saveBtn = document.getElementById('btn-save');
+  if (saveBtn) saveBtn.addEventListener('click', () => saveState(false));
+
+  renderP(1);
+  renderP(2);
+  renderP(3);
+</script>
 </body>
 </html>

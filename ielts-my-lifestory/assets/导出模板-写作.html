@@ -7,34 +7,77 @@
 <style>
   body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf6ef; color: #333; margin: 0; padding: 24px 16px 60px; }
   .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 24px; color: #2F4B7C; margin: 0 0 4px; }
-  .sub { font-size: 13px; color: #999; margin-bottom: 20px; }
-  .card { background: #fff; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; }
-  details.block { margin-bottom: 20px; }
-  details.block summary { cursor: pointer; background: #fff; border-radius: 12px; padding: 14px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); font-size: 17px; color: #2F4B7C; font-weight: 600; list-style: none; border-bottom: 2px solid #2F4B7C; }
-  details.block summary::-webkit-details-marker { display: none; }
-  details.block summary .en { font-size: 12px; color: #999; font-weight: 400; margin-left: 8px; }
-  details.block[open] summary { border-radius: 12px 12px 0 0; }
-  details.block .card { margin: 10px 0 0; }
-  .card-head { border-bottom: 2px solid #2F4B7C; padding-bottom: 10px; margin-bottom: 14px; }
-  .card-head h2 { font-size: 17px; color: #2F4B7C; margin: 0; }
-  .card-head .en { font-size: 12px; color: #999; margin-top: 3px; }
-  .row { padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; line-height: 1.7; }
-  .row:last-child { border-bottom: none; }
-  .wrong { color: #666; text-decoration: line-through; }
-  .arrow { color: #999; margin: 0 6px; }
-  .right { color: #222; font-weight: 600; }
-  .right b { color: #D84830; }
-  .note { font-size: 12px; color: #999; }
-  .chip { display: inline-block; background: #D84830; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
-  .done { display: inline-block; background: #3a9d6e; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
-  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; }
   .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 20px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
   .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
   .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
-  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .sub { font-size: 13px; color: #6f6f6f; margin: 0; }
   .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
   .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
+  details.block { margin-bottom: 20px; }
+  details.block summary { cursor: pointer; background: #2F4B7C; border-radius: 12px; padding: 14px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); font-size: 17px; color: #fff; font-weight: 600; list-style: none; }
+  details.block summary::-webkit-details-marker { display: none; }
+  details.block summary .en { font-size: 12px; color: #D9E4F4; font-weight: 400; margin-left: 8px; }
+  details.block[open] summary { border-radius: 12px 12px 0 0; }
+  details.block .card { background: #fff; border-radius: 0 0 12px 12px; padding: 20px 22px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .row { padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; line-height: 1.7; }
+  .row:last-child { border-bottom: none; }
+  .wrong { color: #666; text-decoration: line-through; }
+  .arrow { color: #6f6f6f; margin: 0 6px; }
+  .right { color: #222; font-weight: 600; }
+  .right b { color: #C0392B; }
+  .chip { display: inline-block; background: #FDEDE8; color: #C0392B; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .chip.b { background: #E8EEF8; color: #2F4B7C; }
+  .stateswitch { background: #EDF1F8; border-radius: 12px; padding: 6px; margin-bottom: 10px; display: flex; gap: 6px; }
+  .stateswitch button { flex: 1; border: none; padding: 10px 0; border-radius: 8px; font-size: 14.5px; font-weight: 600; cursor: pointer; background: #fff; color: #2F4B7C; transition: background .15s; }
+  .guide { background: #EDF1F8; border-left: 4px solid #2F4B7C; color: #2F4B7C; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; margin-bottom: 10px; line-height: 1.6; }
+  .stateswitch button.active.todo { background: #C0392B; color: #fff; }
+  .stateswitch button.active.done { background: #2F4B7C; color: #fff; }
+  .stateswitch button.active.all { background: #444; color: #fff; }
+  .toolbar { background: #EDF1F8; border-radius: 12px; padding: 10px 16px; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .toolbar label { font-size: 12px; color: #6f6f6f; }
+  .toolbar select { border: 1px solid #ddd; border-radius: 8px; padding: 6px 8px; font-size: 13px; color: #2F4B7C; background: #fff; outline: none; }
+  .toolbar .count { margin-left: auto; font-size: 12px; color: #6f6f6f; }
+  .sec { background: #2F4B7C; color: #fff; border-radius: 10px; padding: 8px 14px; margin: 18px 0 10px; font-size: 14px; font-weight: 600; }
+  .subh { font-size: 13px; font-weight: 700; color: #2F4B7C; margin: 12px 0 2px; }
+  .word { padding: 11px 0; border-bottom: 1px dashed #eee; }
+  .word:last-child { border-bottom: none; }
+  .word .top { display: flex; align-items: center; gap: 8px; }
+  .word input[type=checkbox] { width: 17px; height: 17px; accent-color: #3a9d6e; flex: none; cursor: pointer; }
+  .word .w { font-size: 15px; font-weight: 700; color: #222; }
+  .word .zh { font-size: 13px; color: #666; margin: 3px 0 3px 25px; }
+  .word .en { font-size: 12.5px; color: #555; line-height: 1.6; margin-left: 25px; }
+  .word .meta { font-size: 11px; color: #6f6f6f; margin: 4px 0 0 25px; }
+  .wxz { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 6px 0 2px 25px; font-size: 12.5px; color: #555; }
+  .wxz-i { border: 1px solid #ddd; border-radius: 6px; padding: 4px 8px; font-size: 13px; width: 200px; color: #222; }
+  .wxz-i:focus { border-color: #2F4B7C; outline: none; }
+  .wxz-b { border: 1px solid #2F4B7C; color: #2F4B7C; background: #fff; border-radius: 6px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; }
+  .wxz-b:hover { background: #eef3fb; }
+  .wxz-r { font-size: 12.5px; }
+  .wxz-r .ok { color: #3a9d6e; font-weight: 600; }
+  .wxz-r .bad { color: #C0392B; font-weight: 600; }
+  .wxz-blank { color: #2F4B7C; font-weight: 700; letter-spacing: 1px; }
+  .word.done .w, .word.done .en { color: #3d66b8; }
+  .word.done .zh { color: #4A6DB3; }
+  .empty { text-align: center; color: #6f6f6f; font-size: 13px; padding: 30px 0; }
+  .pool { font-size: 12px; color: #6f6f6f; margin: 4px 0 0; }
+  .savebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .savebar button { font-size: 14px; padding: 6px 14px; border: 1px solid #2F4B7C; color: #2F4B7C; background: #fff; border-radius: 6px; cursor: pointer; }
+  .savebar button:hover { background: #eef3fb; }
+  .savetip { font-size: 13px; color: #6f6f6f; }
+  .savehint { font-size: 13px; }
+  .tabbar { background: #EDF1F8; border-radius: 12px; padding: 6px; margin-bottom: 10px; display: flex; gap: 6px; }
+  .tabbar button { flex: 1; border: none; padding: 10px 0; border-radius: 8px; font-size: 14.5px; font-weight: 600; cursor: pointer; background: #fff; color: #2F4B7C; }
+  .tabbar button.active { background: #2F4B7C; color: #fff; }
+  details.rec { border-bottom: 1px dashed #eee; padding: 8px 0; }
+  details.rec:last-of-type { border-bottom: none; }
+  details.rec summary { cursor: pointer; font-size: 13.5px; color: #222; font-weight: 600; line-height: 1.6; list-style: none; }
+  details.rec summary::-webkit-details-marker { display: none; }
+  details.rec summary .rd { color: #6f6f6f; font-weight: 400; font-size: 12px; margin-right: 4px; }
+  details.rec .rc-body { font-size: 13.5px; color: #444; line-height: 1.8; margin: 8px 0 4px; }
+  details.rec .rc-body .rq { color: #2F4B7C; font-weight: 600; }
+  details.rec .rc-body .rv { margin-top: 8px; border-left: 3px solid #EDF1F8; padding-left: 10px; }
+  details.rec .rc-body .rv p { margin: 4px 0; }
+  .footer { text-align: center; font-size: 12px; color: #6f6f6f; margin-top: 30px; }
 </style>
 </head>
 <body>
@@ -47,41 +90,428 @@
     <div class="dot"></div><div class="sq"></div>
   </div>
 
-    <!-- 下面的四张卡换成复盘四区的真实内容（照档案原样，示例行删掉）：
-        四区各一个折叠条 <details class="block" open>（标题作 summary、默认展开、点标题收起），卡内容放折叠条里。
-        每区内部按档案现有顺序照搬（档案里已按「最高频 & 影响最严重」排好，别重排）；
-        累犯加 <span class="chip">第 N 次</span>，已改的加 <span class="done">已改</span>
-  -->
-  <details class="block" open>
-    <summary>一、扣题 <span class="en">Task Response · 任务回应</span></summary>
+    <!-- 生成规则：卡一（写法 Tips）卡二（语言纠错：用词、语法两小节，哪节空删哪节）卡四（练习记录）按 复盘.md 照实填（示例行删掉、照档案现排别重排）；
+        卡三（好表达记录）按 写作表达库.md 填 EXPR DATA；四块默认展开，点蓝头收起；回流规则见 script 顶部注释。 -->
+
+  <details class="block" open id="block-tips">
+    <summary>一、我的写法 Tips <span class="en">扣题 · 结构 · 衔接 —— 下次注意什么</span></summary>
     <div class="card">
-      <div class="row">（档案第一区内容照搬进来，一行一条）</div>
+      <div class="row">（档案「一、写法 Tips」内容照搬进来，一行一条）</div>
     </div>
   </details>
 
-  <details class="block" open>
-    <summary>二、衔接 <span class="en">Coherence &amp; Cohesion · 连贯与衔接</span></summary>
+  <details class="block" open id="block-gram">
+    <summary>二、我的语言纠错 <span class="en">用词、语法两小节 → 一行一条对照</span></summary>
     <div class="card">
-      <div class="row">（档案第二区内容照搬进来，一行一条）</div>
+      <div class="subh">用词</div>
+      <div class="row">（档案「二、语言纠错 · 用词」小节内容照搬进来，一行一条：<span class="wrong">我的写法</span><span class="arrow">→</span><span class="right">改法</span>；这节空 → 整节删掉）</div>
+      <div class="subh">语法</div>
+      <div class="row">（档案「二、语言纠错 · 语法」小节内容照搬进来，一行一条：<span class="wrong">我的写法</span><span class="arrow">→</span><span class="right">改法</span>；这节空 → 整节删掉）</div>
     </div>
   </details>
 
-  <details class="block" open>
-    <summary>三、词汇 <span class="en">Lexical Resource · 词汇资源</span></summary>
+  <details class="block" open id="block-expr">
+    <summary>三、我的好表达记录 <span class="en">生词库同款自测 · 勾了自动回流档案</span></summary>
     <div class="card">
-      <div class="row">（档案第三区内容照搬进来，一行一条）</div>
+      <div class="guide">📖 表达、意思、原句一起看。每条下面有默写框——点进去，原句里的表达会盖住：把它拼出来，点「对答案」核对。<br>写作用的检验是拼得出：默写拼对了再勾「练熟」。</div>
+
+      <div class="stateswitch">
+        <button id="s-todo" class="active todo">🔥 还不熟</button>
+        <button id="s-done" class="done">✅ 已练熟</button>
+        <button id="s-all" class="all">📚 全部</button>
+      </div>
+
+      <div class="toolbar">
+        <label>时间</label>
+        <select id="f-time">
+          <option value="all">全部</option>
+          <option value="7">近 7 天</option>
+          <option value="30">近 1 个月</option>
+          <option value="old">更久之前</option>
+        </select>
+        <span class="count" id="expr-count"></span>
+      </div>
+
+      <div class="savebar"><button id="btn-save">💾 保存状态进文件</button><span class="savetip">勾选会自动写进这个文件本身（清记录、换电脑都不丢）——第一次点一下「保存」，弹框里点一下「雅思教练」文件夹，再点「选择」，之后不用再点</span><span class="savehint" id="savehint"></span></div>
+
+      <div id="expr-list"></div>
+
+      <p class="pool">勾上 = 进「已练熟」；去掉勾 = 回「还不熟」。刚整理进来的表达默认都在「还不熟」里。写作用的检验是拼出来：每条下面的默写框，点进去原句会盖住表达，把它打出来、对答案核对——拼得出才算练熟。<br>勾默认记在这台电脑的这个浏览器里（关掉再打开还在）；教练每次收复盘重生成这页时，会先把勾过的回流进档案（☐→✅），换浏览器、换电脑都不丢。想自己立刻写进文件，点一下上面的「💾 保存状态进文件」。</p>
     </div>
   </details>
 
-  <details class="block" open>
-    <summary>四、语法 <span class="en">Grammatical Range &amp; Accuracy · 语法多样性与准确性</span></summary>
+  <details class="block" open id="block-rec">
+    <summary>四、我的练习记录 <span class="en">大作文 / 小作文 · 题目 + 润色后版本</span></summary>
     <div class="card">
-      <div class="row">（档案第四区内容照搬进来，一行一条）</div>
+      <div class="tabbar">
+        <button id="tab-t2" class="active">✍️ 大作文</button>
+        <button id="tab-t1">📊 小作文</button>
+      </div>
+
+      <div class="toolbar">
+        <span id="row-qt2"><label>题型</label>
+        <select id="rec-qt2">
+          <option value="all">全部</option>
+          <option value="报告">报告</option>
+          <option value="双边">双边</option>
+          <option value="是否同意">是否同意</option>
+          <option value="利弊">利弊</option>
+          <option value="混合">混合</option>
+        </select></span>
+        <span id="row-tp"><label>话题</label>
+        <select id="rec-tp">
+          <option value="all">全部</option>
+          <option value="教育">教育</option>
+          <option value="科技">科技</option>
+          <option value="环境">环境</option>
+          <option value="媒体">媒体</option>
+          <option value="犯罪">犯罪</option>
+          <option value="城市">城市</option>
+          <option value="健康">健康</option>
+          <option value="文化">文化</option>
+          <option value="工作">工作</option>
+          <option value="家庭">家庭</option>
+        </select></span>
+        <span id="row-qt1" style="display:none"><label>类型</label>
+        <select id="rec-qt1">
+          <option value="all">全部</option>
+          <option value="动态">动态</option>
+          <option value="静态">静态</option>
+          <option value="流程图">流程图</option>
+          <option value="地图">地图</option>
+        </select></span>
+        <label>时间</label>
+        <select id="rec-time">
+          <option value="all">全部</option>
+          <option value="7">近 7 天</option>
+          <option value="30">近 1 个月</option>
+          <option value="old">更久之前</option>
+        </select>
+        <span class="count" id="rec-count"></span>
+      </div>
+
+      <div id="rec-list"></div>
     </div>
   </details>
-
 
   <div class="footer">由雅思写作教练生成 ｜ 双击本文件即可离线查看</div>
 </div>
+
+<script>
+  // ═══ 生成说明（教练生成时按两份档案填写，生成完保留本注释亦可）═══
+  // 卡一/卡二/卡四按 复盘.md 填；卡三按 写作表达库.md 填。NOW 不用填——打开页面的当天自动算。
+  // EXPR DATA：写作表达库.md 每条一行填一个对象：
+  //   w = 表达文本（不加粗符号）；zh = 意思提醒；en = 原句（表达处用 <b></b> 标出）；
+  //   date = 该条日期（YYYY-MM-DD）；done = ☐ → false，✅ → true。
+  // 卡三默写框：原句 en 里的 <b>…</b> 自动当默写答案（点输入框盖住表达、对答案逐词核对），不用单独填。
+  // RECS：复盘.md「四、练习记录」每条一篇填一个对象：
+  //   大作文 { type:'t2', d:'2026-11-09', qt:'双边', tp:'教育', q:'题目原文全文', ver:['润色后第 1 段','第 2 段'] }
+  //     （qt=报告/双边/是否同意/利弊/混合；tp=话题，跟页面话题下拉一致）
+  //   小作文 { type:'t1', d:'2026-11-10', qt:'动态', q:'题目原文全文', ver:['润色后第 1 段'] }
+  //     （qt=动态/静态/流程图/地图，无 tp）
+  // 每次复盘落盘后：按本骨架覆盖重生成本页（卡三先走下面【生成规则·勾选回流】）。
+  // 【生成规则·勾选回流（每次重生成本页前必做，这是「MD 只读」唯一例外）】
+  // 先读旧「写作复盘.html」文件里的 STATE 行（文件里 /*STAT' + 'E*/window.__SAVED__ = {…}; 那一行；旧文件不存在或没有这行 → 跳过回流）：
+  // ① checks 里为 true 的表达 → 写作表达库.md 对应条目 ☐ 改 ✅（只加不减：false 不动 MD；找不到对应条目就跳过）
+  // ② 新文件把 MD 里 ✅ 的表达写进 baked STATE 行，插在 const NOW = new Date(); 之后：
+  //    /*STAT' + 'E*/window.__SAVED__ = {"checks":{"表达":true,…},"folds":{"ysxz-fold-tips":"1",…}};
+  //    checks 空且 folds 空 → 不写 STATE 行（首次点保存时自动生成）。JSON 里 </ 写成 <\/。
+  const NOW = new Date();
+  const DATA = [
+    // { w: 'play no part in', zh: '不参与、不起作用', en: 'The schools <b>play no part in</b> the decision.', date: '2026-11-05', done: false },
+  ];
+  const RECS = [
+    // { type:'t2', d:'2026-11-09', qt:'双边', tp:'教育', q:'Some people think that...', ver:['润色后第 1 段','第 2 段'] },
+    // { type:'t1', d:'2026-11-10', qt:'动态', q:'The chart shows...', ver:['润色后第 1 段'] },
+  ];
+
+  // ── 好表达记录：自测（生词库/表达库同款） ──
+  let localCheck = {};
+  try { localCheck = JSON.parse(localStorage.getItem('ysxz-check') || '{}'); } catch (e) { localCheck = {}; }
+  if (typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.checks) localCheck = Object.assign(window.__SAVED__.checks, localCheck);
+  DATA.forEach(item => { if (item.w in localCheck) item.done = localCheck[item.w]; });
+  let STATE = 'todo';
+
+  function daysAgo(d){ if (!d) return Infinity; return Math.floor((NOW - new Date(d + 'T00:00:00')) / 86400000); }
+  function passFilter(item){
+    const t = document.getElementById('f-time').value;
+    if (t === 'old') return daysAgo(item.date) > 30;
+    if (t !== 'all' && daysAgo(item.date) > +t) return false;
+    if (STATE === 'todo' && item.done) return false;
+    if (STATE === 'done' && !item.done) return false;
+    return true;
+  }
+  function norm(s){ return s.replace(/\s+/g, ' ').trim().toLowerCase(); }
+  function esc(s){ return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function wordEl(item){
+    const el = document.createElement('div');
+    el.className = 'word' + (item.done ? ' done' : '');
+    const tick = '<input type="checkbox" class="tick"' + (item.done ? ' checked' : '') + '>';
+    const wxz = '<div class="wxz"><span>默写：</span><input class="wxz-i" type="text" placeholder="点进来盖住表达，拼出来" autocomplete="off"><button class="wxz-b" type="button">对答案</button><span class="wxz-r"></span></div>';
+    el.innerHTML =
+      '<div class="top">' + tick + '<span class="w">' + item.w + '</span></div>' +
+      '<div class="zh">' + item.zh + '</div>' +
+      '<div class="en">' + item.en + '</div>' +
+      '<div class="meta">' + item.date + '</div>' + wxz;
+    el.querySelector('.tick').addEventListener('change', e => {
+      item.done = e.target.checked;
+      localCheck[item.w] = e.target.checked;
+      try { localStorage.setItem('ysxz-check', JSON.stringify(localCheck)); } catch (err) {}
+      renderExpr();
+      if (typeof autoSave === 'function') autoSave();
+    });
+    {
+      const inp = el.querySelector('.wxz-i');
+      const btn = el.querySelector('.wxz-b');
+      const res = el.querySelector('.wxz-r');
+      const b = el.querySelector('.en b');
+      const target = b ? b.textContent : item.w;
+      const cover = () => {
+        res.innerHTML = '';
+        if (b) { b.dataset.html = b.innerHTML; b.innerHTML = b.textContent.replace(/\S/g, '_'); b.classList.add('wxz-blank'); }
+      };
+      const reveal = () => {
+        if (b && b.classList.contains('wxz-blank')) { b.innerHTML = b.dataset.html; b.classList.remove('wxz-blank'); }
+      };
+      inp.addEventListener('focus', cover);
+      inp.addEventListener('blur', reveal);
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
+      btn.addEventListener('click', () => {
+        reveal();
+        const typed = norm(inp.value);
+        if (!typed) {
+          res.innerHTML = '正确：<span class="ok">' + esc(target) + '</span>';
+          return;
+        }
+        const tw = norm(target).split(' ');
+        const gw = typed.split(' ');
+        const out = gw.map((wd, i) => (tw[i] === wd ? '<span class="ok">' + esc(wd) + '</span>' : '<span class="bad">' + esc(wd) + '</span>')).join(' ');
+        res.innerHTML = '你写的：' + out + ' ｜ 正确：<span class="ok">' + esc(target) + '</span>' + (norm(target) === typed ? ' <span class="ok">✅ 拼对了</span>' : '');
+      });
+    }
+    return el;
+  }
+  function renderExpr(){
+    const box = document.getElementById('expr-list');
+    box.innerHTML = '';
+    const groups = {};
+    DATA.forEach(item => {
+      if (!passFilter(item)) return;
+      const key = item.date;
+      (groups[key] = groups[key] || []).push(item);
+    });
+    let total = 0;
+    Object.entries(groups).forEach(([key, items]) => {
+      const card = document.createElement('div'); card.className = 'card';
+      items.forEach(item => card.appendChild(wordEl(item)));
+      const sec = document.createElement('div'); sec.className = 'sec';
+      sec.textContent = '📚 ' + key + ' ｜ ' + items.length + ' 条';
+      box.appendChild(sec);
+      box.appendChild(card);
+      total += items.length;
+    });
+    if (!total) {
+      const tip = STATE === 'todo' ? '还不熟的都练熟啦 🎉' : (STATE === 'done' ? '还没有勾过的表达' : '这个条件下一句都没有');
+      box.innerHTML = '<div class="empty">' + tip + '</div>';
+    }
+    document.getElementById('expr-count').textContent = '显示 ' + total + ' 条';
+  }
+  document.getElementById('s-todo').addEventListener('click', () => { STATE = 'todo'; syncState(); renderExpr(); });
+  document.getElementById('s-done').addEventListener('click', () => { STATE = 'done'; syncState(); renderExpr(); });
+  document.getElementById('s-all').addEventListener('click', () => { STATE = 'all'; syncState(); renderExpr(); });
+  function syncState(){
+    document.getElementById('s-todo').classList.toggle('active', STATE === 'todo');
+    document.getElementById('s-done').classList.toggle('active', STATE === 'done');
+    document.getElementById('s-all').classList.toggle('active', STATE === 'all');
+  }
+  document.getElementById('f-time').addEventListener('change', renderExpr);
+
+  // ── 练习记录：大作文 / 小作文 tab + 筛选 ──
+  let RTAB = 't2';
+  function recFilter(){
+    const r = document.getElementById('rec-list');
+    r.innerHTML = '';
+    const time = document.getElementById('rec-time').value;
+    const qtype = RTAB === 't2' ? document.getElementById('rec-qt2').value : document.getElementById('rec-qt1').value;
+    const topic = document.getElementById('rec-tp').value;
+    let n = 0;
+    RECS.forEach(rec => {
+      if (rec.type !== RTAB) return;
+      if (time !== 'all') {
+        const da = daysAgo(rec.d);
+        if (time === 'old') { if (da <= 30) return; }
+        else if (da > +time) return;
+      }
+      if (qtype !== 'all' && rec.qt !== qtype) return;
+      if (topic !== 'all' && rec.tp !== topic) return;
+      n++;
+      const el = document.createElement('details');
+      el.className = 'rec';
+      const qShort = rec.q.length > 80 ? rec.q.slice(0, 80) + '…' : rec.q;
+      el.innerHTML = '<summary><span class="rd">' + rec.d + '</span><span class="chip">' + rec.qt + '</span>' +
+        (rec.tp ? '<span class="chip b">' + rec.tp + '</span>' : '') + '<span>' + qShort + '</span></summary>' +
+        '<div class="rc-body"><div class="rq">' + rec.q + '</div><div class="rv">' +
+        rec.ver.map(p => '<p>' + p + '</p>').join('') + '</div></div>';
+      r.appendChild(el);
+    });
+    if (!n) r.innerHTML = '<div class="empty">这个条件下还没有记录</div>';
+    document.getElementById('rec-count').textContent = '显示 ' + n + ' 篇';
+  }
+  function syncTab(){
+    document.getElementById('tab-t2').classList.toggle('active', RTAB === 't2');
+    document.getElementById('tab-t1').classList.toggle('active', RTAB === 't1');
+    document.getElementById('row-qt2').style.display = RTAB === 't2' ? '' : 'none';
+    document.getElementById('row-tp').style.display = RTAB === 't2' ? '' : 'none';
+    document.getElementById('row-qt1').style.display = RTAB === 't1' ? '' : 'none';
+  }
+  document.getElementById('tab-t2').addEventListener('click', () => { RTAB = 't2'; syncTab(); recFilter(); });
+  document.getElementById('tab-t1').addEventListener('click', () => { RTAB = 't1'; syncTab(); recFilter(); });
+  ['rec-qt2', 'rec-tp', 'rec-qt1', 'rec-time'].forEach(id => document.getElementById(id).addEventListener('change', recFilter));
+
+  // ── 四块折叠：状态存浏览器，教练重生成时随 STATE 行带进新文件 ──
+  [['block-tips','ysxz-fold-tips'],['block-gram','ysxz-fold-gram'],['block-expr','ysxz-fold-expr'],['block-rec','ysxz-fold-rec']].forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    let open = el.hasAttribute('open');
+    try {
+      if (localStorage.getItem(key) === '0') open = false;
+      else if (localStorage.getItem(key) === null && typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.folds && key in window.__SAVED__.folds) open = window.__SAVED__.folds[key] !== '0';
+    } catch (e) {}
+    el.open = open;
+    el.addEventListener('toggle', () => { try { localStorage.setItem(key, el.open ? '1' : '0'); } catch (e) {} });
+  });
+
+  // 💾 保存：把勾选和折叠状态写进这个 HTML 文件本身（清浏览器记录、换电脑都不丢）
+  function collectState() {
+    const folds = {};
+    try { ['ysxz-fold-tips','ysxz-fold-gram','ysxz-fold-expr','ysxz-fold-rec'].forEach(k => { const v = localStorage.getItem(k); if (v !== null) folds[k] = v; }); } catch (e) {}
+    return { checks: Object.assign({}, localCheck), folds: folds };
+  }
+  // —— 自动保存：第一次点「保存」弹一次框（直接开在桌面，点「选择」就行，不用进文件夹，
+  //    代码沿规定好的路径自己找文件），之后勾选变化自动静默写进那个文件，不用再点 ——
+  function idbOpen() { return new Promise((res, rej) => { const r = indexedDB.open('ysxz-t', 1); r.onupgradeneeded = () => { try { r.result.createObjectStore('h'); } catch (e) {} }; r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); }); }
+  const idbT = (p, ms) => new Promise((res) => { const t = setTimeout(() => res(null), ms); p.then(v => { clearTimeout(t); res(v); }, () => { clearTimeout(t); res(null); }); });
+  async function getSavedDir() { try { const db = await idbT(idbOpen(), 1500); if (!db) return null; return await idbT(new Promise((res, rej) => { const g = db.transaction('h', 'readonly').objectStore('h').get('d'); g.onsuccess = () => res(g.result || null); g.onerror = () => rej(g.error); }), 1500); } catch (e) { return null; } }
+  async function putSavedDir(d) { try { const db = await idbT(idbOpen(), 1500); if (!db) return; await idbT(new Promise((res, rej) => { const tx = db.transaction('h', 'readwrite'); tx.objectStore('h').put(d, 'd'); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }), 1500); } catch (e) {} }
+  async function delSavedDir() { try { const db = await idbT(idbOpen(), 1000); if (!db) return; await idbT(new Promise((res, rej) => { const tx = db.transaction('h', 'readwrite'); tx.objectStore('h').delete('d'); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }), 1000); } catch (e) {} }
+  function pickFailN() { try { return parseInt(localStorage.getItem('ysxz-pickfail') || '0', 10) || 0; } catch (e) { return 0; } }
+  function bumpPickFail() { try { localStorage.setItem('ysxz-pickfail', String(pickFailN() + 1)); } catch (e) {} }
+  function clearPickFail() { try { localStorage.removeItem('ysxz-pickfail'); } catch (e) {} }
+  function pickerId() { const n = pickFailN(); return 'ysxz-dir' + (n ? '-' + (n % 5) : ''); }
+  async function writeHandle(h, html, name) { const w = await h.createWritable(); await w.write(new File([html], name, { type: 'text/html' })); await w.close(); }
+  const SUB = '写作'; // 档案规定放在「雅思教练」文件夹的这个子文件夹里
+  async function resolveFileHandle(dir, sub, name) {
+    const cands = [name, sub + '/' + name, '雅思教练/' + sub + '/' + name];
+    try {
+      const segs = decodeURIComponent(location.pathname).split('/').filter(Boolean);
+      const i = segs.indexOf(name);
+      for (let k = 1; k <= 4; k++) { if (i - k >= 0) cands.push(segs.slice(i - k, i + 1).join('/')); }
+    } catch (e) {}
+    const seen = new Set();
+    for (const rel of cands) {
+      if (seen.has(rel)) continue; seen.add(rel);
+      try {
+        const parts = rel.split('/').filter(Boolean);
+        let h = dir;
+        for (let p = 0; p < parts.length - 1; p++) h = await h.getDirectoryHandle(parts[p], { create: false });
+        return await h.getFileHandle(parts[parts.length - 1], { create: false });
+      } catch (e) {
+        if (e && e.name !== 'NotFoundError' && e.name !== 'TypeMismatchError') throw e;
+      }
+    }
+    return null;
+  }
+  const pageLoadedAt = Date.now();
+  let lastWriteAt = 0;
+  async function saveState(auto) {
+    const hint = document.getElementById('savehint');
+    const set = (t, ok) => { hint.textContent = t; hint.style.color = ok ? '#2E7D54' : '#c0392b'; };
+    const canFs = typeof indexedDB !== 'undefined' && !!window.showDirectoryPicker;
+    let dir = null;
+    if (canFs) {
+      const dirP = getSavedDir();
+      dir = await idbT(dirP, auto ? 1500 : 350);
+      if (dir) {
+        try { if (await dir.queryPermission({ mode: 'readwrite' }) !== 'granted') dir = null; } catch (e) { dir = null; }
+      }
+    }
+    if (auto && !dir) {
+      set('勾选已记在浏览器里——点一下「💾 保存状态进文件」、弹框直接点「选择」，以后勾了就自动写进文件', false);
+      return;
+    }
+    let first = false;
+    if (canFs && !dir) {
+      first = true;
+      try {
+        dir = await window.showDirectoryPicker({ id: pickerId(), mode: 'readwrite', startIn: 'desktop' });
+      } catch (e) {
+        if (e && e.name === 'AbortError') { set('', true); return; }
+        throw e;
+      }
+    }
+    try {
+      const state = collectState();
+      const M = '/*STAT' + 'E*/window.__SAVED__';
+      let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const line = M + ' = ' + JSON.stringify(state).replace(/<\//g, '<\\/') + ';\n';
+      if (html.indexOf(M) >= 0) html = html.replace(/\/\*STATE\*\/window\.__SAVED__ = [^\n]*\n/, () => line);
+      else html = html.replace(/const NOW = new Date\(\);(\r?\n)/, 'const NOW = new Date();$1' + line);
+      const name = decodeURIComponent((location.pathname.split('/').pop()) || '写作复盘.html');
+      if (canFs) {
+        try {
+          let h = await resolveFileHandle(dir, SUB, name);
+          if (!h) {
+            delSavedDir(); bumpPickFail();
+            try { dir = await window.showDirectoryPicker({ id: pickerId(), mode: 'readwrite', startIn: 'desktop' }); }
+            catch (e) { if (e && e.name === 'AbortError') { set('', true); return; } throw e; }
+            first = true;
+            h = await resolveFileHandle(dir, SUB, name);
+          }
+          if (!h) { bumpPickFail(); set('⚠️ 没找到「' + name + '」——再点一次保存，弹框会再出现：点一下「雅思教练」文件夹（文件就在它里面的子文件夹里），再点「选择」', false); return; }
+          const f = await h.getFile();
+          if (f.lastModified > (lastWriteAt || pageLoadedAt) + 500) {
+            set('⚠️ 这个文件刚才在别处更新过（比如教练重新生成）——重新打开文件再继续，别盖掉新内容', false);
+            return;
+          }
+          await writeHandle(h, html, name);
+          await putSavedDir(dir); clearPickFail();
+          lastWriteAt = Date.now();
+          set(first ? '✅ 已保存——记住这个文件夹了，以后勾选自动写进这个文件，不用再点' : (auto ? '✅ 已自动写进文件' : '✅ 已保存——写进这个文件夹里的文件了'), true);
+          return;
+        } catch (e) {
+          if (e && e.name === 'NotFoundError') { set('⚠️ 没找到「' + name + '」——再点一次保存，在弹框里进到档案在的那个文件夹再点「选择」', false); return; }
+          throw e;
+        }
+      }
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+      a.download = name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      set('✅ 已生成新文件——用它替换原来的文件就行', true);
+    } catch (e) {
+      if (e && e.name === 'AbortError') { set('', true); return; }
+      set('⚠️ 没存上：' + (e && e.message ? e.message : e), false);
+    }
+  }
+  let saveTimer = null, saving = false, saveAgain = false;
+  function autoSave() {
+    if (typeof indexedDB === 'undefined' || !window.showDirectoryPicker) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(runSave, 400);
+  }
+  async function runSave() {
+    if (saving) { saveAgain = true; return; }
+    saving = true;
+    try { await saveState(true); } catch (e) {}
+    saving = false;
+    if (saveAgain) { saveAgain = false; runSave(); }
+  }
+  const saveBtn = document.getElementById('btn-save');
+  if (saveBtn) saveBtn.addEventListener('click', () => saveState(false));
+
+  renderExpr();
+  syncTab();
+  recFilter();
+</script>
 </body>
 </html>

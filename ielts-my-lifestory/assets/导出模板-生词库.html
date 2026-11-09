@@ -10,22 +10,22 @@
   .brand { position: relative; background: #fff; border-radius: 12px; padding: 20px 22px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 12px; border-bottom: 4px solid #2F4B7C; overflow: hidden; }
   .brand .logo { position: absolute; top: 14px; right: 16px; height: 30px; }
   .brand h1 { font-size: 22px; color: #2F4B7C; margin: 0 0 4px; }
-  .brand .sub { font-size: 13px; color: #999; margin: 0; }
+  .brand .sub { font-size: 13px; color: #6f6f6f; margin: 0; }
   .brand .dot { position: absolute; bottom: 13px; right: 46px; width: 12px; height: 12px; border-radius: 50%; background: #D84830; }
   .brand .sq { position: absolute; bottom: 13px; right: 22px; width: 14px; height: 14px; background: #2F4B7C; transform: rotate(45deg); }
   .viewswitch, .stateswitch { background: #fff; border-radius: 12px; padding: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 10px; display: flex; gap: 6px; }
   .viewswitch button, .stateswitch button { flex: 1; border: none; padding: 10px 0; border-radius: 8px; font-size: 14.5px; font-weight: 600; cursor: pointer; background: #EDF1F8; color: #2F4B7C; transition: background .15s; }
   .viewswitch button.active { background: #2F4B7C; color: #fff; }
-  .viewswitch button.active.en { background: #D84830; }
+  .viewswitch button.active.en { background: #C0392B; }
   .guide { background: #EDF1F8; border-left: 4px solid #2F4B7C; color: #2F4B7C; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; margin-bottom: 10px; line-height: 1.6; }
-  .guide.en { background: #fdefe8; border-left-color: #D84830; color: #D84830; }
-  .stateswitch button.active.todo { background: #D84830; color: #fff; }
-  .stateswitch button.active.done { background: #3a9d6e; color: #fff; }
-  .stateswitch button.active.all { background: #2F4B7C; color: #fff; }
+  .guide.en { background: #fdefe8; border-left-color: #D84830; color: #C0392B; }
+  .stateswitch button.active.todo { background: #C0392B; color: #fff; }
+  .stateswitch button.active.done { background: #2F4B7C; color: #fff; }
+  .stateswitch button.active.all { background: #444; color: #fff; }
   .toolbar { background: #fff; border-radius: 12px; padding: 10px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-  .toolbar label { font-size: 12px; color: #999; }
+  .toolbar label { font-size: 12px; color: #6f6f6f; }
   .toolbar select { border: 1px solid #ddd; border-radius: 8px; padding: 6px 8px; font-size: 13px; color: #2F4B7C; background: #fff; outline: none; }
-  .toolbar .count { margin-left: auto; font-size: 12px; color: #999; }
+  .toolbar .count { margin-left: auto; font-size: 12px; color: #6f6f6f; }
   .sec { background: #2F4B7C; color: #fff; border-radius: 10px; padding: 8px 14px; margin: 20px 0 10px; font-size: 14px; font-weight: 600; }
   .card { background: #fff; border-radius: 12px; padding: 8px 18px; box-shadow: 0 1px 4px rgba(0,0,0,.05); margin-bottom: 16px; }
   .word { padding: 11px 0; border-bottom: 1px dashed #eee; }
@@ -34,18 +34,18 @@
   .word input[type=checkbox] { width: 17px; height: 17px; accent-color: #3a9d6e; flex: none; cursor: pointer; }
   .word .w { font-size: 15px; font-weight: 700; color: #222; }
   .word .zh { font-size: 13px; color: #666; margin: 3px 0 3px 25px; }
-  .word .en { font-size: 12.5px; color: #999; line-height: 1.6; margin-left: 25px; }
-  .word .meta { font-size: 11px; color: #bbb; margin: 4px 0 0 25px; }
+  .word .en { font-size: 12.5px; color: #555; line-height: 1.6; margin-left: 25px; }
+  .word .meta { font-size: 11px; color: #6f6f6f; margin: 4px 0 0 25px; }
   .word .meta .cat { color: #2F4B7C; }
   .word.done .w, .word.done .en { color: #3d66b8; }
-  .word.done .zh { color: #6a8fd0; }
-  .empty { text-align: center; color: #bbb; font-size: 13px; padding: 40px 0; background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
-  .pool { font-size: 12px; color: #999; margin: 4px 0 0; }
-  .footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 30px; }
+  .word.done .zh { color: #4A6DB3; }
+  .empty { text-align: center; color: #6f6f6f; font-size: 13px; padding: 40px 0; background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .pool { font-size: 12px; color: #6f6f6f; margin: 4px 0 0; }
+  .footer { text-align: center; font-size: 12px; color: #6f6f6f; margin-top: 30px; }
   .savebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
   .savebar button { font-size: 14px; padding: 6px 14px; border: 1px solid #2F4B7C; color: #2F4B7C; background: #fff; border-radius: 6px; cursor: pointer; }
   .savebar button:hover { background: #eef3fb; }
-  .savetip { font-size: 13px; color: #888; }
+  .savetip { font-size: 13px; color: #6f6f6f; }
   .savehint { font-size: 13px; }
 </style>
 </head>
@@ -88,11 +88,11 @@
     <span class="count" id="count"></span>
   </div>
 
-  <div class="savebar"><button id="btn-save">💾 保存状态进文件</button><span class="savetip">勾选默认只记在这台电脑的浏览器里——点保存写进文件本身，清记录、换电脑都不丢</span><span class="savehint" id="savehint"></span></div>
+  <div class="savebar"><button id="btn-save">💾 保存状态进文件</button><span class="savetip">勾选会自动写进这个文件本身（清记录、换电脑都不丢）——第一次点一下「保存」，弹框里点一下「雅思教练」文件夹，再点「选择」，之后不用再点</span><span class="savehint" id="savehint"></span></div>
 
   <div id="list"></div>
 
-  <p class="pool">挑勾只在「🔤 只看英文」里开放——单词孤零零摆着，认得出才算掌握。勾上 = 进「我已掌握」；去掉勾 = 回「还不熟」。刚整理进来的词默认都在「还不熟」里。<br>勾默认记在这台电脑的这个浏览器里（关掉再打开还在）；想连清浏览器记录、换电脑都不丢，勾完点上面的「💾 保存状态进文件」把状态写进这个文件本身（Safari 等浏览器会下载新文件，用新文件替换原来的就行）。想让教练那边的生词库也同步更新，说一声。</p>
+  <p class="pool">挑勾只在「🔤 只看英文」里开放——单词孤零零摆着，认得出才算掌握。勾上 = 进「我已掌握」；去掉勾 = 回「还不熟」。刚整理进来的词默认都在「还不熟」里。<br>勾默认记在这台电脑的这个浏览器里（关掉再打开还在）；想连清浏览器记录、换电脑都不丢，第一次点一下上面的「💾 保存状态进文件」、弹框选一次这个文件在的文件夹（雅思教练/精读，指认一次），之后勾了会自动写进这个文件、不用再点（Safari 等浏览器不支持，会下载新文件，用新文件替换原来的就行）。想让教练那边的生词库也同步更新，说一声。</p>
 
   <div class="footer"><a href="我的阅读库.html">← 我的阅读库</a><br>由雅思精读教练生成 ｜ 双击本文件即可离线查看</div>
 </div>
@@ -103,13 +103,21 @@
   // DATA：生词库.md 每条一行填一个对象：
   //   w = 生词文本（不加粗符号）；zh = 意思提醒；en = 原句（生词处用 <b></b> 标出）；
   //   cat = 该节类别；date = 该节日期（YYYY-MM-DD）；done = ☐ → false，✅ → true。
+  // 每次收生词存档案后：顺带按本骨架覆盖重生成本页（先走下面【生成规则·勾选回流】）。
+  // 【生成规则·勾选回流（每次重生成本页前必做，这是「MD 只读」唯一例外）】
+  // 先读旧「生词库.html」文件里的 STATE 行（文件里 /*STAT' + 'E*/window.__SAVED__ = {…}; 那一行；旧文件不存在或没有这行 → 跳过回流）：
+  // ① checks 里为 true 的词 → 生词库.md 对应条目 ☐ 改 ✅（只加不减：false 不动 MD；找不到对应条目就跳过）
+  // ② 新文件把 MD 里 ✅ 的词写进 baked STATE 行，插在 const NOW = new Date(); 之后：
+  //    /*STAT' + 'E*/window.__SAVED__ = {"checks":{"词":true,…},"folds":{}};
+  //    checks 空 → 不写 STATE 行（首次点保存时自动生成）。JSON 里 </ 写成 <\/。
   const NOW = new Date();
   const DATA = [
     // { w: 'play no part in', zh: '不参与、不起作用', en: 'The schools <b>play no part in</b> the decision.', cat: '环境', date: '2026-11-05', done: false },
   ];
   // 本地记忆：勾选状态存浏览器 localStorage（key 带前缀，避免跟其他本地文件串）。
   // 页面上的勾先读这里（覆盖 DATA 里的 done），勾了就写这里；教练重新导出覆盖本文件时
-  // localStorage 还在（按 file:// origin 记），所以 MD 的 ☐/✅ 是正主、页面勾选是自测暂存。
+  // localStorage 还在（按 file:// origin 记），所以 MD 的 ☐/✅ 是正主、页面勾选是自测暂存；
+  // 按上面【生成规则·勾选回流】回流后，勾选跟着 MD 和新文件走（换浏览器、换电脑都不丢）。
   let localCheck = {};
   try { localCheck = JSON.parse(localStorage.getItem('ysyk-check') || '{}'); } catch (e) { localCheck = {}; }
   if (typeof window !== 'undefined' && window.__SAVED__ && window.__SAVED__.checks) localCheck = Object.assign(window.__SAVED__.checks, localCheck);
@@ -146,6 +154,7 @@
       localCheck[item.w] = e.target.checked;
       try { localStorage.setItem('ysyk-check', JSON.stringify(localCheck)); } catch (err) {}
       render();
+      if (typeof autoSave === 'function') autoSave();
     });
     return el;
   }
@@ -205,38 +214,134 @@
   function collectState() {
     return { checks: Object.assign({}, localCheck), folds: {} };
   }
-  async function saveState() {
+  // —— 自动保存：第一次点「保存」弹一次框（直接开在桌面，点「选择」就行，不用进文件夹，
+  //    代码沿规定好的路径自己找文件），之后勾选变化自动静默写进那个文件，不用再点 ——
+  function idbOpen() { return new Promise((res, rej) => { const r = indexedDB.open('ysyk-t', 1); r.onupgradeneeded = () => { try { r.result.createObjectStore('h'); } catch (e) {} }; r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); }); }
+  // IDB 坏了/卡死时绝不拖垮保存：全部 1.5s 超时兜底（超时=当没记忆，走弹框；picker id 记忆是第二通道）
+  const idbT = (p, ms) => new Promise((res) => { const t = setTimeout(() => res(null), ms); p.then(v => { clearTimeout(t); res(v); }, () => { clearTimeout(t); res(null); }); });
+  async function getSavedDir() { try { const db = await idbT(idbOpen(), 1500); if (!db) return null; return await idbT(new Promise((res, rej) => { const g = db.transaction('h', 'readonly').objectStore('h').get('d'); g.onsuccess = () => res(g.result || null); g.onerror = () => rej(g.error); }), 1500); } catch (e) { return null; } }
+  async function putSavedDir(d) { try { const db = await idbT(idbOpen(), 1500); if (!db) return; await idbT(new Promise((res, rej) => { const tx = db.transaction('h', 'readwrite'); tx.objectStore('h').put(d, 'd'); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }), 1500); } catch (e) {} }
+  async function delSavedDir() { try { const db = await idbT(idbOpen(), 1000); if (!db) return; await idbT(new Promise((res, rej) => { const tx = db.transaction('h', 'readwrite'); tx.objectStore('h').delete('d'); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }), 1000); } catch (e) {} }
+  function pickFailN() { try { return parseInt(localStorage.getItem('ysyk-pickfail') || '0', 10) || 0; } catch (e) { return 0; } }
+  function bumpPickFail() { try { localStorage.setItem('ysyk-pickfail', String(pickFailN() + 1)); } catch (e) {} }
+  function clearPickFail() { try { localStorage.removeItem('ysyk-pickfail'); } catch (e) {} }
+  function pickerId() { const n = pickFailN(); return 'ysyk-dir' + (n ? '-' + (n % 5) : ''); }
+  async function writeHandle(h, html, name) { const w = await h.createWritable(); await w.write(new File([html], name, { type: 'text/html' })); await w.close(); }
+  const SUB = '精读'; // 档案规定放在「雅思教练」文件夹的这个子文件夹里
+  async function resolveFileHandle(dir, sub, name) {
+    // 从指认的文件夹出发，沿规定好的路径找同名文件：直接同名 → 子文件夹/同名 → 雅思教练/子文件夹/同名 → 页面自己所在路径往上几层
+    const cands = [name, sub + '/' + name, '雅思教练/' + sub + '/' + name];
+    try {
+      const segs = decodeURIComponent(location.pathname).split('/').filter(Boolean);
+      const i = segs.indexOf(name);
+      for (let k = 1; k <= 4; k++) { if (i - k >= 0) cands.push(segs.slice(i - k, i + 1).join('/')); }
+    } catch (e) {}
+    const seen = new Set();
+    for (const rel of cands) {
+      if (seen.has(rel)) continue; seen.add(rel);
+      try {
+        const parts = rel.split('/').filter(Boolean);
+        let h = dir;
+        for (let p = 0; p < parts.length - 1; p++) h = await h.getDirectoryHandle(parts[p], { create: false });
+        return await h.getFileHandle(parts[parts.length - 1], { create: false });
+      } catch (e) {
+        if (e && e.name !== 'NotFoundError' && e.name !== 'TypeMismatchError') throw e;
+      }
+    }
+    return null;
+  }
+  const pageLoadedAt = Date.now();
+  let lastWriteAt = 0;
+  async function saveState(auto) {
     const hint = document.getElementById('savehint');
-    const set = (t, ok) => { hint.textContent = t; hint.style.color = ok ? '#3a9d6e' : '#c0392b'; };
+    const set = (t, ok) => { hint.textContent = t; hint.style.color = ok ? '#2E7D54' : '#c0392b'; };
+    const canFs = typeof indexedDB !== 'undefined' && !!window.showDirectoryPicker;
+    let dir = null;
+    if (canFs) {
+      // 快速通道：IDB 记忆 350ms 内答不上来就放弃（卡死的 IDB 不拖慢保存）；
+      // 弹框的 picker id 记忆本身就能免弹，IDB 只是第二保险
+      const dirP = getSavedDir();
+      dir = await idbT(dirP, auto ? 1500 : 350);
+      if (dir) {
+        try { if (await dir.queryPermission({ mode: 'readwrite' }) !== 'granted') dir = null; } catch (e) { dir = null; }
+      }
+    }
+    if (auto && !dir) {
+      set('勾选已记在浏览器里——点一下「💾 保存状态进文件」、弹框直接点「选择」，以后勾了就自动写进文件', false);
+      return;
+    }
+    let first = false;
+    if (canFs && !dir) {
+      first = true;
+      try {
+        dir = await window.showDirectoryPicker({ id: pickerId(), mode: 'readwrite', startIn: 'desktop' });
+      } catch (e) {
+        if (e && e.name === 'AbortError') { set('', true); return; }
+        throw e;
+      }
+    }
     try {
       const state = collectState();
       const M = '/*STAT' + 'E*/window.__SAVED__';
       let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
       const line = M + ' = ' + JSON.stringify(state).replace(/<\//g, '<\\/') + ';\n';
       if (html.indexOf(M) >= 0) html = html.replace(/\/\*STATE\*\/window\.__SAVED__ = [^\n]*\n/, () => line);
-      else html = html.replace(/const NOW = new Date\(\);\n/, 'const NOW = new Date();\n' + line);
+      else html = html.replace(/const NOW = new Date\(\);(\r?\n)/, 'const NOW = new Date();$1' + line);
       const name = decodeURIComponent((location.pathname.split('/').pop()) || '生词库.html');
-      if (window.showSaveFilePicker) {
-        const h = await window.showSaveFilePicker({ suggestedName: name, types: [{ description: 'HTML 文件', accept: { 'text/html': ['.html'] } }] });
-        const w = await h.createWritable();
-        await w.write(new File([html], name, { type: 'text/html' }));
-        await w.close();
-        set('✅ 已保存——状态写进文件本身了，清浏览器记录也不丢', true);
-      } else {
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
-        a.download = name;
-        a.click();
-        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-        set('✅ 已生成新文件——用它替换原来的文件就行', true);
+      if (canFs) {
+        try {
+          let h = await resolveFileHandle(dir, SUB, name);
+          if (!h) {
+            // 文件夹里没找到这个文件：清掉记忆、换新 id 立刻重弹一次框（id 记忆静默返回错文件夹时保证弹框一定出现）
+            delSavedDir(); bumpPickFail();
+            try { dir = await window.showDirectoryPicker({ id: pickerId(), mode: 'readwrite', startIn: 'desktop' }); }
+            catch (e) { if (e && e.name === 'AbortError') { set('', true); return; } throw e; }
+            first = true;
+            h = await resolveFileHandle(dir, SUB, name);
+          }
+          if (!h) { bumpPickFail(); set('⚠️ 没找到「' + name + '」——再点一次保存，弹框会再出现：点一下「雅思教练」文件夹（文件就在它里面的子文件夹里），再点「选择」', false); return; }
+          const f = await h.getFile();
+          if (f.lastModified > (lastWriteAt || pageLoadedAt) + 500) {
+            set('⚠️ 这个文件刚才在别处更新过（比如教练重新生成）——重新打开文件再继续，别盖掉新内容', false);
+            return;
+          }
+          await writeHandle(h, html, name);
+          await putSavedDir(dir); clearPickFail();
+          lastWriteAt = Date.now();
+          set(first ? '✅ 已保存——记住这个文件夹了，以后勾选自动写进这个文件，不用再点' : (auto ? '✅ 已自动写进文件' : '✅ 已保存——写进这个文件夹里的文件了'), true);
+          return;
+        } catch (e) {
+          if (e && e.name === 'NotFoundError') { set('⚠️ 没找到「' + name + '」——再点一次保存，在弹框里进到档案在的那个文件夹再点「选择」', false); return; }
+          throw e;
+        }
       }
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+      a.download = name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      set('✅ 已生成新文件——用它替换原来的文件就行', true);
     } catch (e) {
       if (e && e.name === 'AbortError') { set('', true); return; }
       set('⚠️ 没存上：' + (e && e.message ? e.message : e), false);
     }
   }
+  // 勾选变化 → 防抖后自动写（正在写时排队，避免并发）
+  let saveTimer = null, saving = false, saveAgain = false;
+  function autoSave() {
+    if (typeof indexedDB === 'undefined' || !window.showDirectoryPicker) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(runSave, 400);
+  }
+  async function runSave() {
+    if (saving) { saveAgain = true; return; }
+    saving = true;
+    try { await saveState(true); } catch (e) {}
+    saving = false;
+    if (saveAgain) { saveAgain = false; runSave(); }
+  }
   const saveBtn = document.getElementById('btn-save');
-  if (saveBtn) saveBtn.addEventListener('click', saveState);
+  if (saveBtn) saveBtn.addEventListener('click', () => saveState(false));
 </script>
 </body>
 </html>
